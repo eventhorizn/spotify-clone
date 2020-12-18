@@ -47,7 +47,12 @@
                 return;
             }
 
-            //TODO: check if username exists
+            $checkUsernameQuery = mysqli_query($this->con, "SELECT username FROM users WHERE username = '$un'");
+
+            if (mysqli_num_rows($checkUsernameQuery) != 0) {
+                array_push($this->errorArray, Constants::$usernameTaken);
+                return;
+            }
         }
 
         private function validateFirstName($fn) {
@@ -76,7 +81,12 @@
                 return;
             }
 
-            // TODO: check that email hasn't already been used
+            $checkEmailQuery = mysqli_query($this->con, "SELECT email FROM users WHERE email = '$em'");
+
+            if (mysqli_num_rows($checkEmailQuery) != 0) {
+                array_push($this->errorArray, Constants::$emailTaken);
+                return;
+            }
         }
 
         private function validatePasswords($pw, $pw2) {
