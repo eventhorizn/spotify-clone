@@ -10,6 +10,8 @@ Course for making Spotify clone in: php, js, css, html
 
 ## Another Approach Local Server
 
+Eh, on second thought, not great if you are using MySQL through XAMPP
+
 **VS Code Add-ins**
 
 1. PHP Extension Pack
