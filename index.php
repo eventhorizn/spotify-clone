@@ -55,7 +55,7 @@ if (isset($_SESSION['userLoggedIn'])) {
                 <div id="nowPlayingLeft">
                     <div class="content">
                         <span class="albumLink">
-                            <img class="albumArtwork" src="assets/images/okc.jpg" alt="">
+                            <img class="albumArtwork" src="assets/images/album-artwork/okc.jpg" alt="">
                         </span>
 
                         <div class="trackInfo">
