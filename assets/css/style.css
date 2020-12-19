@@ -31,6 +31,11 @@ body {
 	min-width: 180px;
 }
 
+#nowPlayingRight {
+	position: relative;
+	margin-top: 16px;
+}
+
 #nowPlayingCenter {
 	width: 40%;
 	max-width: 700px;
@@ -127,4 +132,14 @@ body {
 #nowPlayingLeft .trackInfo .artistName span {
 	font-size: 12px;
 	color: #a0a0a0;
+}
+
+.volumeBar {
+	width: 180px;
+	position: absolute;
+	right: 0;
+}
+
+.volumeBar .progressBar {
+	width: 125px;
 }
