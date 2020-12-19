@@ -23,7 +23,21 @@ if (isset($_SESSION['userLoggedIn'])) {
     <div id="nowPlayingBarContainer">
         <div id="nowPlayingBar">
             <div id="nowPlayingLeft">
+                <div class="content">
+                    <span class="albumLink">
+                        <img class="albumArtwork" src="assets/images/okc.jpg" alt="">
+                    </span>
 
+                    <div class="trackInfo">
+                        <span class="trackName">
+                            <span>Airbag</span>
+                        </span>
+
+                        <span class="artistName">
+                            <span>Radiohead</span>
+                        </span>
+                    </div>
+                </div>
             </div>
 
             <div id="nowPlayingCenter">
