@@ -53,3 +53,31 @@ body {
 	width: 20px;
 	height: 20px;
 }
+
+.controlButton.play img,
+.controlButton.pause img {
+	width: 32px;
+	height: 32px;
+}
+
+.controlButton:hover {
+	cursor: pointer;
+}
+
+.progressTime {
+	color: #a0a0a0;
+	font-size: 11px;
+	min-width: 40px;
+	text-align: center;
+}
+
+.playbackBar {
+	display: flex;
+}
+
+.progressBar {
+	width: 100%;
+	height: 12px;
+	display: inline-flex;
+	cursor: pointer;
+}
