@@ -18,15 +18,15 @@ INSERT INTO 'songs' VALUES
 ('Airbag', 1, 1, 1, '4:44', 'assets/music/radiohead/ok-computer/01 Airbag.mp3', 1, 0),
 ('Paranoid Android', 1, 1, 1, '4:44', 'assets/music/radiohead/ok-computer/02 Paranoid Android.mp3', 2, 0),
 ('Subterranean Homesick Alien', 1, 1, 1, '4:44', 'assets/music/radiohead/ok-computer/03 Subterranean Homesick Alien.mp3', 3, 0),
-('Exit Music', 1, 1, 1, '4:44', 'assets/music/radiohead/ok-computer/04 Exit Music (For A Film)', 4, 0),
-('Let Down', 1, 1, 1, '4:44', 'assets/music/radiohead/ok-computer/05 Let Down', 5, 0),
-('Karma Police', 1, 1, 1, '4:44', 'assets/music/radiohead/ok-computer/06 Karma Police', 6, 0),
-('Fitter Happier', 1, 1, 1, '4:44', 'assets/music/radiohead/ok-computer/07 Fitter Happier', 7, 0),
-('Electioneering', 1, 1, 1, '4:44', 'assets/music/radiohead/ok-computer/08 Electioneering', 8, 0),
-('Climbing Up The Walls', 1, 1, 1, '4:44', 'assets/music/radiohead/ok-computer/09 Climbing Up The Walls', 9, 0),
-('No Surprises', 1, 1, 1, '4:44', 'assets/music/radiohead/ok-computer/10 No Surprises', 10, 0),
-('Lucky', 1, 1, 1, '4:44', 'assets/music/radiohead/ok-computer/11 Lucky', 11, 0),
-('The Tourist', 1, 1, 1, '4:44', 'assets/music/radiohead/ok-computer/12 The Tourist', 12, 0);
+('Exit Music', 1, 1, 1, '4:44', 'assets/music/radiohead/ok-computer/04 Exit Music (For A Film).mp3', 4, 0),
+('Let Down', 1, 1, 1, '4:44', 'assets/music/radiohead/ok-computer/05 Let Down.mp3', 5, 0),
+('Karma Police', 1, 1, 1, '4:44', 'assets/music/radiohead/ok-computer/06 Karma Police.mp3', 6, 0),
+('Fitter Happier', 1, 1, 1, '4:44', 'assets/music/radiohead/ok-computer/07 Fitter Happier.mp3', 7, 0),
+('Electioneering', 1, 1, 1, '4:44', 'assets/music/radiohead/ok-computer/08 Electioneering.mp3', 8, 0),
+('Climbing Up The Walls', 1, 1, 1, '4:44', 'assets/music/radiohead/ok-computer/09 Climbing Up The Walls.mp3', 9, 0),
+('No Surprises', 1, 1, 1, '4:44', 'assets/music/radiohead/ok-computer/10 No Surprises.mp3', 10, 0),
+('Lucky', 1, 1, 1, '4:44', 'assets/music/radiohead/ok-computer/11 Lucky.mp3', 11, 0),
+('The Tourist', 1, 1, 1, '4:44', 'assets/music/radiohead/ok-computer/12 The Tourist.mp3', 12, 0);
 
 
 -- CBL/World Of Sleepers
