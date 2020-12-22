@@ -23,13 +23,7 @@ $(document).ready(function() {
 
     $('.playbackBar .progressBar').mousemove(function(e) {
         if (mouseDown) {
-            // Set time of song, depending on position of mouse
-            timeFromOffset(e, this);
-            // So right now, it skips the music around and it sounds terrible
-            // What we want to do, is on mouse down, calc the current time from
-            // the percentage, set the current and remaining time
-            // $('.progressTime.current').text(formatTime(audio.currentTime));
-            // $('.progressTime.remaining').text(formatTime(audio.duration - audio.currentTime));
+            dragProgress(e, this);
         }
     });
 
@@ -62,6 +56,11 @@ $(document).ready(function() {
         mouseDown = false;
     });
 });
+
+function dragProgress(mouse, progessBar) {
+    const percentage = mouse.offsetX / $(progessBar).width() * 100;
+    $('.playbackBar .progress').css('width', `${percentage}%`);
+}
 
 function timeFromOffset(mouse, progressBar) {
     const percentage = mouse.offsetX / $(progressBar).width() * 100;
