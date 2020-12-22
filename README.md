@@ -23,6 +23,10 @@ Eh, on second thought, not great if you are using MySQL through XAMPP
    - There's a separation b/t the Search text and the icon
    - I want the whole thing to click
    - Also want the icon to turn white on highlight as well
-1. Progress bar drag
-   - You can hear it moving the song
-   - It should be quiet until you let the mouse go
+1. Big refactoring
+   - Javascript is spread out b/t php pages and script files
+     - Should just be in a script file
+   - CSS is...weird. We have a register.css and everything else
+   - Separate css and js files for each page
+   - I can do actual classes to represent front end stuff
+     - js class for now playing bar
