@@ -25,11 +25,37 @@ $(document).ready(function() {
         if (mouseDown) {
             // Set time of song, depending on position of mouse
             timeFromOffset(e, this);
+            // So right now, it skips the music around and it sounds terrible
+            // What we want to do, is on mouse down, calc the current time from
+            // the percentage, set the current and remaining time
+            // $('.progressTime.current').text(formatTime(audio.currentTime));
+            // $('.progressTime.remaining').text(formatTime(audio.duration - audio.currentTime));
         }
     });
 
     $('.playbackBar .progressBar').mouseup(function(e) {
         timeFromOffset(e, this);
+    });
+
+
+    $('.volumeBar .progressBar').mousedown(function() {
+        mouseDown = true;
+    });
+
+    $('.volumeBar .progressBar').mousemove(function(e) {
+        if (mouseDown) {
+            const percentage = e.offsetX / $(this).width;
+            if (percentage >= 0 && percentage <= 1) {
+                audioElement.audio.volume = percentage;
+            }
+        }
+    });
+
+    $('.volumeBar .progressBar').mouseup(function(e) {
+        const percentage = e.offsetX / $(this).width;
+        if (percentage >= 0 && percentage <= 1) {
+            audioElement.audio.volume = percentage;
+        }
     });
 
     $(document).mouseup(function() {
