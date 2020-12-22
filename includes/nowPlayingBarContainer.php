@@ -75,18 +75,44 @@ function timeFromOffset(mouse, progressBar) {
     audioElement.setTime(seconds);
 }
 
+function nextSong() {
+    if (repeat) {
+        audioElement.setTime(0);
+        playSong();
+        return;
+    }
+
+    if (currentIndex === currentPlaylist.length - 1) {
+        currentIndex = 0;
+    } else {
+        currentIndex++;
+    }
+
+    const trackToPlay = currentPlaylist[currentIndex];
+    setTrack(trackToPlay, currentPlaylist, true);
+}
+
+function setRepeat() {
+    repeat = !repeat;
+    const imageName = repeat ? "repeat-active.png" : "repeat.png";
+    $('.controlButton.repeat img').attr('src', `assets/images/icons/${imageName}`);
+}
+
 function setTrack(trackId, newPlaylist, play) {
+    currentIndex = currentPlaylist.indexOf(trackId);
+    pauseSong();
+
     $.post("includes/handlers/ajax/getSongJson.php", {
         songId: trackId
     }, function(data) {
-        var track = JSON.parse(data);
+        const track = JSON.parse(data);
 
         $(".trackName span").text(track.title);
 
         $.post("includes/handlers/ajax/getArtistJson.php", {
             artistId: track.artist
         }, function(data) {
-            var artist = JSON.parse(data);
+            const artist = JSON.parse(data);
 
             $(".artistName span").text(artist.name);
         });
@@ -94,7 +120,7 @@ function setTrack(trackId, newPlaylist, play) {
         $.post("includes/handlers/ajax/getAlbumJson.php", {
             albumId: track.album
         }, function(data) {
-            var album = JSON.parse(data);
+            const album = JSON.parse(data);
 
             $(".albumLink img").attr("src", album.artworkPath);
         });
@@ -167,11 +193,11 @@ function pauseSong() {
                         <img src="assets/images/icons/pause.png" alt="Pause">
                     </button>
 
-                    <button class="controlButton next" title="Next Button">
+                    <button class="controlButton next" title="Next Button" onClick="nextSong()">
                         <img src="assets/images/icons/next.png" alt="Next">
                     </button>
 
-                    <button class="controlButton repeat" title="Repeat Button">
+                    <button class="controlButton repeat" title="Repeat Button" onclick="setRepeat()">
                         <img src="assets/images/icons/repeat.png" alt="Repeat">
                     </button>
                 </div>
