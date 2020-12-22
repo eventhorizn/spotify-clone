@@ -1,8 +1,10 @@
 let currentPlaylist = [];
+let shufflePlaylist = [];
 let audioElement;
 let mouseDown = false;
 let currentIndex = 0;
 let repeat = false;
+let shuffle = false;
 
 function formatTime(secondsIn) {
     const time = Math.round(secondsIn);
@@ -24,7 +26,6 @@ function updateTimeProgressBar(audio) {
 function updateVolumeProgressBar(audio) {
     const volume = audio.volume * 100;
     $('.volumeBar .progress').css('width', `${volume}%`);
-
 }
 
 function Audio() {
