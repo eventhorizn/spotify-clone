@@ -82,11 +82,16 @@ body {
 	cursor: pointer;
 }
 
+.controlButton img:hover {
+	color: #fff;
+}
+
 .progressTime {
 	color: #a0a0a0;
 	font-size: 11px;
 	min-width: 40px;
 	text-align: center;
+	margin-top: 2px;
 }
 
 .playbackBar {
@@ -107,6 +112,10 @@ body {
 	border-radius: 2px;
 }
 
+.progressBarBg:hover > .progress {
+	background-color: #07d159;
+}
+
 .progress {
 	background-color: #a0a0a0;
 	height: 4px;
@@ -115,7 +124,7 @@ body {
 }
 
 .playbackBar .progressBar {
-	margin-top: 3px;
+	margin-top: 7px;
 }
 
 #nowPlayingLeft .albumArtwork {
