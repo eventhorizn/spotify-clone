@@ -1,8 +1,9 @@
 <?php?>
 <div id="navBarContainer">
     <nav class="navBar">
-        <a href="index.php" class="logo">
-            <img src="assets/images/icons/logo.png" alt="">
+        <a href="index.php" class="logo navItemLink">
+            <img src="assets/images/icons/home.png" alt="">
+            Home
         </a>
 
         <div class="group">

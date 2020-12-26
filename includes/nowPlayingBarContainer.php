@@ -103,14 +103,14 @@ function nextSong() {
 
 function setRepeat() {
     repeat = !repeat;
-    const imageName = repeat ? "repeat-active.png" : "repeat.png";
-    $('.controlButton.repeat img').attr('src', `assets/images/icons/${imageName}`);
+    const className = repeat ? "icofont-retweet icon active" : "icofont-retweet icon";
+    $('.controlButton.repeat i').attr('class', `${className}`);
 }
 
 function setMute() {
     audioElement.audio.muted = !audioElement.audio.muted;
-    const imageName = audioElement.audio.muted ? "volume-mute.png" : "volume.png";
-    $('.controlButton.volume img').attr('src', `assets/images/icons/${imageName}`);
+    const className = audioElement.audio.muted ? "icofont-volume-mute icon" : "icofont-volume-up icon";
+    $('.controlButton.volume i').attr('class', `${className}`);
 }
 
 function setShuffle() {
@@ -229,28 +229,28 @@ function pauseSong() {
             <div class="content playerControls">
                 <div class="buttons">
                     <button class="controlButton shuffle" title="Shuffle Button" onclick="setShuffle()">
-                        <img src="assets/images/icons/shuffle.png" alt="Shuffle">
+                        <i class="icofont-random icon"></i>
                     </button>
 
                     <button class="controlButton previous" title="Previous Button" onclick="prevSong()">
-                        <img src="assets/images/icons/previous.png" alt="Previous">
+                        <i class="icofont-bubble-left icon-big"></i>
                     </button>
 
                     <button class="controlButton play" title="Play Button" onclick="playSong()">
-                        <img src="assets/images/icons/play.png" alt="Play">
+                        <i class="icofont-play-alt-2 icon-big"></i>
                     </button>
 
                     <button class="controlButton pause" title="Pause Button" style="display: none"
                         onclick="pauseSong()">
-                        <img src="assets/images/icons/pause.png" alt="Pause">
+                        <i class="icofont-pause icon-big"></i>
                     </button>
 
                     <button class="controlButton next" title="Next Button" onClick="nextSong()">
-                        <img src="assets/images/icons/next.png" alt="Next">
+                        <i class="icofont-bubble-right icon-big"></i>
                     </button>
 
                     <button class="controlButton repeat" title="Repeat Button" onclick="setRepeat()">
-                        <img src="assets/images/icons/repeat.png" alt="Repeat">
+                        <i class="icofont-retweet icon"></i>
                     </button>
                 </div>
 
@@ -270,7 +270,7 @@ function pauseSong() {
         <div id="nowPlayingRight">
             <div class="volumeBar">
                 <button class="controlButton volume" title="Volume Button" onclick="setMute()">
-                    <img src="assets/images/icons/volume.png" alt="Volume">
+                    <i class="icofont-volume-up icon"></i>
                 </button>
 
                 <div class="progressBar">

@@ -31,11 +31,13 @@ Eh, on second thought, not great if you are using MySQL through XAMPP
    - Separate css and js files for each page
    - I can do actual classes to represent front end stuff
      - js class for now playing bar
-1. Highlight now playing buttons white on hover
 1. Make play/pause button grow on hover
 1. Fix the left nav to look more like spotify
    - Home, Browse, Radio (probably not radio)
    - Your Library
-1. Replace icons in app w/ font awesome
+1. Replace icons in app w/ icofont
    - Won't have to download and save
    - Can change background color
+1. Remove dead css
+1. Active on click green, lighter green on hover
+   - Need to switch styles when active vs not

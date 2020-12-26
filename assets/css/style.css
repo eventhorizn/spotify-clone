@@ -369,3 +369,23 @@ body {
 	color: #fff;
 	margin-bottom: 7px;
 }
+
+.controlButton i {
+	color: #939393;
+}
+
+.controlButton i:hover {
+	color: #fff;
+}
+
+.controlButton .icon-big {
+	font-size: 2.4em;
+}
+
+.controlButton .icon {
+	font-size: 1.5em;
+}
+
+.active {
+	color: #07d159;
+}
