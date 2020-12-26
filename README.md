@@ -42,3 +42,4 @@ Eh, on second thought, not great if you are using MySQL through XAMPP
 1. album, artist link now playing
 1. now playing song green
 1. Play button on track list grow on hover (like now playing)
+1. Full Screen

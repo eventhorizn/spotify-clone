@@ -156,6 +156,14 @@
 	width: 100%;
 }
 
+#nowPlayingLeft .trackInfo .artistName {
+	text-decoration: none;
+}
+
+#nowPlayingLeft .trackInfo .artistName:hover {
+	text-decoration: underline;
+}
+
 #nowPlayingLeft .trackInfo .artistName span {
 	font-size: 12px;
 	color: #a0a0a0;

@@ -167,6 +167,7 @@ function setTrack(trackId, newPlaylist, play) {
             const artist = JSON.parse(data);
 
             $(".artistName span").text(artist.name);
+            $(".artistName").attr("href", `artist.php?id=${artist.id}`);
         });
 
         $.post("includes/handlers/ajax/getAlbumJson.php", {
@@ -175,6 +176,7 @@ function setTrack(trackId, newPlaylist, play) {
             const album = JSON.parse(data);
 
             $(".albumLink img").attr("src", album.artworkPath);
+            $(".albumLink a").attr("href", `album.php?id=${album.id}`);
         });
 
         audioElement.setTrack(track);
@@ -210,7 +212,9 @@ function pauseSong() {
         <div id="nowPlayingLeft">
             <div class="content">
                 <span class="albumLink">
-                    <img class="albumArtwork" src="" alt="Album Art">
+                    <a href="">
+                        <img class="albumArtwork" src="" alt="Album Art">
+                    </a>
                 </span>
 
                 <div class="trackInfo">
@@ -218,9 +222,9 @@ function pauseSong() {
                         <span></span>
                     </span>
 
-                    <span class="artistName">
+                    <a href="" class="artistName">
                         <span></span>
-                    </span>
+                    </a>
                 </div>
             </div>
         </div>
