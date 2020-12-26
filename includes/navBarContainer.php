@@ -2,7 +2,7 @@
 <div id="navBarContainer">
     <nav class="navBar">
         <a href="index.php" class="logo navItemLink">
-            <img src="assets/images/icons/home.png" alt="">
+            <i class="icofont-home"></i>
             Home
         </a>
 

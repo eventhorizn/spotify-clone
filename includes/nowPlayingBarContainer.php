@@ -101,22 +101,10 @@ function nextSong() {
     setTrack(trackToPlay, currentPlaylist, true);
 }
 
-function setRepeat() {
-    repeat = !repeat;
-    const className = repeat ? "icofont-retweet icon active" : "icofont-retweet icon";
-    $('.controlButton.repeat i').attr('class', `${className}`);
-}
-
-function setMute() {
-    audioElement.audio.muted = !audioElement.audio.muted;
-    const className = audioElement.audio.muted ? "icofont-volume-mute icon" : "icofont-volume-up icon";
-    $('.controlButton.volume i').attr('class', `${className}`);
-}
-
 function setShuffle() {
     shuffle = !shuffle;
-    const imageName = shuffle ? "shuffle-active.png" : "shuffle.png";
-    $('.controlButton.shuffle img').attr('src', `assets/images/icons/${imageName}`);
+    const className = shuffle ? "icofont-random icon-active" : "icofont-random icon";
+    $('.controlButton.shuffle i').attr('class', `${className}`);
 
     if (shuffle) {
         // randomize playlist
@@ -137,6 +125,18 @@ function shuffleArray(a) {
         a[i - 1] = a[j];
         a[j] = x;
     }
+}
+
+function setRepeat() {
+    repeat = !repeat;
+    const className = repeat ? "icofont-retweet icon-active" : "icofont-retweet icon";
+    $('.controlButton.repeat i').attr('class', `${className}`);
+}
+
+function setMute() {
+    audioElement.audio.muted = !audioElement.audio.muted;
+    const className = audioElement.audio.muted ? "icofont-volume-mute icon" : "icofont-volume-up icon";
+    $('.controlButton.volume i').attr('class', `${className}`);
 }
 
 function setTrack(trackId, newPlaylist, play) {
