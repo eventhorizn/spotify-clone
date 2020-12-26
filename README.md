@@ -32,11 +32,13 @@ Eh, on second thought, not great if you are using MySQL through XAMPP
    - I can do actual classes to represent front end stuff
      - js class for now playing bar
    - Remove jquery
-1. Make play/pause button grow on hover
-1. Just show total time, not remaining time
 1. Progress green hover needs work, maybe up an element
    - Also needs to work when mouse down, sliding
 1. Fix the left nav to look more like spotify
    - Home, Browse, Radio (probably not radio)
    - Your Library
 1. Package css
+1. Clean up Song names
+1. album, artist link now playing
+1. now playing song green
+1. Play button on track list grow on hover (like now playing)

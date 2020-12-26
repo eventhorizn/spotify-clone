@@ -236,11 +236,11 @@ function pauseSong() {
                         <i class="icofont-bubble-left icon-big"></i>
                     </button>
 
-                    <button class="controlButton play" title="Play Button" onclick="playSong()">
+                    <button class="controlButton controlButtonGrow play" title="Play Button" onclick="playSong()">
                         <i class="icofont-play-alt-2 icon-big"></i>
                     </button>
 
-                    <button class="controlButton pause" title="Pause Button" style="display: none"
+                    <button class="controlButton controlButtonGrow pause" title="Pause Button" style="display: none"
                         onclick="pauseSong()">
                         <i class="icofont-pause icon-big"></i>
                     </button>
@@ -262,7 +262,7 @@ function pauseSong() {
                         </div>
 
                     </div>
-                    <span class="progressTime remaining">0.00</span>
+                    <span class="progressTime total">0.00</span>
                 </div>
             </div>
         </div>

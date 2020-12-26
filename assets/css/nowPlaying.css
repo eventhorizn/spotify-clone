@@ -55,6 +55,7 @@
 .controlButton .icon-big {
 	font-size: 2.4em;
 	color: #939393;
+	transition: all 0.2s ease-in-out;
 }
 
 .controlButton .icon-big:hover {
@@ -62,9 +63,18 @@
 	color: #fff;
 }
 
+.controlButtonGrow {
+	transition: all 0.2s ease-in-out;
+}
+
+.controlButtonGrow:hover {
+	transform: scale(1.1);
+}
+
 .controlButton .icon {
 	font-size: 1.5em;
 	color: #939393;
+	transition: all 0.2s ease-in-out;
 }
 
 .controlButton .icon:hover {
@@ -99,6 +109,10 @@
 	cursor: pointer;
 }
 
+.progressBar:hover > .progressBarBg > .progress {
+	background-color: #07d159;
+}
+
 .progressBarBg {
 	background-color: #404040;
 	height: 4px;
@@ -106,12 +120,15 @@
 	border-radius: 2px;
 }
 
-.progressBarBg:hover > .progress {
-	background-color: #07d159;
-}
-
 .progress {
 	background-color: #a0a0a0;
+	height: 4px;
+	width: 0;
+	border-radius: 2px;
+}
+
+.progress-active {
+	background-color: #07d159;
 	height: 4px;
 	width: 0;
 	border-radius: 2px;

@@ -18,7 +18,6 @@ function formatTime(secondsIn) {
 
 function updateTimeProgressBar(audio) {
     $('.progressTime.current').text(formatTime(audio.currentTime));
-    $('.progressTime.remaining').text(formatTime(audio.duration - audio.currentTime));
 
     const progress = audio.currentTime / audio.duration * 100;
     $('.playbackBar .progress').css('width', `${progress}%`);
@@ -39,7 +38,7 @@ function Audio() {
 
     this.audio.addEventListener('canplay', function () {
         const dur = formatTime(this.duration);
-        $('.progressTime.remaining').text(dur);
+        $('.progressTime.total').text(dur);
     });
 
     this.audio.addEventListener('timeupdate', function () {
