@@ -140,6 +140,7 @@ function setMute() {
 }
 
 function setTrack(trackId, newPlaylist, play) {
+    //console.log(play);
     if (newPlaylist != currentPlaylist) {
         currentPlaylist = newPlaylist;
         shufflePlaylist = currentPlaylist.slice();
@@ -180,7 +181,10 @@ function setTrack(trackId, newPlaylist, play) {
         });
 
         audioElement.setTrack(track);
-        playSong();
+        if (play) {
+            playSong();
+        }
+
     });
 
     if (play) {

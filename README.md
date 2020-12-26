@@ -27,19 +27,18 @@ Eh, on second thought, not great if you are using MySQL through XAMPP
 1. Big refactoring
    - Javascript is spread out b/t php pages and script files
      - Should just be in a script file
-   - CSS is...weird. We have a register.css and everything else
-   - Separate css and js files for each page
+   - Separate js files for each page
    - I can do actual classes to represent front end stuff
      - js class for now playing bar
    - Remove jquery
 1. Progress green hover needs work, maybe up an element
    - Also needs to work when mouse down, sliding
-1. Fix the left nav to look more like spotify
-   - Home, Browse, Radio (probably not radio)
-   - Your Library
+1. Left Nav
+   - Your music now, eventually albums and artists
 1. Package css
-1. Clean up Song names
-1. album, artist link now playing
-1. now playing song green
+1. Album List Now Playing Song Enhancements
+   - Row text green
+   - Pause button instead of play button
+1. Clean up Listing to match spotify
 1. Play button on track list grow on hover (like now playing)
 1. Full Screen
