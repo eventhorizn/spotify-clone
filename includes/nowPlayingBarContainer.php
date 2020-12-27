@@ -222,7 +222,7 @@ function pauseSong() {
                 </span>
 
                 <div class="trackInfo">
-                    <span class="trackName">
+                    <span class="trackName disable-select">
                         <span></span>
                     </span>
 
@@ -263,14 +263,14 @@ function pauseSong() {
                 </div>
 
                 <div class="playbackBar">
-                    <span class="progressTime current">0.00</span>
+                    <span class="progressTime current disable-select">0.00</span>
                     <div class="progressBar">
                         <div class="progressBarBg">
                             <div class="progress"></div>
                         </div>
 
                     </div>
-                    <span class="progressTime total">0.00</span>
+                    <span class="progressTime total disable-select">0.00</span>
                 </div>
             </div>
         </div>

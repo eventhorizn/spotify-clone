@@ -39,3 +39,4 @@ Eh, on second thought, not great if you are using MySQL through XAMPP
    - Pause button instead of play button
 1. Clean up Listing to match spotify
 1. Full Screen
+1. Remove text highlighting on album texts

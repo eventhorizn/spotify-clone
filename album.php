@@ -13,26 +13,26 @@ $artist = $album->getArtist();
 ?>
 
 <div class="entityInfo">
-    <div class="leftSection">
+    <div class="leftSection disable-select">
         <img src="<?php echo $album->getArtworkPath(); ?>">
     </div>
 
     <div class="rightSection">
-        <p class="white-lbl">ALBUM</p>
-        <h2><?php echo $album->getTitle(); ?></h2>
-        <p class="white-lbl">
+        <p class="white-lbl disable-select">ALBUM</p>
+        <h2 class="disable-select"><?php echo $album->getTitle(); ?></h2>
+        <p class="white-lbl disable-select">
             <span>By</span>
             <a href="artist.php?id=<?php echo $artist->getId();?>" class="artist-link"><?php echo $artist->getName(); ?>
             </a>
         </p>
-        <p><?php echo $album->getNumberOfSongs(); ?> Songs</p>
+        <p class="disable-select"><?php echo $album->getNumberOfSongs(); ?> Songs</p>
     </div>
 </div>
 
 <table>
     <tr>
-        <th class="trackCount">#</th>
-        <th class="trackInfo">TITLE</th>
+        <th class="trackCount disable-select">#</th>
+        <th class="trackInfo disable-select">TITLE</th>
         <th class="trackOptions"></th>
         <th class="trackDuration"><i class="icofont-clock-time"></i></th>
     </tr>
@@ -47,13 +47,13 @@ $artist = $album->getArtist();
 
             echo "
             <tr class='hoverRow'>
-                <td>
+                <td class='disable-select'>
                     <i class='icofont-play-alt-2 play' onclick='setTrack(\"" . $albumSong->getId() . "\", tempPlaylist, true)'></i>
                     <span>$i</span>
                 </td>
-                <td>" . $albumSong->getTitle() . "</td>
-                <td><img src='assets/images/icons/more.png'></td>
-                <td>" . $albumSong->getDuration() . "</td>
+                <td class='disable-select'>" . $albumSong->getTitle() . "</td>
+                <td class='disable-select'><img src='assets/images/icons/more.png'></td>
+                <td class='disable-select'>" . $albumSong->getDuration() . "</td>
             </tr>";
 
             $i++;
