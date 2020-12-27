@@ -48,7 +48,7 @@ $artist = $album->getArtist();
             echo "
             <tr class='hoverRow'>
                 <td class='disable-select'>
-                    <i class='icofont-play-alt-2 play' onclick='setTrack(\"" . $albumSong->getId() . "\", tempPlaylist, true)'></i>
+                    <i class='icofont-play-alt-2 play' onclick='nowPlaying.setTrack(\"" . $albumSong->getId() . "\", tempPlaylist, true)'></i>
                     <span>$i</span>
                 </td>
                 <td class='disable-select'>" . $albumSong->getTitle() . "</td>
