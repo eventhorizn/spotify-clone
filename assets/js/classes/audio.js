@@ -49,5 +49,3 @@ class Audio {
         return this._audio;
     }
 }
-
-//export default new Audio();

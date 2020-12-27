@@ -1,6 +1,3 @@
-//import audio from './classes/audio.js'
-
-
 class NowPlayingView {
 
     _progressTimeCurrent = $('.progressTime.current');
@@ -254,5 +251,3 @@ class NowPlayingView {
         this._audioElement.pause();
     }
 }
-
-//export default new NowPlayingView();
