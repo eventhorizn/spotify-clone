@@ -18,53 +18,52 @@ $artist = $album->getArtist();
     </div>
 
     <div class="rightSection">
+        <p class="white-lbl">ALBUM</p>
         <h2><?php echo $album->getTitle(); ?></h2>
-        <p><?php echo $artist->getName(); ?></p>
+        <p class="white-lbl">
+            <span>By</span>
+            <a href="artist.php?id=<?php echo $artist->getId();?>" class="artist-link"><?php echo $artist->getName(); ?>
+            </a>
+        </p>
         <p><?php echo $album->getNumberOfSongs(); ?> Songs</p>
     </div>
 </div>
 
-<div class="tracklistContainer">
-    <ul class="tracklist">
-        <?php
-            $songIdArray = $album->getSongIds();
-            $i = 1;
+<table>
+    <tr>
+        <th class="trackCount">#</th>
+        <th class="trackInfo">TITLE</th>
+        <th class="trackOptions"></th>
+        <th class="trackDuration"><i class="icofont-clock-time"></i></th>
+    </tr>
 
-            foreach($songIdArray as $songId) {
-                $albumSong = new Song($con, $songId);
-                $albumArtist = $albumSong->getArtist();
+    <?php
+        $songIdArray = $album->getSongIds();
+        $i = 1;
 
-                echo "
-                    <li class='tracklistRow'>
-                        <div class='trackCount'>
-                            <i class='icofont-play-alt-2 play' onclick='setTrack(\"" . $albumSong->getId() . "\", tempPlaylist, true)'></i>
-                            <span class='trackNumber'>$i</span>
-                        </div>
+        foreach($songIdArray as $songId) {
+            $albumSong = new Song($con, $songId);
+            $albumArtist = $albumSong->getArtist();
 
-                        <div class='trackInfo'>
-                            <span class='trackName'>" . $albumSong->getTitle() . "</span>
-                            <span class='artistName'>" . $albumArtist->getName() . "</span>
-                        </div>
+            echo "
+            <tr class='hoverRow'>
+                <td>
+                    <i class='icofont-play-alt-2 play' onclick='setTrack(\"" . $albumSong->getId() . "\", tempPlaylist, true)'></i>
+                    <span>$i</span>
+                </td>
+                <td>" . $albumSong->getTitle() . "</td>
+                <td><img src='assets/images/icons/more.png'></td>
+                <td>" . $albumSong->getDuration() . "</td>
+            </tr>";
 
-                        <div class='trackOptions'>
-                            <img class='play' src='assets/images/icons/more.png'>
-                        </div>
-
-                        <div class='trackDuration'>
-                            <span class='duration'>" . $albumSong->getDuration() . "</span>
-                        </div>
-                    </li>";
-
-                $i++;
-            }
-        ?>
-
-        <script>
-        const tempSongIds = '<?php echo json_encode($songIdArray);?>'
-        tempPlaylist = JSON.parse(tempSongIds);
-        </script>
-    </ul>
-</div>
+            $i++;
+        }
+    ?>
+    <script>
+    const tempSongIds = '<?php echo json_encode($songIdArray);?>'
+    tempPlaylist = JSON.parse(tempSongIds);
+    </script>
+</table>
 
 
 <?php include("includes/footer.php");?>

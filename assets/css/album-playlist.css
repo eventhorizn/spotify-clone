@@ -27,93 +27,132 @@
 
 .entityInfo .rightSection h2 {
 	margin-top: 0px;
+	margin-bottom: 0px;
+	font-size: 48px;
 }
 
-.entityInfo .rightSection p {
+.entityInfo .rightSection p,
+.entityInfo .rightSection span {
 	color: #939393;
 	font-weight: 200px;
 }
 
-.tracklist {
-	padding: 0;
+.entityInfo .rightSection .white-lbl {
+	color: #fff;
+	font-weight: 200px;
 }
 
-.tracklistRow {
-	height: 40px;
-	padding: 15px 10px;
-	list-style: none;
+.entityInfo .rightSection .artist-link {
+	text-decoration: none;
 }
 
-.tracklistRow span {
+.entityInfo .rightSection .artist-link:hover {
+	text-decoration: underline;
+}
+
+table {
+	width: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+}
+
+table tr {
+	border: solid;
+	border-width: 1px 0;
+	color: #3a3a3a;
+}
+
+table tr:first-child {
+	border-top: none;
+}
+
+table tr td {
+	padding: 10px;
+}
+
+table tr th {
 	color: #939393;
-	font-weight: 200;
+	font-size: 12px;
 }
 
-.tracklistRow:hover {
+table tr th i {
+	color: #939393;
+	font-size: 16px;
+	margin-left: 7px;
+}
+
+table tr th {
+	padding: 10px;
+}
+
+table tr .trackCount {
+	width: 8%;
+	text-align: left;
+}
+
+table tr .trackInfo {
+	width: 75%;
+	text-align: left;
+}
+
+table tr .trackOptions {
+	width: 5%;
+	text-align: left;
+}
+
+table tr .trackDuration {
+	width: 12%;
+	text-align: left;
+}
+
+table tr td {
+	font-size: 14px;
+}
+
+table .hoverRow:hover {
 	background-color: #282828;
 }
 
-.tracklistRow .trackCount {
-	width: 8%;
-	float: left;
-}
-
-.tracklistRow .trackCount .play {
+table tr td .play {
 	width: 20px;
 	visibility: hidden;
 	position: absolute;
 	cursor: pointer;
 }
 
-.tracklistRow:hover .trackCount .play {
-	visibility: visible;
-	font-size: 2em;
-	color: #939393;
-}
-
-.tracklistRow:hover .trackCount .play:hover {
-	color: #fff;
-}
-
-.tracklistRow .trackCount span {
+table tr td span {
 	visibility: visible;
 }
 
-.tracklistRow:hover .trackCount span {
+table tr:hover td span {
 	visibility: hidden;
 }
 
-.tracklistRow .trackInfo {
-	width: 75%;
-	float: left;
+table tr:hover td .play {
+	visibility: visible;
+	font-size: 1.9em;
+	color: #939393;
+	margin-top: -3px;
+	margin-left: -5px;
 }
 
-.tracklistRow .trackInfo span {
-	display: block;
+table tr td .play:hover {
+	color: #fff;
+	transition: all 0.2s ease-in-out;
+	transform: scale(1.1);
 }
 
-.tracklistRow .trackOptions {
+table tr td .trackOptions {
 	width: 5%;
 	float: left;
 	text-align: right;
 }
 
-.tracklistRow .trackOptions img {
+table tr td img {
 	width: 15px;
 	visibility: hidden;
 }
 
-.tracklistRow:hover .trackOptions img {
+table tr:hover td img {
 	visibility: visible;
-}
-
-.tracklistRow .trackDuration {
-	width: 12%;
-	float: left;
-	text-align: right;
-}
-
-.tracklistRow .trackInfo .trackName {
-	color: #fff;
-	margin-bottom: 7px;
 }

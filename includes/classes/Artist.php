@@ -14,5 +14,9 @@
 
             return $artist['name'];
         }
+
+        public function getId() {
+            return $this->id;
+        }
     }
 ?>
