@@ -33,10 +33,7 @@ Eh, on second thought, not great if you are using MySQL through XAMPP
 1. Scroll needs to be contextual
    - Right now, it scrolls the main container
    - I eventually want the scroll on volume to turn it up/down
-1. Package css
 1. Album List Now Playing Song Enhancements
    - Row text green
    - Pause button instead of play button
-1. Clean up Listing to match spotify
 1. Full Screen
-1. Remove text highlighting on album texts
