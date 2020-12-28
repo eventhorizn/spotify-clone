@@ -25,6 +25,7 @@ if (isset($_SESSION['userLoggedIn'])) {
     <link rel="stylesheet" href="assets/css/navBar.css">
     <link rel="stylesheet" href="assets/css/nowPlaying.css">
     <link rel="stylesheet" href="assets/css/album-playlist.css">
+    <link rel="stylesheet" href="assets/css/artist.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="assets/js/script.js"></script>
     <script src="assets/js/controller.js"></script>
