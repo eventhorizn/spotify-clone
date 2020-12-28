@@ -1,2 +1,3 @@
-let nowPlaying;
+//let nowPlaying;
+//let albumView;
 let controller;

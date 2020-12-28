@@ -1,8 +1,10 @@
 class Controller {
     _nowPlayingView;
+    _albumView;
 
     constructor(nowPlayingView) {
         this._nowPlayingView = nowPlayingView;
+        this._albumView = new AlbumView();
     }
 
     setShuffle() {
@@ -10,11 +12,12 @@ class Controller {
     }
 
     prevSong() {
-        this._nowPlayingView.prevSong();
+        this._nowPlayingView.prevSong(setCurrentPlaying());
     }
 
     playSong() {
         this._nowPlayingView.playSong();
+        this._albumView.playSong();
     }
 
     pauseSong() {
@@ -22,7 +25,7 @@ class Controller {
     }
 
     nextSong() {
-        this._nowPlayingView.nextSong();
+        this._nowPlayingView.nextSong(setCurrentPlaying());
     }
 
     setRepeat() {
@@ -34,6 +37,12 @@ class Controller {
     }
 
     setTrack(trackId, newPlaylist, play) {
-        this._nowPlayingView.setTrack(trackId, newPlaylist, play);
+        this._nowPlayingView.setTrack(trackId, newPlaylist, play, this.setCurrentPlaying());
+        ;
+    }
+
+    setCurrentPlaying() {
+        const currentPlayId = this._nowPlayingView.getCurrentlyPlaying().id;
+        this._albumView.setCurrentPlaying(currentPlayId);
     }
 }

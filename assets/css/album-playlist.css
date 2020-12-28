@@ -120,7 +120,8 @@ table .hoverRow:hover {
 	background-color: #282828;
 }
 
-table tr td .play {
+table tr td .play,
+table tr td .pause {
 	width: 20px;
 	visibility: hidden;
 	position: absolute;
@@ -162,4 +163,8 @@ table tr td img {
 
 table tr:hover td img {
 	visibility: visible;
+}
+
+.currentSong {
+	color: #07d159;
 }

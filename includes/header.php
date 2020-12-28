@@ -29,6 +29,7 @@ if (isset($_SESSION['userLoggedIn'])) {
     <script src="assets/js/controller.js"></script>
     <script src="assets/js/classes/audio.js"></script>
     <script src="assets/js/views/nowPlayingView.js"></script>
+    <script src="assets/js/views/albumView.js"></script>
 </head>
 
 <body>

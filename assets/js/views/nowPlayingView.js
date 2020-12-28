@@ -12,8 +12,8 @@ class NowPlayingView {
     _repeat = false;
     _shuffle = false;
 
-    constructor(audioElement, currentPlaylist) {
-        this._audioElement = audioElement;
+    constructor(currentPlaylist) {
+        this._audioElement = new Audio();
         this._currentPlaylist = currentPlaylist;
 
         this.setTrack(this._currentPlaylist[0], this._currentPlaylist, false);
@@ -114,17 +114,17 @@ class NowPlayingView {
         this._audioElement.setTime(seconds);
     }
 
-    prevSong() {
+    prevSong(callback) {
         if (this._audioElement.getAudio().currentTime >= 3 ||
             this._currentIndex === 0) {
             this._audioElement.setTime(0);
         } else {
             this._currentIndex--;
-            this.setTrack(this._currentPlaylist[this._currentIndex], this._currentPlaylist, true);
+            this.setTrack(this._currentPlaylist[this._currentIndex], this._currentPlaylist, true, callback);
         }
     }
 
-    nextSong() {
+    nextSong(callback) {
         if (this._repeat) {
             this._audioElement.setTime(0);
             this.playSong();
@@ -138,7 +138,7 @@ class NowPlayingView {
         }
 
         const trackToPlay = this._shuffle ? this._shufflePlaylist[currentIndex] : this._currentPlaylist[this._currentIndex];
-        this.setTrack(trackToPlay, this._currentPlaylist, true);
+        this.setTrack(trackToPlay, this._currentPlaylist, true, callback);
     }
 
     setShuffle() {
@@ -179,7 +179,7 @@ class NowPlayingView {
         $('.controlButton.volume i').attr('class', `${className}`);
     }
 
-    setTrack(trackId, newPlaylist, play) {
+    setTrack(trackId, newPlaylist, play, callback) {
         if (newPlaylist != this._currentPlaylist) {
             this._currentPlaylist = newPlaylist;
             this._shufflePlaylist = this._currentPlaylist.slice();
@@ -194,8 +194,18 @@ class NowPlayingView {
 
         this.pauseSong();
 
+        this.setSongAjax(trackId, play).then(_ => {
+            if (callback) callback;
+
+            if (play) {
+                this._audioElement.play();
+            }
+        });
+    }
+
+    setSongAjax(trackId, play) {
         const thisClass = this;
-        $.post("includes/handlers/ajax/getSongJson.php", {
+        return $.post("includes/handlers/ajax/getSongJson.php", {
             songId: trackId
         }, function (data) {
             const track = JSON.parse(data);
@@ -224,12 +234,7 @@ class NowPlayingView {
             if (play) {
                 thisClass.playSong();
             }
-
         });
-
-        if (play) {
-            this._audioElement.play();
-        }
     }
 
     playSong() {
@@ -249,5 +254,9 @@ class NowPlayingView {
         $(".controlButton.pause").hide();
 
         this._audioElement.pause();
+    }
+
+    getCurrentlyPlaying() {
+        return this._audioElement.getCurrentlyPlaying();
     }
 }

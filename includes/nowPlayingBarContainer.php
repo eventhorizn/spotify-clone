@@ -14,7 +14,7 @@ $jsonArray = json_encode($resultArray);
 <script>
 $(document).ready(function() {
     const newPlaylist = <?php echo $jsonArray ?>;
-    nowPlaying = new NowPlayingView(new Audio(), newPlaylist);
+    nowPlaying = new NowPlayingView(newPlaylist);
     controller = new Controller(nowPlaying);
 });
 </script>
@@ -44,29 +44,29 @@ $(document).ready(function() {
         <div id="nowPlayingCenter">
             <div class="content playerControls">
                 <div class="buttons">
-                    <button class="controlButton shuffle" title="Shuffle Button" onclick="nowPlaying.setShuffle()">
+                    <button class="controlButton shuffle" title="Shuffle Button" onclick="controller.setShuffle()">
                         <i class="icofont-random icon"></i>
                     </button>
 
-                    <button class="controlButton previous" title="Previous Button" onclick="nowPlaying.prevSong()">
+                    <button class="controlButton previous" title="Previous Button" onclick="controller.prevSong()">
                         <i class="icofont-bubble-left icon-big"></i>
                     </button>
 
                     <button class="controlButton controlButtonGrow play" title="Play Button"
-                        onclick="nowPlaying.playSong()">
+                        onclick="controller.playSong()">
                         <i class="icofont-play-alt-2 icon-big"></i>
                     </button>
 
                     <button class="controlButton controlButtonGrow pause" title="Pause Button" style="display: none"
-                        onclick="nowPlaying.pauseSong()">
+                        onclick="controller.pauseSong()">
                         <i class="icofont-pause icon-big"></i>
                     </button>
 
-                    <button class="controlButton next" title="Next Button" onClick="nowPlaying.nextSong()">
+                    <button class="controlButton next" title="Next Button" onClick="controller.nextSong()">
                         <i class="icofont-bubble-right icon-big"></i>
                     </button>
 
-                    <button class="controlButton repeat" title="Repeat Button" onclick="nowPlaying.setRepeat()">
+                    <button class="controlButton repeat" title="Repeat Button" onclick="controller.setRepeat()">
                         <i class="icofont-retweet icon"></i>
                     </button>
                 </div>
@@ -86,7 +86,7 @@ $(document).ready(function() {
 
         <div id="nowPlayingRight">
             <div class="volumeBar">
-                <button class="controlButton volume" title="Volume Button" onclick="nowPlaying.setMute()">
+                <button class="controlButton volume" title="Volume Button" onclick="controller.setMute()">
                     <i class="icofont-volume-up icon"></i>
                 </button>
 

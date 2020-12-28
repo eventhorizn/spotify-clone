@@ -1,5 +1,26 @@
 <?php include("includes/header.php");?>
 
+<?php
+$songQuery = mysqli_query($con, "SELECT id FROM songs ORDER BY RAND() LIMIT 10");
+
+$resultArray = array();
+
+while($row = mysqli_fetch_array($songQuery)) {
+    array_push($resultArray, $row['id']);
+}
+
+$jsonArray = json_encode($resultArray);
+
+?>
+
+<script>
+$(document).ready(function() {
+    const newPlaylist = <?php echo $jsonArray ?>;
+    // nowPlaying = new NowPlayingView(newPlaylist);
+    controller = new Controller(new NowPlayingView(newPlaylist));
+});
+</script>
+
 <h1 class="pageHeadingBig disable-select ">You Might Also Like</h1>
 
 <div class="gridViewContainer">
