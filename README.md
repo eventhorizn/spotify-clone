@@ -29,5 +29,5 @@ Eh, on second thought, not great if you are using MySQL through XAMPP
    - Right now, it scrolls the main container
    - I eventually want the scroll on volume to turn it up/down
 1. Full Screen
-1. Save currently playing song, and progress
-   - It reloads from start of current playlist
+1. Home Page (index) is just browse page
+   - Could do more, but I would need more content for it to look interesting
