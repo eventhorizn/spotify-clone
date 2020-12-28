@@ -2,8 +2,8 @@ class Controller {
     _nowPlayingView;
     _albumView;
 
-    constructor(nowPlayingView) {
-        this._nowPlayingView = nowPlayingView;
+    constructor(playlist) {
+        this._nowPlayingView = new NowPlayingView(playlist, this.setCurrentPlaying.bind(this));
         this._albumView = new AlbumView();
     }
 
@@ -12,12 +12,11 @@ class Controller {
     }
 
     prevSong() {
-        this._nowPlayingView.prevSong(setCurrentPlaying());
+        this._nowPlayingView.prevSong(this.setCurrentPlaying.bind(this));
     }
 
     playSong() {
         this._nowPlayingView.playSong();
-        this._albumView.playSong();
     }
 
     pauseSong() {
@@ -25,7 +24,7 @@ class Controller {
     }
 
     nextSong() {
-        this._nowPlayingView.nextSong(setCurrentPlaying());
+        this._nowPlayingView.nextSong(this.setCurrentPlaying.bind(this));
     }
 
     setRepeat() {
@@ -37,7 +36,7 @@ class Controller {
     }
 
     setTrack(trackId, newPlaylist, play) {
-        this._nowPlayingView.setTrack(trackId, newPlaylist, play, this.setCurrentPlaying());
+        this._nowPlayingView.setTrack(trackId, newPlaylist, play, this.setCurrentPlaying.bind(this));
         ;
     }
 

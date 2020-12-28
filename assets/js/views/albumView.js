@@ -8,7 +8,7 @@ class AlbumView {
             const allEls = currentPlayRow.getElementsByClassName('song-change')
 
             for (let i = 0; i < allEls.length; i++) {
-                allEls[i].classList.toggle('currentSong');
+                allEls[i].classList.add('currentSong');
             }
         }
     }

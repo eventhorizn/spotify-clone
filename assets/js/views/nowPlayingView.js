@@ -12,11 +12,11 @@ class NowPlayingView {
     _repeat = false;
     _shuffle = false;
 
-    constructor(currentPlaylist) {
+    constructor(currentPlaylist, callback) {
         this._audioElement = new Audio();
         this._currentPlaylist = currentPlaylist;
 
-        this.setTrack(this._currentPlaylist[0], this._currentPlaylist, false);
+        this.setTrack(this._currentPlaylist[0], this._currentPlaylist, false, callback);
         this.updateVolumeProgressBar(this._audioElement.getAudio());
 
         this._addEventHandlers(this);
@@ -195,11 +195,11 @@ class NowPlayingView {
         this.pauseSong();
 
         this.setSongAjax(trackId, play).then(_ => {
-            if (callback) callback;
-
             if (play) {
                 this._audioElement.play();
             }
+
+            if (callback) callback();
         });
     }
 
