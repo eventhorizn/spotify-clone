@@ -1,1 +1,2 @@
-let controller;
+var controller;
+var userLoggedIn;
