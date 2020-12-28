@@ -12,12 +12,12 @@ class NowPlayingView {
     _repeat = false;
     _shuffle = false;
 
-    constructor(currentPlaylist, currentlyPlaying, callback) {
+    constructor(currentPlaylist, callback) {
         this._audioElement = new Audio();
         this._currentPlaylist = currentPlaylist;
         this._shufflePlaylist = this._currentPlaylist.slice();
 
-        this.setTrack(currentlyPlaying.id, this._currentPlaylist, false, callback);
+        this.setTrack(currentPlaylist[0], this._currentPlaylist, false, callback);
         this.updateVolumeProgressBar(this._audioElement.getAudio());
 
         this._addEventHandlers(this);

@@ -13,24 +13,9 @@ $jsonArray = json_encode($resultArray);
 
 <script>
 $(document).ready(function() {
-    let playlist;
-    let currentlyPlaying;
-
-    if (localStorage.getItem('playlist')) {
-        playlist = JSON.parse(localStorage.getItem('playlist'));
-    } else {
-        playlist = <?php echo $jsonArray ?>;
-        const json_text = JSON.stringify(playlist);
-        localStorage.setItem('playlist', json_text);
-    }
-
-    if (localStorage.getItem('currentlyPlaying')) {
-        currentlyPlaying = JSON.parse(localStorage.getItem('currentlyPlaying'));
-    } else {
-        currentlyPlaying = playlist[0];
-    }
-
-    controller = new Controller(playlist, currentlyPlaying);
+    let playlist = <?php echo $jsonArray ?>;
+    const json_text = JSON.stringify(playlist);
+    controller = new Controller(playlist);
 });
 </script>
 

@@ -2,8 +2,8 @@ class Controller {
     _nowPlayingView;
     _albumView;
 
-    constructor(playlist, currentlyPlaying) {
-        this._nowPlayingView = new NowPlayingView(playlist, currentlyPlaying, this.setCurrentPlaying.bind(this));
+    constructor(playlist) {
+        this._nowPlayingView = new NowPlayingView(playlist, this.setCurrentPlaying.bind(this));
         this._albumView = new AlbumView();
     }
 

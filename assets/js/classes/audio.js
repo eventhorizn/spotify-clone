@@ -27,7 +27,6 @@ class Audio {
     setTrack(track) {
         this._currentlyPlaying = track;
         this._audio.src = track.path;
-        localStorage.setItem('currentlyPlaying', JSON.stringify(this._currentlyPlaying));
     }
 
     play() {
