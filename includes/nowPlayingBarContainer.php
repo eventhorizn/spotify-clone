@@ -15,7 +15,7 @@ $jsonArray = json_encode($resultArray);
 $(document).ready(function() {
     let playlist = <?php echo $jsonArray ?>;
     const json_text = JSON.stringify(playlist);
-    controller = new Controller(playlist);
+    controller = new controllerClass(playlist);
 });
 </script>
 

@@ -1,10 +1,10 @@
-class Controller {
+var controllerClass = class Controller {
     _nowPlayingView;
     _albumView;
 
     constructor(playlist) {
-        this._nowPlayingView = new NowPlayingView(playlist, this.setCurrentPlaying.bind(this));
-        this._albumView = new AlbumView();
+        this._nowPlayingView = new nowPlayingView(playlist, this.setCurrentPlaying.bind(this));
+        this._albumView = new albumView();
     }
 
     setShuffle() {

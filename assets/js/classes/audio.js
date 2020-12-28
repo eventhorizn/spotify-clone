@@ -1,4 +1,4 @@
-class Audio {
+var audio = class Audio {
     _currentlyPlaying;
     _audio = document.createElement('audio');
     _progressTimeTotal = $('.progressTime.total');

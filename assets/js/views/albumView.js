@@ -1,4 +1,4 @@
-class AlbumView {
+var albumView = class AlbumView {
     setCurrentPlaying(albumSongId, isPlaying) {
         this._resetAllTracks();
 

@@ -1,4 +1,4 @@
-class NowPlayingView {
+var nowPlayingView = class NowPlayingView {
 
     _progressTimeCurrent = $('.progressTime.current');
     _playbackBarProgress = $('.playbackBar .progress');
@@ -13,7 +13,7 @@ class NowPlayingView {
     _shuffle = false;
 
     constructor(currentPlaylist, callback) {
-        this._audioElement = new Audio();
+        this._audioElement = new audio();
         this._currentPlaylist = currentPlaylist;
         this._shufflePlaylist = this._currentPlaylist.slice();
 
@@ -196,10 +196,6 @@ class NowPlayingView {
         this.pauseSong();
 
         this.setSongAjax(trackId, play).then(_ => {
-            if (play) {
-                this._audioElement.play();
-            }
-
             if (callback) callback();
         });
     }

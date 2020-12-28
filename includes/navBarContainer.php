@@ -3,10 +3,10 @@
     <nav class="navBar">
         <div class="group-alt">
             <div class="NavItem">
-                <a href="index.php" class="navItemLink">
+                <span class="navItemLink" onclick="openPage('index.php')">
                     <i class="icofont-home icon"></i>
                     <span class="navItemLink-span">Home</span>
-                </a>
+                </span>
             </div>
 
             <div class="navItem">
