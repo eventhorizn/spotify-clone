@@ -24,9 +24,9 @@ $(document).ready(function() {
         <div id="nowPlayingLeft">
             <div class="content">
                 <span class="albumLink">
-                    <a href="">
+                    <span>
                         <img class="albumArtwork" src="" alt="Album Art">
-                    </a>
+                    </span>
                 </span>
 
                 <div class="trackInfo">
@@ -34,9 +34,9 @@ $(document).ready(function() {
                         <span></span>
                     </span>
 
-                    <a href="" class="artistName">
+                    <span class="artistName">
                         <span></span>
-                    </a>
+                    </span>
                 </div>
             </div>
         </div>

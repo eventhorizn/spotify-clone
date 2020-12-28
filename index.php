@@ -10,14 +10,15 @@ include("includes/includedFiles.php");
         $albumQuery = mysqli_query($con, "SELECT * FROM albums LIMIT 10");
 
         while($row = mysqli_fetch_array($albumQuery)) {
-            echo "<div class='gridViewItem'>
-                    <a href='album.php?id=" . $row['id'] . "'>
-                        <img src='" . $row['artworkPath'] . "'>
+           	echo "<div class='gridViewItem'>
+					<span onclick='openPage(\"album.php?id=" . $row['id'] . "\")'>
+						<img src='" . $row['artworkPath'] . "'>
 
-                        <div class='gridViewInfo'>"
-                            . $row['title'] .
-                        "</div>
-                    </a>
+						<div class='gridViewInfo'>"
+							. $row['title'] .
+						"</div>
+					</span>
+
 				</div>";
         }
     ?>

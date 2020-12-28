@@ -169,6 +169,7 @@
 
 #nowPlayingLeft .trackInfo .artistName:hover {
 	text-decoration: underline;
+	cursor: pointer;
 }
 
 #nowPlayingLeft .trackInfo .artistName span {
@@ -184,4 +185,8 @@
 
 .volumeBar .progressBar {
 	width: 125px;
+}
+
+.albumLink span {
+	cursor: pointer;
 }

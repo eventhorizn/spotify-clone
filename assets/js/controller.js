@@ -50,8 +50,10 @@ var controllerClass = class Controller {
     }
 
     setCurrentPlaying() {
-        const isPlaying = !this._nowPlayingView.getAudioPaused();
-        const currentPlayId = this._nowPlayingView.getCurrentlyPlaying().id;
-        this._albumView.setCurrentPlaying(currentPlayId, isPlaying);
+        if (this._nowPlayingView.getCurrentlyPlaying()) {
+            const isPlaying = !this._nowPlayingView.getAudioPaused();
+            const currentPlayId = this._nowPlayingView.getCurrentlyPlaying().id;
+            this._albumView.setCurrentPlaying(currentPlayId, isPlaying);
+        }
     }
 }
