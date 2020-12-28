@@ -31,3 +31,9 @@ Eh, on second thought, not great if you are using MySQL through XAMPP
 1. Full Screen
 1. Home Page (index) is just browse page
    - Could do more, but I would need more content for it to look interesting
+1. Album update (browse, 'your music/albums')
+   - Artist and album
+   - Picture goes to album
+   - Album green
+1. Album page
+   - Play button
