@@ -13,9 +13,12 @@ $jsonArray = json_encode($resultArray);
 
 <script>
 $(document).ready(function() {
-    const newPlaylist = <?php echo $jsonArray ?>;
-    nowPlaying = new NowPlayingView(newPlaylist);
-    controller = new Controller(nowPlaying);
+    if (localStorage.getItem('controller')) {
+        controller = JSON.parse(localStorage.getItem('controller'));
+    } else {
+        const newPlaylist = <?php echo $jsonArray ?>;
+        controller = new Controller(new NowPlayingView(newPlaylist));
+    }
 });
 </script>
 

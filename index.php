@@ -16,8 +16,9 @@ $jsonArray = json_encode($resultArray);
 <script>
 $(document).ready(function() {
     const newPlaylist = <?php echo $jsonArray ?>;
-    // nowPlaying = new NowPlayingView(newPlaylist);
     controller = new Controller(new NowPlayingView(newPlaylist));
+    const json_text = JSON.stringify(controller);
+    localStorage.setItem('controller', json_text);
 });
 </script>
 
