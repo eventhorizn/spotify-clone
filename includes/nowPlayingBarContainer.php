@@ -14,6 +14,7 @@ $jsonArray = json_encode($resultArray);
 <script>
 $(document).ready(function() {
     let playlist;
+    let currentlyPlaying;
 
     if (localStorage.getItem('playlist')) {
         playlist = JSON.parse(localStorage.getItem('playlist'));
@@ -23,7 +24,13 @@ $(document).ready(function() {
         localStorage.setItem('playlist', json_text);
     }
 
-    controller = new Controller(playlist);
+    if (localStorage.getItem('currentlyPlaying')) {
+        currentlyPlaying = JSON.parse(localStorage.getItem('currentlyPlaying'));
+    } else {
+        currentlyPlaying = playlist[0];
+    }
+
+    controller = new Controller(playlist, currentlyPlaying);
 });
 </script>
 

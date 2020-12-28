@@ -2,8 +2,8 @@ class Controller {
     _nowPlayingView;
     _albumView;
 
-    constructor(playlist) {
-        this._nowPlayingView = new NowPlayingView(playlist, this.setCurrentPlaying.bind(this));
+    constructor(playlist, currentlyPlaying) {
+        this._nowPlayingView = new NowPlayingView(playlist, currentlyPlaying, this.setCurrentPlaying.bind(this));
         this._albumView = new AlbumView();
     }
 
@@ -16,11 +16,15 @@ class Controller {
     }
 
     playSong() {
+        const currentPlayId = this._nowPlayingView.getCurrentlyPlaying().id;
         this._nowPlayingView.playSong();
+        this._albumView.playSong(currentPlayId);
     }
 
     pauseSong() {
+        const currentPlayId = this._nowPlayingView.getCurrentlyPlaying().id;
         this._nowPlayingView.pauseSong();
+        this._albumView.pauseSong(currentPlayId);
     }
 
     nextSong() {
@@ -36,12 +40,18 @@ class Controller {
     }
 
     setTrack(trackId, newPlaylist, play) {
-        this._nowPlayingView.setTrack(trackId, newPlaylist, play, this.setCurrentPlaying.bind(this));
-        ;
+        if (this._nowPlayingView.getCurrentPlayist() != newPlaylist ||
+            trackId != this._nowPlayingView.getCurrentlyPlaying().id) {
+            this._nowPlayingView.setTrack(trackId, newPlaylist, play, this.setCurrentPlaying.bind(this));
+            ;
+        } else {
+            this.playSong();
+        }
     }
 
     setCurrentPlaying() {
+        const isPlaying = !this._nowPlayingView.getAudioPaused();
         const currentPlayId = this._nowPlayingView.getCurrentlyPlaying().id;
-        this._albumView.setCurrentPlaying(currentPlayId);
+        this._albumView.setCurrentPlaying(currentPlayId, isPlaying);
     }
 }

@@ -19,12 +19,7 @@ Eh, on second thought, not great if you are using MySQL through XAMPP
 
 # TODO:
 
-1. Big refactoring
-   - Javascript is spread out b/t php pages and script files
-     - Should just be in a script file
-   - Separate js files for each page
-   - I can do actual classes to represent front end stuff
-     - js class for now playing bar
+1. Refactoring
    - Remove jquery
 1. Progress green hover needs work, maybe up an element
    - Also needs to work when mouse down, sliding
@@ -33,7 +28,6 @@ Eh, on second thought, not great if you are using MySQL through XAMPP
 1. Scroll needs to be contextual
    - Right now, it scrolls the main container
    - I eventually want the scroll on volume to turn it up/down
-1. Album List Now Playing Song Enhancements
-   - Row text green
-   - Pause button instead of play button
 1. Full Screen
+1. Save currently playing song, and progress
+   - It reloads from start of current playlist

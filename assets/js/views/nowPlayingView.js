@@ -12,11 +12,12 @@ class NowPlayingView {
     _repeat = false;
     _shuffle = false;
 
-    constructor(currentPlaylist, callback) {
+    constructor(currentPlaylist, currentlyPlaying, callback) {
         this._audioElement = new Audio();
         this._currentPlaylist = currentPlaylist;
+        this._shufflePlaylist = this._currentPlaylist.slice();
 
-        this.setTrack(this._currentPlaylist[0], this._currentPlaylist, false, callback);
+        this.setTrack(currentlyPlaying.id, this._currentPlaylist, false, callback);
         this.updateVolumeProgressBar(this._audioElement.getAudio());
 
         this._addEventHandlers(this);
@@ -137,7 +138,7 @@ class NowPlayingView {
             this._currentIndex++;
         }
 
-        const trackToPlay = this._shuffle ? this._shufflePlaylist[currentIndex] : this._currentPlaylist[this._currentIndex];
+        const trackToPlay = this._shuffle ? this._shufflePlaylist[this._currentIndex] : this._currentPlaylist[this._currentIndex];
         this.setTrack(trackToPlay, this._currentPlaylist, true, callback);
     }
 
@@ -258,5 +259,13 @@ class NowPlayingView {
 
     getCurrentlyPlaying() {
         return this._audioElement.getCurrentlyPlaying();
+    }
+
+    getAudioPaused() {
+        return this._audioElement.getAudio().paused;
+    }
+
+    getCurrentPlayist() {
+        return this._currentPlaylist;
     }
 }

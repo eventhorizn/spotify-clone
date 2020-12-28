@@ -48,8 +48,8 @@ $artist = $album->getArtist();
             echo "
             <tr id='" . $albumSong->getId() . "' class='hoverRow'>
                 <td class='disable-select'>
-                    <i class='icofont-play-alt-2 play' onclick='controller.setTrack(\"" . $albumSong->getId() . "\", tempPlaylist, true)'></i>
-                    <i class='icofont-pause pause' style='display: none'></i>
+                    <i class='icofont-play-alt-2 play-row' onclick='controller.setTrack(\"" . $albumSong->getId() . "\", tempPlaylist, true)'></i>
+                    <i class='icofont-pause pause-row' onclick='controller.pauseSong()' style='display: none'></i>
                     <span class='song-change'>$i</span>
                 </td>
                 <td class='disable-select song-change'>" . $albumSong->getTitle() . "</td>
