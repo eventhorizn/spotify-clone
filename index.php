@@ -1,5 +1,6 @@
 <?php include("includes/header.php");?>
 
+
 <h1 class="pageHeadingBig disable-select ">You Might Also Like</h1>
 
 <div class="gridViewContainer">

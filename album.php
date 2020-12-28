@@ -46,14 +46,15 @@ $artist = $album->getArtist();
             $albumArtist = $albumSong->getArtist();
 
             echo "
-            <tr class='hoverRow'>
+            <tr id='" . $albumSong->getId() . "' class='hoverRow'>
                 <td class='disable-select'>
-                    <i class='icofont-play-alt-2 play' onclick='setTrack(\"" . $albumSong->getId() . "\", tempPlaylist, true)'></i>
-                    <span>$i</span>
+                    <i class='icofont-play-alt-2 play-row' onclick='controller.setTrack(\"" . $albumSong->getId() . "\", tempPlaylist, true)'></i>
+                    <i class='icofont-pause pause-row' onclick='controller.pauseSong()' style='display: none'></i>
+                    <span class='song-change'>$i</span>
                 </td>
-                <td class='disable-select'>" . $albumSong->getTitle() . "</td>
+                <td class='disable-select song-change'>" . $albumSong->getTitle() . "</td>
                 <td class='disable-select'><img src='assets/images/icons/more.png'></td>
-                <td class='disable-select'>" . $albumSong->getDuration() . "</td>
+                <td class='disable-select song-change'>" . $albumSong->getDuration() . "</td>
             </tr>";
 
             $i++;

@@ -120,7 +120,8 @@ table .hoverRow:hover {
 	background-color: #282828;
 }
 
-table tr td .play {
+table tr td .play-row,
+table tr td .pause-row {
 	width: 20px;
 	visibility: hidden;
 	position: absolute;
@@ -135,7 +136,8 @@ table tr:hover td span {
 	visibility: hidden;
 }
 
-table tr:hover td .play {
+table tr:hover td .play-row,
+table tr:hover td .pause-row {
 	visibility: visible;
 	font-size: 1.9em;
 	color: #939393;
@@ -143,7 +145,8 @@ table tr:hover td .play {
 	margin-left: -5px;
 }
 
-table tr td .play:hover {
+table tr td .play-row:hover,
+table tr td .pause-row:hover {
 	color: #fff;
 	transition: all 0.2s ease-in-out;
 	transform: scale(1.1);
@@ -162,4 +165,8 @@ table tr td img {
 
 table tr:hover td img {
 	visibility: visible;
+}
+
+.currentSong {
+	color: #07d159;
 }
