@@ -91,8 +91,7 @@ $(document).ready(function() {
                 </button>
 
                 <div class="progressBar">
-                    <div class="progre
-                    ssBarBg">
+                    <div class="progressBarBg">
                         <div class="progress"></div>
                     </div>
                 </div>
