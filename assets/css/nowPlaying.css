@@ -167,7 +167,7 @@
 	text-decoration: none;
 }
 
-#nowPlayingLeft .trackInfo .artistName:hover {
+#nowPlayingLeft .trackInfo .artistName span:hover {
 	text-decoration: underline;
 	cursor: pointer;
 }
@@ -175,6 +175,11 @@
 #nowPlayingLeft .trackInfo .artistName span {
 	font-size: 12px;
 	color: #a0a0a0;
+}
+
+#nowPlayingLeft .trackInfo .trackName span:hover {
+	text-decoration: underline;
+	cursor: pointer;
 }
 
 .volumeBar {

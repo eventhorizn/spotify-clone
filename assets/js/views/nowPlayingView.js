@@ -209,6 +209,7 @@ var nowPlayingView = class NowPlayingView {
 
             $(".trackName span").text(track.title);
 
+
             $.post("includes/handlers/ajax/getArtistJson.php", {
                 artistId: track.artist
             }, function (data) {
@@ -216,7 +217,7 @@ var nowPlayingView = class NowPlayingView {
 
                 $(".artistName span").text(artist.name);
 
-                $('.artistName').attr('onClick', `openPage('artist.php?id=${artist.id}')`);
+                $('.artistName span').attr('onClick', `openPage('artist.php?id=${artist.id}')`);
             });
 
             $.post("includes/handlers/ajax/getAlbumJson.php", {
@@ -226,6 +227,7 @@ var nowPlayingView = class NowPlayingView {
 
                 $(".albumLink img").attr("src", album.artworkPath);
                 $('.albumLink span').attr('onClick', `openPage('album.php?id=${album.id}')`);
+                $('.trackName span').attr('onClick', `openPage('album.php?id=${album.id}')`);
             });
 
             thisClass._audioElement.setTrack(track);

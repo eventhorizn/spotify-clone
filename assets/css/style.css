@@ -262,6 +262,6 @@ table tr:hover td img {
 	text-align: center;
 }
 
-.artistName {
+.centerSection .artistInfo .artistName {
 	font-size: 48px;
 }

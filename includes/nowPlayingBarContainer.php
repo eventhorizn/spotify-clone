@@ -30,7 +30,7 @@ $(document).ready(function() {
                 </span>
 
                 <div class="trackInfo">
-                    <span class="trackName disable-select">
+                    <span class="trackName">
                         <span></span>
                     </span>
 
@@ -91,7 +91,8 @@ $(document).ready(function() {
                 </button>
 
                 <div class="progressBar">
-                    <div class="progressBarBg">
+                    <div class="progre
+                    ssBarBg">
                         <div class="progress"></div>
                     </div>
                 </div>

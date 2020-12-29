@@ -40,3 +40,6 @@ Eh, on second thought, not great if you are using MySQL through XAMPP
 1. Artist page
    - Sprucing up a bit (simple implementation)
    - Now playing highlight like album page
+1. Small one. when clicking the song on now playing
+   - Already opens to album page
+   - Do a highlight effect on selected song (css style)
