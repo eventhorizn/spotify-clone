@@ -280,3 +280,8 @@ table tr:hover td img {
 .centerSection .artistInfo .artistName {
 	font-size: 48px;
 }
+
+.noResults {
+	margin: 15px;
+	display: block;
+}

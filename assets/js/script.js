@@ -16,3 +16,20 @@ function openPage(url) {
     $('body').scrollTop(0);
     history.pushState(null, null, url);
 }
+
+//TODO: Make standalong playlistView.js
+function createPlaylist() {
+    const popup = prompt('Please enter the name of your playlist');
+
+    if (popup != null) {
+        $.post("includes/handlers/ajax/createPlaylist.php", { name: popup, username: userLoggedIn })
+            .done(function (error) {
+                if (error != "") {
+                    alert(error);
+                    return;
+                }
+
+                openPage('yourMusic.php');
+            });
+    }
+}

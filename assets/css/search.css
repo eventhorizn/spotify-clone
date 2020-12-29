@@ -37,8 +37,3 @@ input:focus {
 .searchResultRow .artistName span:hover {
 	cursor: pointer;
 }
-
-.noResults {
-	margin: 15px;
-	display: block;
-}

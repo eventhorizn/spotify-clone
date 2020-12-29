@@ -20,12 +20,13 @@ Eh, on second thought, not great if you are using MySQL through XAMPP
 # TODO:
 
 1. Refactoring
-   - Remove jquery
    - Move new pages (artist, search, your music, profile) to refactor design
 1. Progress green hover needs work, maybe up an element
    - Also needs to work when mouse down, sliding
 1. Left Nav
    - Your music now, eventually albums and artists
+   - Your music is just playlists
+   - Will need to add tables for albums and artists
 1. Scroll needs to be contextual
    - Right now, it scrolls the main container
    - I eventually want the scroll on volume to turn it up/down
@@ -44,3 +45,4 @@ Eh, on second thought, not great if you are using MySQL through XAMPP
    - Do a highlight effect on selected song (css style)
 1. Play button pauses and plays
    - But it will start at first song in playlist
+1. Add Playlist pop up instead of alert
