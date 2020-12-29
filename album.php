@@ -22,8 +22,9 @@ $artist = $album->getArtist();
         <h2 class="disable-select"><?php echo $album->getTitle(); ?></h2>
         <p class="white-lbl disable-select">
             <span>By</span>
-            <a href="artist.php?id=<?php echo $artist->getId();?>" class="artist-link"><?php echo $artist->getName(); ?>
-            </a>
+            <span onclick="openPage('artist.php?id=<?php echo $artist->getId();?>')"
+                class="artist-link"><?php echo $artist->getName(); ?>
+            </span>
         </p>
         <p class="disable-select"><?php echo $album->getNumberOfSongs(); ?> Songs</p>
     </div>

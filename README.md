@@ -37,3 +37,6 @@ Eh, on second thought, not great if you are using MySQL through XAMPP
    - Album green
 1. Album page
    - Play button
+1. Artist page
+   - Sprucing up a bit (simple implementation)
+   - Now playing highlight like album page

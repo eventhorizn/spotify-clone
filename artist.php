@@ -17,13 +17,15 @@ $artist = new Artist($con, $artistId);
             <h1 class="artistName"><?php echo $artist->getName();?></h1>
 
             <div class="headerButtons">
-                <button class="button green">Play</button>
+                <button class="button green"
+                    onclick="controller.setTrack(tempPlaylist[0], tempPlaylist, true)">PLAY</button>
             </div>
         </div>
     </div>
 </div>
 
 <div class="borderBottom">
+    <h2 class="centerHeader">SONGS</h2>
     <table>
         <tr>
             <th class="trackCount disable-select">#</th>
@@ -66,4 +68,24 @@ $artist = new Artist($con, $artistId);
         controller.setCurrentPlaying();
         </script>
     </table>
+</div>
+
+<div class="gridViewContainer">
+    <h2 class="centerHeader">ALBUMS</h2>
+    <?php 
+        $albumQuery = mysqli_query($con, "SELECT * FROM albums WHERE artist='$artistId'");
+
+        while($row = mysqli_fetch_array($albumQuery)) {
+           	echo "<div class='gridViewItem'>
+					<span onclick='openPage(\"album.php?id=" . $row['id'] . "\")'>
+						<img src='" . $row['artworkPath'] . "'>
+
+						<div class='gridViewInfo'>"
+							. $row['title'] .
+						"</div>
+					</span>
+
+				</div>";
+        }
+    ?>
 </div>
