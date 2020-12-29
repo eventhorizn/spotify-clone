@@ -9,7 +9,7 @@ if(isset($_GET['term'])) {
 ?>
 
 <div class="searchContainer">
-    <h4>Search for an Artist, Album, or Song</h4>
+    <h4 class="disable-select">Search for an Artist, Album, or Song</h4>
     <input type="text" class="searchInput" value="<?php echo $term; ?>" placeholder="Start typing...">
 </div>
 
@@ -41,7 +41,7 @@ $(".searchInput").on("keydown", function(event) {
 
 <?php if($term == "") exit(); ?>
 
-<div class="borderBottom">
+<div class="borderBottom disable-select">
     <h2 class="centerHeader">SONGS</h2>
     <table>
         <?php
@@ -97,7 +97,7 @@ $(".searchInput").on("keydown", function(event) {
     </table>
 </div>
 
-<div class="artistsContainer borderBottom">
+<div class="artistsContainer borderBottom disable-select">
     <h2 class="centerHeader">ARTISTS</h2>
 
     <?php
@@ -125,7 +125,7 @@ $(".searchInput").on("keydown", function(event) {
     ?>
 </div>
 
-<div class="gridViewContainer">
+<div class="gridViewContainer disable-select">
     <h2 class="centerHeader">ALBUMS</h2>
     <?php 
         $albumQuery = mysqli_query($con, "SELECT * FROM albums WHERE title like '$term%' LIMIT 10");
