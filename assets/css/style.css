@@ -127,6 +127,7 @@ body {
 .button {
 	color: #fff;
 	cursor: pointer;
+	margin-top: 10px;
 	margin-bottom: 10px;
 	background-color: transparent;
 	font-weight: 700;
@@ -138,9 +139,23 @@ body {
 	padding-top: 4px;
 }
 
+.button:focus {
+	outline: none;
+}
+
+.button:hover {
+	transition: all 0.2s ease-in-out;
+	transform: scale(1.1);
+}
+
 .button.green {
 	background-color: #2ebd59;
 	border-color: #2ebd59;
+}
+
+.button.green:hover {
+	background-color: #46f079;
+	border-color: #46f079;
 }
 
 table {

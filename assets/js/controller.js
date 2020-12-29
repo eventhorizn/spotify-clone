@@ -19,12 +19,18 @@ var controllerClass = class Controller {
         const currentPlayId = this._nowPlayingView.getCurrentlyPlaying().id;
         this._nowPlayingView.playSong();
         this._albumView.playSong(currentPlayId);
+
+        $('.playButton').hide();
+        $('.pauseButton').show();
     }
 
     pauseSong() {
         const currentPlayId = this._nowPlayingView.getCurrentlyPlaying().id;
         this._nowPlayingView.pauseSong();
         this._albumView.pauseSong(currentPlayId);
+
+        $('.playButton').show();
+        $('.pauseButton').hide();
     }
 
     nextSong() {
@@ -40,6 +46,11 @@ var controllerClass = class Controller {
     }
 
     setTrack(trackId, newPlaylist, play) {
+        if (play) {
+            $('.playButton').hide();
+            $('.pauseButton').show();
+        }
+
         if (this._nowPlayingView.getCurrentPlayist() != newPlaylist ||
             trackId != this._nowPlayingView.getCurrentlyPlaying().id) {
             this._nowPlayingView.setTrack(trackId, newPlaylist, play, this.setCurrentPlaying.bind(this));
@@ -54,6 +65,11 @@ var controllerClass = class Controller {
             const isPlaying = !this._nowPlayingView.getAudioPaused();
             const currentPlayId = this._nowPlayingView.getCurrentlyPlaying().id;
             this._albumView.setCurrentPlaying(currentPlayId, isPlaying);
+
+            if (isPlaying) {
+                $('.playButton').hide();
+                $('.pauseButton').show();
+            }
         }
     }
 }

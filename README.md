@@ -21,6 +21,7 @@ Eh, on second thought, not great if you are using MySQL through XAMPP
 
 1. Refactoring
    - Remove jquery
+   - Move new pages (artist, search, your music, profile) to refactor design
 1. Progress green hover needs work, maybe up an element
    - Also needs to work when mouse down, sliding
 1. Left Nav
@@ -35,11 +36,11 @@ Eh, on second thought, not great if you are using MySQL through XAMPP
    - Artist and album
    - Picture goes to album
    - Album green
-1. Album page
-   - Play button
 1. Artist page
    - Sprucing up a bit (simple implementation)
    - Now playing highlight like album page
 1. Small one. when clicking the song on now playing
    - Already opens to album page
    - Do a highlight effect on selected song (css style)
+1. Play button pauses and plays
+   - But it will start at first song in playlist
