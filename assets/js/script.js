@@ -1,7 +1,12 @@
 var controller;
 var userLoggedIn;
+var timer;
 
 function openPage(url) {
+    if (!timer != null) {
+        clearTimeout(timer);
+    }
+
     if (url.indexOf('?') === -1) {
         url += "?";
     }

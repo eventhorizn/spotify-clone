@@ -21,8 +21,6 @@ $(".searchInput").val(val);
 
 
 $(function() {
-    let timer;
-
     $(".searchInput").keyup(function() {
         clearTimeout(timer);
 
@@ -41,16 +39,16 @@ $(".searchInput").on("keydown", function(event) {
 });
 </script>
 
+<?php if($term == "") exit(); ?>
+
 <div class="borderBottom">
     <h2 class="centerHeader">SONGS</h2>
     <table>
-
-
         <?php
         $songsQuery = mysqli_query($con, "SELECT id FROM songs WHERE title like '$term%' LIMIT 10");
 
         if (mysqli_num_rows($songsQuery) == 0) {
-            echo "<span class='noResults'>No songs found matching " . $term . "</span>"; 
+            echo "<span class='noResults'>No songs found matching '" . $term . "'</span>"; 
         } else {
             echo "
                 <tr>
@@ -106,7 +104,7 @@ $(".searchInput").on("keydown", function(event) {
         $artistsQuery = mysqli_query($con, "SELECT id FROM artists WHERE name LIKE '$term%' LIMIT 10");
 
         if (mysqli_num_rows($artistsQuery) == 0) {
-            echo "<span class='noResults'>No artists found matching " . $term . "</span>"; 
+            echo "<span class='noResults'>No artists found matching '" . $term . "'</span>"; 
         }
 
         while($row = mysqli_fetch_array($artistsQuery)) {
@@ -123,6 +121,30 @@ $(".searchInput").on("keydown", function(event) {
                     </div>
                 </div>
                 ";
+        }
+    ?>
+</div>
+
+<div class="gridViewContainer">
+    <h2 class="centerHeader">ALBUMS</h2>
+    <?php 
+        $albumQuery = mysqli_query($con, "SELECT * FROM albums WHERE title like '$term%' LIMIT 10");
+
+        if (mysqli_num_rows($albumQuery) == 0) {
+            echo "<span class='noResults'>No albums found matching '" . $term . "'</span>"; 
+        }
+
+        while($row = mysqli_fetch_array($albumQuery)) {
+           	echo "<div class='gridViewItem'>
+					<span onclick='openPage(\"album.php?id=" . $row['id'] . "\")'>
+						<img src='" . $row['artworkPath'] . "'>
+
+						<div class='gridViewInfo'>"
+							. $row['title'] .
+						"</div>
+					</span>
+
+				</div>";
         }
     ?>
 </div>
