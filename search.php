@@ -82,7 +82,7 @@ $(".searchInput").on("keydown", function(event) {
                     <span class='song-change'>$i</span>
                 </td>
                 <td class='disable-select song-change'>" . $albumSong->getTitle() . "</td>
-                <td class='disable-select'><img src='assets/images/icons/more.png'></td>
+                <td class='disable-select' onclick='showOptionsMenu(this)'><img src='assets/images/icons/more.png' class='optionsButton' ></td>
                 <td class='disable-select song-change'>" . $albumSong->getDuration() . "</td>
             </tr>";
 

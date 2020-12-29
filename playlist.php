@@ -66,7 +66,7 @@ $owner = new User($con, $playlist->getOwner());
                 <td class='disable-select song-change'>" . $playlistSong->getTitle() . "</td>
                 <td class='disable-select song-change'><label class='rowLink' onclick='openPage(\"artist.php?id=" . $playlistSong->getArtist()->getId() . "\")'>" . $playlistSong->getArtist()->getName() . "</label></td>
                 <td class='disable-select song-change'><label class='rowLink' onclick='openPage(\"album.php?id=" . $playlistSong->getAlbum()->getId() . "\")'>" . $playlistSong->getAlbum()->getTitle() . "</label></td>
-                <td class='disable-select'><img src='assets/images/icons/more.png'></td>
+                <td class='disable-select' onclick='showOptionsMenu(this)'><img src='assets/images/icons/more.png' class='optionsButton' ></td>
                 <td class='disable-select song-change'>" . $playlistSong->getDuration() . "</td>
             </tr>";
 

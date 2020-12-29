@@ -31,8 +31,6 @@ Eh, on second thought, not great if you are using MySQL through XAMPP
    - Right now, it scrolls the main container
    - I eventually want the scroll on volume to turn it up/down
 1. Full Screen
-1. Home Page (index) is just browse page
-   - Could do more, but I would need more content for it to look interesting
 1. Album update (browse, 'your music/albums')
    - Artist and album
    - Picture goes to album
@@ -48,4 +46,5 @@ Eh, on second thought, not great if you are using MySQL through XAMPP
 1. Add Playlist pop up instead of alert
 1. Something more clever on playlist pic
 1. Search page song results match playlist table
+1. Search page, something more interesting for artist
 1. Artist page listing, put album

@@ -60,7 +60,7 @@ $artist = $album->getArtist();
                     <span class='song-change'>$i</span>
                 </td>
                 <td class='disable-select song-change'>" . $albumSong->getTitle() . "</td>
-                <td class='disable-select'><img src='assets/images/icons/more.png'></td>
+                <td class='disable-select' onclick='showOptionsMenu(this)'><img src='assets/images/icons/more.png' class='optionsButton'></td>
                 <td class='disable-select song-change'>" . $albumSong->getDuration() . "</td>
             </tr>";
 
@@ -73,3 +73,10 @@ $artist = $album->getArtist();
     controller.setCurrentPlaying();
     </script>
 </table>
+
+<nav class="optionsMenu">
+    <input type="hidden" class="songId">
+    <?php echo Playlist::getPlaylistsDropdown($con, $userLoggedIn->getUsername()); ?>
+    <div class="item">Item 2</div>
+    <div class="item">Item 3</div>
+</nav>
