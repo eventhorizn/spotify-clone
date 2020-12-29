@@ -1,0 +1,23 @@
+.searchContainer {
+	background-color: #242424;
+	padding: 20px 28px;
+}
+
+.searchContainer h4 {
+	margin: 0;
+	font-weight: 300;
+}
+
+.searchContainer .searchInput {
+	width: 100%;
+	background-color: transparent;
+	border: none;
+	color: #fff;
+	font-weight: 700;
+	font-size: 40px;
+	letter-spacing: 2px;
+}
+
+input:focus {
+	outline: none;
+}
