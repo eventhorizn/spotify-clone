@@ -39,10 +39,11 @@ Eh, on second thought, not great if you are using MySQL through XAMPP
    - Album green
 1. Artist page
    - Sprucing up a bit (simple implementation)
-   - Now playing highlight like album page
+   - Artist header image (need to update database)
 1. Small one. when clicking the song on now playing
    - Already opens to album page
    - Do a highlight effect on selected song (css style)
 1. Play button pauses and plays
    - But it will start at first song in playlist
 1. Add Playlist pop up instead of alert
+1. Something more clever on playlist pic

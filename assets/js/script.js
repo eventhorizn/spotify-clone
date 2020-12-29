@@ -33,3 +33,19 @@ function createPlaylist() {
             });
     }
 }
+
+function deletePlaylist(playlistId) {
+    const prompt = confirm('Are you sure you want to delete this playlist?');
+
+    if (prompt) {
+        $.post("includes/handlers/ajax/deletePlaylist.php", { playlistId: playlistId })
+            .done(function (error) {
+                if (error != "") {
+                    alert(error);
+                    return;
+                }
+
+                openPage('yourMusic.php');
+            });
+    }
+}

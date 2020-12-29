@@ -1,0 +1,27 @@
+.playlistOwner {
+	color: #fff !important;
+}
+
+.deleteButton {
+	margin-left: 15px;
+}
+
+table tr .trackInfo {
+	width: 35%;
+	text-align: left;
+}
+
+table tr .trackArtist {
+	width: 20%;
+	text-align: left;
+}
+
+table tr .trackAlbum {
+	width: 20%;
+	text-align: left;
+}
+
+table tr .rowLink:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}

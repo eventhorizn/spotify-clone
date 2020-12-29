@@ -285,3 +285,8 @@ table tr:hover td img {
 	margin: 15px;
 	display: block;
 }
+
+.playlistImage {
+	border: 3px solid #282828;
+	padding: 10px;
+}
