@@ -29,7 +29,7 @@ $artist = $album->getArtist();
         <p class="disable-select"><?php echo $album->getNumberOfSongs(); ?> Songs</p>
         <div class="headerButtons">
             <button class="button green playButton"
-                onclick="controller.setTrack(tempPlaylist[0], tempPlaylist, true)">PLAY</button>
+                onclick="controller.playFromArtistAlbum(tempPlaylist[0], tempPlaylist, true)">PLAY</button>
             <button class="button green pauseButton" style="display: none"
                 onclick="controller.pauseSong()">PAUSE</button>
         </div>

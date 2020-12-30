@@ -32,18 +32,12 @@ Eh, on second thought, not great if you are using MySQL through XAMPP
    - Right now, it scrolls the main container
    - I eventually want the scroll on volume to turn it up/down
 1. Full Screen
-1. Album update (browse, 'your music/albums')
-   - Artist and album
-   - Picture goes to album
-   - Album green
 1. Artist page
    - Sprucing up a bit (simple implementation)
    - Artist header image (need to update database)
 1. Small one. when clicking the song on now playing
    - Already opens to album page
    - Do a highlight effect on selected song (css style)
-1. Play button pauses and plays
-   - But it will start at first song in playlist
 1. Add Playlist pop up instead of alert
 1. Something more clever on playlist pic
 1. Search page, something more interesting for artist

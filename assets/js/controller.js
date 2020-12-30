@@ -60,6 +60,20 @@ var controllerClass = class Controller {
         }
     }
 
+    playFromArtistAlbum(trackId, newPlaylist, play) {
+        if (play) {
+            $('.playButton').hide();
+            $('.pauseButton').show();
+        }
+
+        if (this._nowPlayingView.getCurrentPlayist() != newPlaylist) {
+            this._nowPlayingView.setTrack(trackId, newPlaylist, play, this.setCurrentPlaying.bind(this));
+            ;
+        } else {
+            this.playSong();
+        }
+    }
+
     setCurrentPlaying() {
         if (this._nowPlayingView.getCurrentlyPlaying()) {
             const isPlaying = !this._nowPlayingView.getAudioPaused();
