@@ -2,6 +2,7 @@ var controller;
 var userLoggedIn;
 var timer;
 
+// TODO Put in playlist class
 $(document).click(function (click) {
     const target = $(click.target);
 
@@ -12,6 +13,17 @@ $(document).click(function (click) {
 
 $(window).scroll(function () {
     hideOptionsMenu();
+});
+
+$(document).on('change', 'select.playlist', function () {
+    const select = $(this);
+    const playlistId = select.val(); //contains id of playlist
+    const songId = select.prev('.songId').val();
+
+    $.post('includes/handlers/ajax/addToPlaylist.php', { playlistId: playlistId, songId: songId }).done(function () {
+        hideOptionsMenu();
+        select.val('');
+    });
 });
 
 function openPage(url) {
@@ -30,10 +42,14 @@ function openPage(url) {
 }
 
 function showOptionsMenu(button) {
+    const songIdInput = $(button).children('.songId')[0];
+    const songId = $(songIdInput).val();
     const menu = $('.optionsMenu');
     // Distance from top of window to top of document
     const scrollTop = $(window).scrollTop();
     const elOffset = $(button).offset().top;
+
+    menu.find('.songId').val(songId);
 
     const top = elOffset - scrollTop;
     const left = $(button).position().left + 45;
@@ -53,6 +69,20 @@ function hideOptionsMenu() {
 }
 
 //TODO: Make standalong playlistView.js
+function removeFromPlaylist(button, playlistId) {
+    const songId = $(button).prevAll('.songId').val();
+
+    $.post("includes/handlers/ajax/removeFromPlaylist.php", { playlistId: playlistId, songId: songId })
+        .done(function (error) {
+            if (error != "") {
+                alert(error);
+                return;
+            }
+
+            openPage(`playlist.php?id=${playlistId}`);
+        });
+}
+
 function createPlaylist() {
     const popup = prompt('Please enter the name of your playlist');
 

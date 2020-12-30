@@ -64,9 +64,12 @@ $owner = new User($con, $playlist->getOwner());
                     <span class='song-change'>$i</span>
                 </td>
                 <td class='disable-select song-change'>" . $playlistSong->getTitle() . "</td>
-                <td class='disable-select song-change'><label class='rowLink' onclick='openPage(\"artist.php?id=" . $playlistSong->getArtist()->getId() . "\")'>" . $playlistSong->getArtist()->getName() . "</label></td>
-                <td class='disable-select song-change'><label class='rowLink' onclick='openPage(\"album.php?id=" . $playlistSong->getAlbum()->getId() . "\")'>" . $playlistSong->getAlbum()->getTitle() . "</label></td>
-                <td class='disable-select' onclick='showOptionsMenu(this)'><img src='assets/images/icons/more.png' class='optionsButton' ></td>
+                <td class='disable-select'><label class='rowLink song-change' onclick='openPage(\"artist.php?id=" . $playlistSong->getArtist()->getId() . "\")'>" . $playlistSong->getArtist()->getName() . "</label></td>
+                <td class='disable-select'><label class='rowLink song-change' onclick='openPage(\"album.php?id=" . $playlistSong->getAlbum()->getId() . "\")'>" . $playlistSong->getAlbum()->getTitle() . "</label></td>
+                <td class='disable-select' onclick='showOptionsMenu(this)'>
+                    <input type='hidden' class='songId' value='" . $playlistSong->getId() . "'>
+                    <img src='assets/images/icons/more.png' class='optionsButton' >
+                </td>
                 <td class='disable-select song-change'>" . $playlistSong->getDuration() . "</td>
             </tr>";
 
@@ -79,3 +82,9 @@ $owner = new User($con, $playlist->getOwner());
     controller.setCurrentPlaying();
     </script>
 </table>
+
+<nav class="optionsMenu">
+    <input type="hidden" class="songId">
+    <?php echo Playlist::getPlaylistsDropdown($con, $userLoggedIn->getUsername()); ?>
+    <div class="item" onclick="removeFromPlaylist(this, '<?php echo $playlistId ?>')">Remove from Playlist</div>
+</nav>

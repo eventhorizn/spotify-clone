@@ -22,7 +22,6 @@ var albumView = class AlbumView {
         const allEls = document.getElementsByClassName('song-change');
         for (let i = 0; i < allEls.length; i++) {
             allEls[i].classList.remove('currentSong');
-
         }
 
         const allPlays = document.getElementsByClassName('play-row');

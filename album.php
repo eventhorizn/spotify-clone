@@ -60,7 +60,10 @@ $artist = $album->getArtist();
                     <span class='song-change'>$i</span>
                 </td>
                 <td class='disable-select song-change'>" . $albumSong->getTitle() . "</td>
-                <td class='disable-select' onclick='showOptionsMenu(this)'><img src='assets/images/icons/more.png' class='optionsButton'></td>
+                <td class='disable-select' onclick='showOptionsMenu(this)'>
+                    <input type='hidden' class='songId' value='" . $albumSong->getId() . "'>
+                    <img src='assets/images/icons/more.png' class='optionsButton'>
+                </td>
                 <td class='disable-select song-change'>" . $albumSong->getDuration() . "</td>
             </tr>";
 
@@ -77,6 +80,4 @@ $artist = $album->getArtist();
 <nav class="optionsMenu">
     <input type="hidden" class="songId">
     <?php echo Playlist::getPlaylistsDropdown($con, $userLoggedIn->getUsername()); ?>
-    <div class="item">Item 2</div>
-    <div class="item">Item 3</div>
 </nav>
