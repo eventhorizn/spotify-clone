@@ -123,4 +123,8 @@ var controllerClass = class Controller {
     updateEmail(emailClass) {
         this._profileView.updateEmail(emailClass);
     }
+
+    updatePassword(oldPasswordClass, newPasswordClass1, newPasswordClass2) {
+        this._profileView.updatePassword(oldPasswordClass, newPasswordClass1, newPasswordClass2);
+    }
 }
