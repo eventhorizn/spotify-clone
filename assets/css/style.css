@@ -352,3 +352,7 @@ table tr:hover td img {
 .optionsMenu select:focus {
 	outline: none;
 }
+
+.userInfo h1 {
+	text-align: center;
+}

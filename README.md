@@ -33,7 +33,9 @@ Eh, on second thought, not great if you are using MySQL through XAMPP
    - Already opens to album page
    - Do a highlight effect on selected song (css style)
 1. Add Playlist pop up instead of alert
-1. Highlight selected menu item
 1. Full Screen
 1. Search page, something more interesting for artist
+   - Inspiration from spotify
 1. Something more clever on playlist pic
+1. Profile page more like spotify
+   - Just take a look at that and try to implement (lot of work)

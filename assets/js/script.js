@@ -58,3 +58,9 @@ function _resetMenu() {
         el.classList.remove('currentMenu');
     });
 }
+
+function logout() {
+    $.post("includes/handlers/ajax/logout.php", function () {
+        location.reload();
+    });
+}

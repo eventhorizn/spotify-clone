@@ -23,7 +23,8 @@
                     Music</span>
             </div>
             <div class="navItem disable-select">
-                <span id="profileNav" class="navItemLink" onclick="openPage('profile.php')">Gary Hake</span>
+                <span id="profileNav" class="navItemLink"
+                    onclick="openPage('profile.php')"><?php echo $userLoggedIn->getFirstLastName(); ?></span>
             </div>
         </div>
 
