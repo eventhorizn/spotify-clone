@@ -293,6 +293,10 @@ table tr:hover td img {
 	color: #07d159;
 }
 
+.currentMenu {
+	color: #07d159 !important;
+}
+
 .centerHeader {
 	text-align: center;
 }
