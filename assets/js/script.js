@@ -38,7 +38,7 @@ function highlightMenu(url) {
         const navMenuItem = document.getElementById('yourMusicNav');
         navMenuItem.classList.add('currentMenu');
     }
-    if (url.includes('profile')) {
+    if (url.includes('profile') || url.includes('updateProfile')) {
         const navMenuItem = document.getElementById('profileNav');
         navMenuItem.classList.add('currentMenu');
     }

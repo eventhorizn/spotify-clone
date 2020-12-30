@@ -8,7 +8,7 @@ include("includes/includedFiles.php");
         <input type="text" class="email" name="email" placeholder="Email address..."
             value="<?php echo $userLoggedIn->getEmail(); ?>">
         <span class="message"></span>
-        <button class="button" onclick="">SAVE</button>
+        <button class="button" onclick="controller.updateEmail('email')">SAVE</button>
     </div>
 
     <div class="container">

@@ -12,6 +12,6 @@ include("includes/includedFiles.php");
 
     <div class="buttonItems">
         <button class="button" onclick="openPage('updateProfile.php')">USER DETAILS</button>
-        <button class="button" onclick="logout()">LOGOUT</button>
+        <button class="button" onclick="controller.logout()">LOGOUT</button>
     </div>
 </div>

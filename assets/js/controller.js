@@ -2,11 +2,13 @@ var controllerClass = class Controller {
     _nowPlayingView;
     _albumView;
     _playlistView;
+    _profileView;
 
     constructor(playlist) {
         this._nowPlayingView = new nowPlayingView(playlist, this.setCurrentPlaying.bind(this));
         this._albumView = new albumView();
         this._playlistView = new playlistViewClass();
+        this._profileView = new profileViewClass();
     }
 
     setShuffle() {
@@ -112,5 +114,13 @@ var controllerClass = class Controller {
 
     deletePlaylist(playlistId) {
         this._playlistView.deletePlaylist(playlistId);
+    }
+
+    logout() {
+        this._profileView.logout();
+    }
+
+    updateEmail(emailClass) {
+        this._profileView.updateEmail(emailClass);
     }
 }
