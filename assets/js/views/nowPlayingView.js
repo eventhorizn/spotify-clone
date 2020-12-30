@@ -64,6 +64,24 @@ var nowPlayingView = class NowPlayingView {
             }
         });
 
+        $(".volumeBar .progressBar").bind("wheel", function (e) {
+            e.preventDefault();
+
+            let volume = thisClass._audioElement.getAudio().volume * 100;
+
+            if (e.originalEvent.deltaY < 0) {
+                volume += 5;
+            } else {
+                volume -= 5;
+            }
+
+            volume = volume / 100;
+
+            if (volume >= 0 && volume <= 1) {
+                thisClass._audioElement.getAudio().volume = volume;
+            }
+        });
+
         $(document).mouseup(function () {
             thisClass._mouseDown = false;
         });

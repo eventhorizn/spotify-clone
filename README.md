@@ -31,14 +31,13 @@ Eh, on second thought, not great if you are using MySQL through XAMPP
 1. Scroll needs to be contextual
    - Right now, it scrolls the main container
    - I eventually want the scroll on volume to turn it up/down
-1. Full Screen
 1. Artist page
-   - Sprucing up a bit (simple implementation)
    - Artist header image (need to update database)
 1. Small one. when clicking the song on now playing
    - Already opens to album page
    - Do a highlight effect on selected song (css style)
 1. Add Playlist pop up instead of alert
-1. Something more clever on playlist pic
-1. Search page, something more interesting for artist
 1. Highlight selected menu item
+1. Full Screen
+1. Search page, something more interesting for artist
+1. Something more clever on playlist pic
