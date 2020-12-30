@@ -32,6 +32,7 @@ $artist = new Artist($con, $artistId);
         <tr>
             <th class="trackCount disable-select">#</th>
             <th class="trackInfo disable-select">TITLE</th>
+            <th class="trackAlbum disable-select">ALBUM</th>
             <th class="trackOptions"></th>
             <th class="trackDuration"><i class="icofont-clock-time"></i></th>
         </tr>
@@ -57,6 +58,7 @@ $artist = new Artist($con, $artistId);
                     <span class='song-change'>$i</span>
                 </td>
                 <td class='disable-select song-change'>" . $albumSong->getTitle() . "</td>
+                <td class='disable-select'><label class='rowLink song-change' onclick='openPage(\"album.php?id=" . $albumSong->getAlbum()->getId() . "\")'>" . $albumSong->getAlbum()->getTitle() . "</label></td>
                 <td class='disable-select' onclick='showOptionsMenu(this)'>
                     <input type='hidden' class='songId' value='" . $albumSong->getId() . "'>
                     <img src='assets/images/icons/more.png' class='optionsButton'>
