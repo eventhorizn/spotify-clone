@@ -71,12 +71,20 @@ body {
 	margin-top: 5px;
 }
 
-.gridViewItem span {
-	color: #2ebd59;
+.gridViewItem .album-change {
 	font-weight: 600;
 }
 
-.gridViewInfo span:hover {
+.gridViewInfo .album-change:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.gridViewItem .artist-name {
+	color: #939393;
+}
+
+.gridViewInfo .artist-name:hover {
 	cursor: pointer;
 	text-decoration: underline;
 }
@@ -280,7 +288,8 @@ table tr:hover td img {
 	visibility: visible;
 }
 
-.currentSong {
+.currentSong,
+.currentAlbum {
 	color: #07d159;
 }
 

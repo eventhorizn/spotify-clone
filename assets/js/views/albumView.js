@@ -36,6 +36,24 @@ var albumView = class AlbumView {
         }
     }
 
+    setCurrentPlayingAlbum(albumId) {
+        this._resetAllAlbums();
+
+        const currentAlbum = document.getElementById(`${Number(albumId)}`);
+        if (currentAlbum && currentAlbum.classList.contains('album-change')) {
+            currentAlbum.classList.add('currentAlbum');
+        }
+
+    }
+
+    _resetAllAlbums() {
+        const allEls = document.getElementsByClassName('album-change');
+        for (let i = 0; i < allEls.length; i++) {
+            allEls[i].classList.remove('currentAlbum');
+        }
+    }
+
+
     playSong(albumSongId) {
         const currentPlayRow = document.getElementById(`${Number(albumSongId)}`);
 

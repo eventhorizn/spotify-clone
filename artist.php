@@ -42,11 +42,6 @@ $artist = new Artist($con, $artistId);
         $i = 1;
 
         foreach($songIdArray as $songId) {
-
-            if ($i > 5) {
-                break;
-            }
-
             $albumSong = new Song($con, $songId);
             $albumArtist = $albumSong->getArtist();
 

@@ -142,13 +142,22 @@ $(".searchInput").on("keydown", function(event) {
         }
 
         while($row = mysqli_fetch_array($albumQuery)) {
-           	echo "<div class='gridViewItem'>
-					<span onclick='openPage(\"album.php?id=" . $row['id'] . "\")'>
-						<img src='" . $row['artworkPath'] . "'>
+			$artist = new Artist($con, $row['artist']);
 
-						<div class='gridViewInfo'>"
+           	echo "<div class='gridViewItem'>
+					<span>
+						<img src='" . $row['artworkPath'] . "' onclick='openPage(\"album.php?id=" . $row['id'] . "\")'>
+
+						<div class='gridViewInfo'>
+							<span id='" . $row['id'] . "' class='album-change' onclick='openPage(\"album.php?id=" . $row['id'] . "\")'>"
 							. $row['title'] .
-						"</div>
+						"	</span>
+						</div>
+						<div class='gridViewInfo'>
+							<span class='artist-name' onclick='openPage(\"artist.php?id=" . $artist->getId() . "\")'>"
+							. $artist->getName() .
+						"	</span>
+						</div>
 					</span>
 
 				</div>";
@@ -160,3 +169,7 @@ $(".searchInput").on("keydown", function(event) {
     <input type="hidden" class="songId">
     <?php echo Playlist::getPlaylistsDropdown($con, $userLoggedIn->getUsername()); ?>
 </nav>
+
+<script>
+controller.setCurrentAlbumPlaying();
+</script>

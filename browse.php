@@ -2,7 +2,6 @@
 include("includes/includedFiles.php");
 ?>
 
-
 <h1 class="pageHeadingBig disable-select ">You Might Also Like</h1>
 
 <div class="gridViewContainer">
@@ -10,13 +9,20 @@ include("includes/includedFiles.php");
         $albumQuery = mysqli_query($con, "SELECT * FROM albums LIMIT 10");
 
         while($row = mysqli_fetch_array($albumQuery)) {
+			$artist = new Artist($con, $row['artist']);
+
            	echo "<div class='gridViewItem'>
-					<span onclick='openPage(\"album.php?id=" . $row['id'] . "\")'>
-						<img src='" . $row['artworkPath'] . "'>
+					<span>
+						<img src='" . $row['artworkPath'] . "' onclick='openPage(\"album.php?id=" . $row['id'] . "\")'>
 
 						<div class='gridViewInfo'>
-							<span>"
+							<span id='" . $row['id'] . "' class='album-change' onclick='openPage(\"album.php?id=" . $row['id'] . "\")'>"
 							. $row['title'] .
+						"	</span>
+						</div>
+						<div class='gridViewInfo'>
+							<span class='artist-name' onclick='openPage(\"artist.php?id=" . $artist->getId() . "\")'>"
+							. $artist->getName() .
 						"	</span>
 						</div>
 					</span>
@@ -25,3 +31,7 @@ include("includes/includedFiles.php");
         }
     ?>
 </div>
+
+<script>
+controller.setCurrentAlbumPlaying();
+</script>

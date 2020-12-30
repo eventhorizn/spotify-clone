@@ -64,12 +64,19 @@ var controllerClass = class Controller {
         if (this._nowPlayingView.getCurrentlyPlaying()) {
             const isPlaying = !this._nowPlayingView.getAudioPaused();
             const currentPlayId = this._nowPlayingView.getCurrentlyPlaying().id;
+            const currentAlbum = this._nowPlayingView.getCurrentlyPlaying().album;
             this._albumView.setCurrentPlaying(currentPlayId, isPlaying);
+            this._albumView.setCurrentPlayingAlbum(currentAlbum);
 
             if (isPlaying) {
                 $('.playButton').hide();
                 $('.pauseButton').show();
             }
         }
+    }
+
+    setCurrentAlbumPlaying() {
+        const currentAlbum = this._nowPlayingView.getCurrentlyPlaying().album;
+        this._albumView.setCurrentPlayingAlbum(currentAlbum);
     }
 }

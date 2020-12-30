@@ -21,6 +21,7 @@ Eh, on second thought, not great if you are using MySQL through XAMPP
 
 1. Refactoring
    - Move new pages (artist, search, your music, profile) to refactor design
+   - Create sub php files for shared components
 1. Progress green hover needs work, maybe up an element
    - Also needs to work when mouse down, sliding
 1. Left Nav
@@ -46,3 +47,4 @@ Eh, on second thought, not great if you are using MySQL through XAMPP
 1. Add Playlist pop up instead of alert
 1. Something more clever on playlist pic
 1. Search page, something more interesting for artist
+1. Highlight selected menu item
