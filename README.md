@@ -45,6 +45,4 @@ Eh, on second thought, not great if you are using MySQL through XAMPP
    - But it will start at first song in playlist
 1. Add Playlist pop up instead of alert
 1. Something more clever on playlist pic
-1. Search page song results match playlist table
 1. Search page, something more interesting for artist
-1. Artist page listing, put album

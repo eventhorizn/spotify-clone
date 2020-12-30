@@ -63,11 +63,22 @@ body {
 
 .gridViewInfo {
 	font-weight: 300;
-	text-align: center;
+	text-align: left;
 	padding: 5px 0;
 	text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: nowrap;
+	margin-top: 5px;
+}
+
+.gridViewItem span {
+	color: #2ebd59;
+	font-weight: 600;
+}
+
+.gridViewInfo span:hover {
+	cursor: pointer;
+	text-decoration: underline;
 }
 
 .gridViewItem a {

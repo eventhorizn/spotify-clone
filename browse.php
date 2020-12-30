@@ -14,9 +14,11 @@ include("includes/includedFiles.php");
 					<span onclick='openPage(\"album.php?id=" . $row['id'] . "\")'>
 						<img src='" . $row['artworkPath'] . "'>
 
-						<div class='gridViewInfo'>"
+						<div class='gridViewInfo'>
+							<span>"
 							. $row['title'] .
-						"</div>
+						"	</span>
+						</div>
 					</span>
 
 				</div>";
