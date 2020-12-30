@@ -33,7 +33,7 @@ $owner = new User($con, $playlist->getOwner());
                 onclick="controller.playFromArtistAlbum(tempPlaylist[0], tempPlaylist, true)">PLAY</button>
             <button class="button green pauseButton" style="display: none"
                 onclick="controller.pauseSong()">PAUSE</button>
-            <button class="button deleteButton" onclick="deletePlaylist('<?php echo $playlistId; ?>')">DELETE
+            <button class="button deleteButton" onclick="controller.deletePlaylist('<?php echo $playlistId; ?>')">DELETE
                 PLAYLIST</button>
         </div>
     </div>
@@ -66,7 +66,7 @@ $owner = new User($con, $playlist->getOwner());
                 <td class='disable-select song-change'>" . $playlistSong->getTitle() . "</td>
                 <td class='disable-select'><label class='rowLink song-change' onclick='openPage(\"artist.php?id=" . $playlistSong->getArtist()->getId() . "\")'>" . $playlistSong->getArtist()->getName() . "</label></td>
                 <td class='disable-select'><label class='rowLink song-change' onclick='openPage(\"album.php?id=" . $playlistSong->getAlbum()->getId() . "\")'>" . $playlistSong->getAlbum()->getTitle() . "</label></td>
-                <td class='disable-select' onclick='showOptionsMenu(this)'>
+                <td class='disable-select' onclick='controller.showOptionsMenu(this)'>
                     <input type='hidden' class='songId' value='" . $playlistSong->getId() . "'>
                     <img src='assets/images/icons/more.png' class='optionsButton' >
                 </td>
@@ -86,5 +86,6 @@ $owner = new User($con, $playlist->getOwner());
 <nav class="optionsMenu">
     <input type="hidden" class="songId">
     <?php echo Playlist::getPlaylistsDropdown($con, $userLoggedIn->getUsername()); ?>
-    <div class="item" onclick="removeFromPlaylist(this, '<?php echo $playlistId ?>')">Remove from Playlist</div>
+    <div class="item" onclick="controller.removeFromPlaylist(this, '<?php echo $playlistId ?>')">Remove from Playlist
+    </div>
 </nav>

@@ -28,9 +28,6 @@ Eh, on second thought, not great if you are using MySQL through XAMPP
    - Your music now, eventually albums and artists
    - Your music is just playlists
    - Will need to add tables for albums and artists
-1. Scroll needs to be contextual
-   - Right now, it scrolls the main container
-   - I eventually want the scroll on volume to turn it up/down
 1. Artist page
    - Artist header image (need to update database)
 1. Small one. when clicking the song on now playing

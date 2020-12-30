@@ -54,7 +54,7 @@ $artist = new Artist($con, $artistId);
                 </td>
                 <td class='disable-select song-change'>" . $albumSong->getTitle() . "</td>
                 <td class='disable-select'><label class='rowLink song-change' onclick='openPage(\"album.php?id=" . $albumSong->getAlbum()->getId() . "\")'>" . $albumSong->getAlbum()->getTitle() . "</label></td>
-                <td class='disable-select' onclick='showOptionsMenu(this)'>
+                <td class='disable-select' onclick='controller.showOptionsMenu(this)'>
                     <input type='hidden' class='songId' value='" . $albumSong->getId() . "'>
                     <img src='assets/images/icons/more.png' class='optionsButton'>
                 </td>
@@ -68,6 +68,7 @@ $artist = new Artist($con, $artistId);
         var tempSongIds = '<?php echo json_encode($songIdArray);?>'
         tempPlaylist = JSON.parse(tempSongIds);
         controller.setCurrentPlaying();
+        controller.setCurrentAlbumPlaying();
         </script>
     </table>
 </div>
@@ -78,13 +79,22 @@ $artist = new Artist($con, $artistId);
         $albumQuery = mysqli_query($con, "SELECT * FROM albums WHERE artist='$artistId'");
 
         while($row = mysqli_fetch_array($albumQuery)) {
-           	echo "<div class='gridViewItem'>
-					<span onclick='openPage(\"album.php?id=" . $row['id'] . "\")'>
-						<img src='" . $row['artworkPath'] . "'>
+            $artist = new Artist($con, $row['artist']);
 
-						<div class='gridViewInfo'>"
+            echo "<div class='gridViewItem'>
+					<span>
+						<img src='" . $row['artworkPath'] . "' onclick='openPage(\"album.php?id=" . $row['id'] . "\")'>
+
+						<div class='gridViewInfo'>
+							<span id='" . $row['id'] . "' class='album-change' onclick='openPage(\"album.php?id=" . $row['id'] . "\")'>"
 							. $row['title'] .
-						"</div>
+						"	</span>
+						</div>
+						<div class='gridViewInfo'>
+							<span class='artist-name' onclick='openPage(\"artist.php?id=" . $artist->getId() . "\")'>"
+							. $artist->getName() .
+						"	</span>
+						</div>
 					</span>
 
 				</div>";

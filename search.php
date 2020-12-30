@@ -86,7 +86,7 @@ $(".searchInput").on("keydown", function(event) {
                 <td class='disable-select song-change'>" . $albumSong->getTitle() . "</td>
                 <td class='disable-select'><label class='rowLink song-change' onclick='openPage(\"artist.php?id=" . $albumSong->getArtist()->getId() . "\")'>" . $albumSong->getArtist()->getName() . "</label></td>
                 <td class='disable-select'><label class='rowLink song-change' onclick='openPage(\"album.php?id=" . $albumSong->getAlbum()->getId() . "\")'>" . $albumSong->getAlbum()->getTitle() . "</label></td>
-                <td class='disable-select' onclick='showOptionsMenu(this)'>
+                <td class='disable-select' onclick='controller.showOptionsMenu(this)'>
                     <input type='hidden' class='songId' value='" . $albumSong->getId() . "'>
                     <img src='assets/images/icons/more.png' class='optionsButton'>
                 </td>

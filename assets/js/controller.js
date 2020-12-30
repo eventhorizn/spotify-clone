@@ -1,10 +1,12 @@
 var controllerClass = class Controller {
     _nowPlayingView;
     _albumView;
+    _playlistView;
 
     constructor(playlist) {
         this._nowPlayingView = new nowPlayingView(playlist, this.setCurrentPlaying.bind(this));
         this._albumView = new albumView();
+        this._playlistView = new playlistViewClass();
     }
 
     setShuffle() {
@@ -90,7 +92,25 @@ var controllerClass = class Controller {
     }
 
     setCurrentAlbumPlaying() {
-        const currentAlbum = this._nowPlayingView.getCurrentlyPlaying().album;
-        this._albumView.setCurrentPlayingAlbum(currentAlbum);
+        if (this._nowPlayingView.getCurrentlyPlaying()) {
+            const currentAlbum = this._nowPlayingView.getCurrentlyPlaying().album;
+            this._albumView.setCurrentPlayingAlbum(currentAlbum);
+        }
+    }
+
+    showOptionsMenu(button) {
+        this._playlistView.showOptionsMenu(button);
+    }
+
+    removeFromPlaylist(button, playlistId) {
+        this._playlistView.removeFromPlaylist(button, playlistId);
+    }
+
+    createPlaylist() {
+        this._playlistView.createPlaylist();
+    }
+
+    deletePlaylist(playlistId) {
+        this._playlistView.deletePlaylist(playlistId);
     }
 }

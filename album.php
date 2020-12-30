@@ -60,7 +60,7 @@ $artist = $album->getArtist();
                     <span class='song-change'>$i</span>
                 </td>
                 <td class='disable-select song-change'>" . $albumSong->getTitle() . "</td>
-                <td class='disable-select' onclick='showOptionsMenu(this)'>
+                <td class='disable-select' onclick='controller.showOptionsMenu(this)'>
                     <input type='hidden' class='songId' value='" . $albumSong->getId() . "'>
                     <img src='assets/images/icons/more.png' class='optionsButton'>
                 </td>
