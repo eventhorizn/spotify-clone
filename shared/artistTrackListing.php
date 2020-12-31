@@ -14,7 +14,7 @@
 
         <tr id="<?=$song->getId()?>" class="hoverRow">
             <td class="disable-select">
-                <i class="icofont-play-alt-2 play-row" onclick="controller. setTrack(<?=$song->getId()?>, tempPlaylist, true)"></i>
+                <i class="icofont-play-alt-2 play-row" onclick="controller.setTrack(<?=$song->getId()?>, tempPlaylist, true)"></i>
                 <i class="icofont-pause pause-row" onclick="controller.pauseSong()" style="display: none"></i>
                 <span class="song-change"><?=$i?></span>
             </td>
