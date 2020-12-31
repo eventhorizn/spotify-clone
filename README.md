@@ -39,3 +39,6 @@ Eh, on second thought, not great if you are using MySQL through XAMPP
 1. Something more clever on playlist pic
 1. Profile page more like spotify
    - Just take a look at that and try to implement (lot of work)
+1. Look at PDO replacement for mysql
+   - [Official Doc](https://www.php.net/manual/en/book.pdo.php)
+   - [Linked-in Link](https://www.linkedin.com/pulse/why-should-you-switch-pdo-from-mysql-mysqli-diwaker-mishra/)
