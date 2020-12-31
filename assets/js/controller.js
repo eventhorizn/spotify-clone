@@ -1,12 +1,14 @@
 var controllerClass = class Controller {
     _nowPlayingView;
     _albumView;
+    _searchView;
     _playlistView;
     _profileView;
 
     constructor(playlist) {
         this._nowPlayingView = new nowPlayingView(playlist, this.setCurrentPlaying.bind(this));
         this._albumView = new albumView();
+        this._searchView = new searchViewClass();
         this._playlistView = new playlistViewClass();
         this._profileView = new profileViewClass();
     }
@@ -126,5 +128,9 @@ var controllerClass = class Controller {
 
     updatePassword(oldPasswordClass, newPasswordClass1, newPasswordClass2) {
         this._profileView.updatePassword(oldPasswordClass, newPasswordClass1, newPasswordClass2);
+    }
+
+    searchViewInit() {
+        this._searchView.init();
     }
 }

@@ -36,6 +36,7 @@ if (isset($_SESSION['userLoggedIn'])) {
     <script src="assets/js/classes/audio.js"></script>
     <script src="assets/js/views/nowPlayingView.js"></script>
     <script src="assets/js/views/albumView.js"></script>
+    <script src="assets/js/views/searchView.js"></script>
     <script src="assets/js/views/playlistView.js"></script>
     <script src="assets/js/views/profileView.js"></script>
 </head>

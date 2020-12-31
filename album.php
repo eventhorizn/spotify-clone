@@ -36,48 +36,7 @@ $artist = $album->getArtist();
     </div>
 </div>
 
-<table>
-    <tr>
-        <th class="trackCount disable-select">#</th>
-        <th class="trackInfo disable-select">TITLE</th>
-        <th class="trackOptions"></th>
-        <th class="trackDuration"><i class="icofont-clock-time"></i></th>
-    </tr>
+<?php $songIdArray = $album->getSongIds();?>
+<?php include("shared/albumTrackListing.php"); ?>
 
-    <?php
-        $songIdArray = $album->getSongIds();
-        $i = 1;
-
-        foreach($songIdArray as $songId) {
-            $albumSong = new Song($con, $songId);
-            $albumArtist = $albumSong->getArtist();
-
-            echo "
-            <tr id='" . $albumSong->getId() . "' class='hoverRow'>
-                <td class='disable-select'>
-                    <i class='icofont-play-alt-2 play-row' onclick='controller.setTrack(\"" . $albumSong->getId() . "\", tempPlaylist, true)'></i>
-                    <i class='icofont-pause pause-row' onclick='controller.pauseSong()' style='display: none'></i>
-                    <span class='song-change'>$i</span>
-                </td>
-                <td class='disable-select song-change'>" . $albumSong->getTitle() . "</td>
-                <td class='disable-select' onclick='controller.showOptionsMenu(this)'>
-                    <input type='hidden' class='songId' value='" . $albumSong->getId() . "'>
-                    <img src='assets/images/icons/more.png' class='optionsButton'>
-                </td>
-                <td class='disable-select song-change'>" . $albumSong->getDuration() . "</td>
-            </tr>";
-
-            $i++;
-        }
-    ?>
-    <script>
-    var tempSongIds = '<?php echo json_encode($songIdArray);?>'
-    tempPlaylist = JSON.parse(tempSongIds);
-    controller.setCurrentPlaying();
-    </script>
-</table>
-
-<nav class="optionsMenu">
-    <input type="hidden" class="songId">
-    <?php echo Playlist::getPlaylistsDropdown($con, $userLoggedIn->getUsername()); ?>
-</nav>
+<?php include("shared/optionsMenu.php")?>

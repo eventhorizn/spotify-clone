@@ -28,81 +28,16 @@ $artist = new Artist($con, $artistId);
 
 <div class="borderBottom">
     <h2 class="centerHeader">SONGS</h2>
-    <table>
-        <tr>
-            <th class="trackCount disable-select">#</th>
-            <th class="trackInfo disable-select">TITLE</th>
-            <th class="trackAlbum disable-select">ALBUM</th>
-            <th class="trackOptions"></th>
-            <th class="trackDuration"><i class="icofont-clock-time"></i></th>
-        </tr>
-
-        <?php
-        $songIdArray = $artist->getSongIds();
-        $i = 1;
-
-        foreach($songIdArray as $songId) {
-            $albumSong = new Song($con, $songId);
-            $albumArtist = $albumSong->getArtist();
-
-            echo "
-            <tr id='" . $albumSong->getId() . "' class='hoverRow'>
-                <td class='disable-select'>
-                    <i class='icofont-play-alt-2 play-row' onclick='controller.setTrack(\"" . $albumSong->getId() . "\", tempPlaylist, true)'></i>
-                    <i class='icofont-pause pause-row' onclick='controller.pauseSong()' style='display: none'></i>
-                    <span class='song-change'>$i</span>
-                </td>
-                <td class='disable-select song-change'>" . $albumSong->getTitle() . "</td>
-                <td class='disable-select'><label class='rowLink song-change' onclick='openPage(\"album.php?id=" . $albumSong->getAlbum()->getId() . "\")'>" . $albumSong->getAlbum()->getTitle() . "</label></td>
-                <td class='disable-select' onclick='controller.showOptionsMenu(this)'>
-                    <input type='hidden' class='songId' value='" . $albumSong->getId() . "'>
-                    <img src='assets/images/icons/more.png' class='optionsButton'>
-                </td>
-                <td class='disable-select song-change'>" . $albumSong->getDuration() . "</td>
-            </tr>";
-
-            $i++;
-        }
-    ?>
-        <script>
-        var tempSongIds = '<?php echo json_encode($songIdArray);?>'
-        tempPlaylist = JSON.parse(tempSongIds);
-        controller.setCurrentPlaying();
-        controller.setCurrentAlbumPlaying();
-        </script>
-    </table>
+    <?php $songIdArray = $artist->getSongIds();?>
+    <?php include("shared/artistTrackListing.php")?>
 </div>
 
 <div class="gridViewContainer">
     <h2 class="centerHeader">ALBUMS</h2>
     <?php 
         $albumQuery = mysqli_query($con, "SELECT * FROM albums WHERE artist='$artistId'");
-
-        while($row = mysqli_fetch_array($albumQuery)) {
-            $artist = new Artist($con, $row['artist']);
-
-            echo "<div class='gridViewItem'>
-					<span>
-						<img src='" . $row['artworkPath'] . "' onclick='openPage(\"album.php?id=" . $row['id'] . "\")'>
-
-						<div class='gridViewInfo'>
-							<span id='" . $row['id'] . "' class='album-change' onclick='openPage(\"album.php?id=" . $row['id'] . "\")'>"
-							. $row['title'] .
-						"	</span>
-						</div>
-						<div class='gridViewInfo'>
-							<span class='artist-name' onclick='openPage(\"artist.php?id=" . $artist->getId() . "\")'>"
-							. $artist->getName() .
-						"	</span>
-						</div>
-					</span>
-
-				</div>";
-        }
     ?>
+    <?php include("shared/albumsListing.php")?>
 </div>
 
-<nav class="optionsMenu">
-    <input type="hidden" class="songId">
-    <?php echo Playlist::getPlaylistsDropdown($con, $userLoggedIn->getUsername()); ?>
-</nav>
+<?php include("shared/optionsMenu.php")?>
