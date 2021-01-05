@@ -21,6 +21,7 @@ Eh, on second thought, not great if you are using MySQL through XAMPP
 
 1. Refactoring
    - Create sub php files for shared components
+   - Update js to modules w/ export
 1. Progress green hover needs work, maybe up an element
    - Also needs to work when mouse down, sliding
 1. Left Nav
