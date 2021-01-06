@@ -19,6 +19,7 @@ Eh, on second thought, not great if you are using MySQL through XAMPP
 
 # TODO:
 
+1. Get gifs in my readme to show app functionality
 1. Refactoring
    - Create sub php files for shared components
    - Update js to modules w/ export
