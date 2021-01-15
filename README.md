@@ -20,8 +20,6 @@ Eh, on second thought, not great if you are using MySQL through XAMPP
 # TODO:
 
 1. Get gifs in my readme to show app functionality
-1. Refactoring
-   - Move database calls to model classes (there are some in the view layer)
 1. Progress green hover needs work, maybe up an element
    - Also needs to work when mouse down, sliding
 1. Left Nav
