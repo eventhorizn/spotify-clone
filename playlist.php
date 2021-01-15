@@ -1,15 +1,15 @@
-<?php include("includes/includedFiles.php");
+<?php 
+    include("includes/includedFiles.php");
 
-if (isset($_GET['id'])) {
-    $playlistId = $_GET['id'];
-}
-else {
-    header("Location: index.php");
-}
+    if (isset($_GET['id'])) {
+        $playlistId = $_GET['id'];
+    }
+    else {
+        header("Location: index.php");
+    }
 
-$playlist = new Playlist($con, $playlistId);
-$owner = new User($con, $playlist->getOwner());
-
+    $playlist = new Playlist($con, $playlistId);
+    $owner = new User($con, $playlist->getOwner());
 ?>
 
 <div class="entityInfo">

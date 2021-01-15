@@ -1,5 +1,5 @@
 <?php 
-include("includes/includedFiles.php");
+    include("includes/includedFiles.php");
 ?>
 
 <h1 class="pageHeadingBig disable-select ">You Might Also Like</h1>
@@ -10,5 +10,7 @@ include("includes/includedFiles.php");
 </div>
 
 <script>
-controller.setCurrentAlbumPlaying();
+    if (controller) {
+        controller.setCurrentAlbumPlaying();
+    }
 </script>

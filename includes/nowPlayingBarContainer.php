@@ -1,22 +1,24 @@
 <?php
-$songQuery = mysqli_query($con, "SELECT id FROM songs ORDER BY RAND() LIMIT 10");
+    $songQuery = mysqli_query($con, "SELECT id FROM songs ORDER BY RAND() LIMIT 10");
 
-$resultArray = array();
+    $resultArray = array();
 
-while($row = mysqli_fetch_array($songQuery)) {
-    array_push($resultArray, $row['id']);
-}
+    while($row = mysqli_fetch_array($songQuery)) {
+        array_push($resultArray, $row['id']);
+    }
 
-$jsonArray = json_encode($resultArray);
+    $jsonArray = json_encode($resultArray);
 
 ?>
 
-<script>
-$(document).ready(function() {
-    let playlist = <?php echo $jsonArray ?>;
-    const json_text = JSON.stringify(playlist);
-    controller = new controllerClass(playlist);
-});
+<script type="module">
+    import { Controller } from './assets/js/controller.js'
+
+    $(document).ready(function() {
+        let playlist = <?php echo $jsonArray ?>;
+        const json_text = JSON.stringify(playlist);
+        controller = new Controller(playlist);
+    });
 </script>
 
 <div id="nowPlayingBarContainer">

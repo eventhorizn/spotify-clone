@@ -1,11 +1,11 @@
 <?php
-include("includes/includedFiles.php");
+    include("includes/includedFiles.php");
 
-if(isset($_GET['term'])) {
-    $term = urldecode($_GET['term']);
-} else {
-    $term = "";
-}
+    if(isset($_GET['term'])) {
+        $term = urldecode($_GET['term']);
+    } else {
+        $term = "";
+    }
 ?>
 
 <div class="searchContainer">
