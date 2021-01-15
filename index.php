@@ -10,7 +10,7 @@ include("includes/includedFiles.php");
 </div>
 
 <script>
-if (controller) {
-    controller.setCurrentAlbumPlaying();
-}
+    if (controller) {
+        controller.setCurrentAlbumPlaying();
+    }
 </script>

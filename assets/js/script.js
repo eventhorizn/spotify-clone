@@ -16,10 +16,10 @@ function openPage(url) {
 	$('body').scrollTop(0);
 	history.pushState(null, null, url);
 
-	highlightMenu(url);
+	_highlightMenu(url);
 }
 
-function highlightMenu(url) {
+function _highlightMenu(url) {
 	_resetMenu();
 
 	if (url.includes('index')) {
@@ -62,9 +62,3 @@ function _resetMenu() {
 		el.classList.remove('currentMenu');
 	});
 }
-
-// function logout() {
-// 	$.post('includes/handlers/ajax/logout.php', function () {
-// 		location.reload();
-// 	});
-// }
