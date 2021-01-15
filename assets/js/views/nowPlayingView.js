@@ -234,8 +234,6 @@ export class NowPlayingView {
 			this._currentIndex = this._currentPlaylist.indexOf(trackId);
 		}
 
-		this.pauseSong();
-
 		this.setSongAjax(trackId, play).then((_) => {
 			if (callback) callback();
 		});
