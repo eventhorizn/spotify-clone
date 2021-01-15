@@ -6,6 +6,7 @@
         private $artistId;
         private $genre;
         private $artworkPath;
+        private $songIds;
 
         public function __construct($con, $id) {
             $this->con = $con;
@@ -18,6 +19,18 @@
             $this->artistId = $album['artist'];
             $this->genre = $album['genre'];
             $this->artworkPath = $album['artworkPath'];
+            $this->songIds = $this->loadSongIds();
+        }
+
+        private function loadSongIds() {
+            $query = mysqli_query($this->con, "SELECT id FROM songs WHERE album='$this->id' ORDER BY albumOrder ASC");
+            $array = array();
+
+            while($row = mysqli_fetch_array($query)) {
+                array_push($array, $row['id']);
+            }
+
+            return $array;
         }
 
         public function getId() {
@@ -41,19 +54,11 @@
         }
 
         public function getNumberOfSongs() {
-			$query = mysqli_query($this->con, "SELECT id FROM songs WHERE album='$this->id'");
-			return mysqli_num_rows($query);
+			return count($this->songIds);
         }
         
         public function getSongIds() {
-            $query = mysqli_query($this->con, "SELECT id FROM songs WHERE album='$this->id' ORDER BY albumOrder ASC");
-            $array = array();
-
-            while($row = mysqli_fetch_array($query)) {
-                array_push($array, $row['id']);
-            }
-
-            return $array;
+            return $this->songIds;
         }
     }
 ?>

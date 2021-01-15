@@ -21,3 +21,11 @@ table tr .rowLink:hover {
 	cursor: pointer;
 	text-decoration: underline;
 }
+
+.imageContainer {
+	background-image: var(--i);
+	/* background-image: url('../images/artist-header/Radiohead.jpg'); */
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}

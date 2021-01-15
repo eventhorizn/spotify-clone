@@ -4,6 +4,7 @@
         private $id;
         private $name;
         private $owner;
+        private $songIds;
 
         public function __construct($con, $data) {
             if (!is_array($data)) {
@@ -16,6 +17,18 @@
             $this->id = $data['id'];
             $this->name = $data['name'];
             $this->owner = $data['owner'];
+            $this->songIds = $this->loadSongIds();
+        }
+
+        private function loadSongIds() {
+            $query = mysqli_query($this->con, "SELECT songId FROM playlistSongs WHERE playlistId='$this->id' ORDER BY playlistOrder ASC");
+            $array = array();
+
+            while($row = mysqli_fetch_array($query)) {
+                array_push($array, $row['songId']);
+            }
+
+            return $array;
         }
 
         public function getId() {
@@ -31,20 +44,11 @@
         }
 
         public function getNumberOfSongs() {
-            $query = mysqli_query($this->con, "SELECT songId FROM playlistSongs WHERE playlistId='$this->id'");
-
-            return mysqli_num_rows($query);
+            return count($this->songIds);
         }
                 
         public function getSongIds() {
-            $query = mysqli_query($this->con, "SELECT songId FROM playlistSongs WHERE playlistId='$this->id' ORDER BY playlistOrder ASC");
-            $array = array();
-
-            while($row = mysqli_fetch_array($query)) {
-                array_push($array, $row['songId']);
-            }
-
-            return $array;
+            return $this->songIds;
         }
 
         public static function getPlaylistsDropdown($con, $username) {

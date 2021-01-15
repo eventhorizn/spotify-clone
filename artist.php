@@ -11,7 +11,7 @@
     $artist = new Artist($con, $artistId);
 ?>
 
-<div class="entityInfo borderBottom">
+<div class="entityInfo borderBottom imageContainer" style="--i: url('../images/artist-header/Radiohead.jpg')">
     <div class="centerSection">
         <div class="artistInfo">
             <h1 class="artistName"><?php echo $artist->getName();?></h1>
