@@ -48,6 +48,8 @@
     <script>
         var tempSongIds = '<?php echo json_encode($songIdArray);?>'
         tempPlaylist = JSON.parse(tempSongIds);
-        controller.setCurrentPlaying();
+        if (controller) {
+            controller.setCurrentPlaying();
+        }
     </script>
 </table>
