@@ -1,74 +1,72 @@
-var albumView = class AlbumView {
-    setCurrentPlaying(albumSongId, isPlaying) {
-        this._resetAllTracks();
+export class AlbumView {
+	setCurrentPlaying(albumSongId, isPlaying) {
+		this._resetAllTracks();
 
-        const currentPlayRow = document.getElementById(`${Number(albumSongId)}`);
+		const currentPlayRow = document.getElementById(`${Number(albumSongId)}`);
 
-        if (currentPlayRow) {
-            const allEls = currentPlayRow.getElementsByClassName('song-change')
+		if (currentPlayRow) {
+			const allEls = currentPlayRow.getElementsByClassName('song-change');
 
-            for (let i = 0; i < allEls.length; i++) {
-                allEls[i].classList.add('currentSong');
-            }
+			for (let i = 0; i < allEls.length; i++) {
+				allEls[i].classList.add('currentSong');
+			}
 
-            if (isPlaying) {
-                currentPlayRow.querySelector('.play-row').style.display = 'none';
-                currentPlayRow.querySelector('.pause-row').style.display = 'inline';
-            }
-        }
-    }
+			if (isPlaying) {
+				currentPlayRow.querySelector('.play-row').style.display = 'none';
+				currentPlayRow.querySelector('.pause-row').style.display = 'inline';
+			}
+		}
+	}
 
-    _resetAllTracks() {
-        const allEls = document.getElementsByClassName('song-change');
-        for (let i = 0; i < allEls.length; i++) {
-            allEls[i].classList.remove('currentSong');
-        }
+	_resetAllTracks() {
+		const allEls = document.getElementsByClassName('song-change');
+		for (let i = 0; i < allEls.length; i++) {
+			allEls[i].classList.remove('currentSong');
+		}
 
-        const allPlays = document.getElementsByClassName('play-row');
-        const allPause = document.getElementsByClassName('pause-row');
+		const allPlays = document.getElementsByClassName('play-row');
+		const allPause = document.getElementsByClassName('pause-row');
 
-        for (let i = 0; i < allPlays.length; i++) {
-            allPlays[i].style.display = 'inline';
-        }
+		for (let i = 0; i < allPlays.length; i++) {
+			allPlays[i].style.display = 'inline';
+		}
 
-        for (let i = 0; i < allPause.length; i++) {
-            allPause[i].style.display = 'none';
-        }
-    }
+		for (let i = 0; i < allPause.length; i++) {
+			allPause[i].style.display = 'none';
+		}
+	}
 
-    setCurrentPlayingAlbum(albumId) {
-        this._resetAllAlbums();
+	setCurrentPlayingAlbum(albumId) {
+		this._resetAllAlbums();
 
-        const currentAlbum = document.getElementById(`${Number(albumId)}`);
-        if (currentAlbum && currentAlbum.classList.contains('album-change')) {
-            currentAlbum.classList.add('currentAlbum');
-        }
+		const currentAlbum = document.getElementById(`${Number(albumId)}`);
+		if (currentAlbum && currentAlbum.classList.contains('album-change')) {
+			currentAlbum.classList.add('currentAlbum');
+		}
+	}
 
-    }
+	_resetAllAlbums() {
+		const allEls = document.getElementsByClassName('album-change');
+		for (let i = 0; i < allEls.length; i++) {
+			allEls[i].classList.remove('currentAlbum');
+		}
+	}
 
-    _resetAllAlbums() {
-        const allEls = document.getElementsByClassName('album-change');
-        for (let i = 0; i < allEls.length; i++) {
-            allEls[i].classList.remove('currentAlbum');
-        }
-    }
+	playSong(albumSongId) {
+		const currentPlayRow = document.getElementById(`${Number(albumSongId)}`);
 
+		if (currentPlayRow) {
+			currentPlayRow.querySelector('.play-row').style.display = 'none';
+			currentPlayRow.querySelector('.pause-row').style.display = 'inline';
+		}
+	}
 
-    playSong(albumSongId) {
-        const currentPlayRow = document.getElementById(`${Number(albumSongId)}`);
+	pauseSong(albumSongId) {
+		const currentPlayRow = document.getElementById(`${Number(albumSongId)}`);
 
-        if (currentPlayRow) {
-            currentPlayRow.querySelector('.play-row').style.display = 'none';
-            currentPlayRow.querySelector('.pause-row').style.display = 'inline';
-        }
-    }
-
-    pauseSong(albumSongId) {
-        const currentPlayRow = document.getElementById(`${Number(albumSongId)}`);
-
-        if (currentPlayRow) {
-            currentPlayRow.querySelector('.play-row').style.display = 'inline';
-            currentPlayRow.querySelector('.pause-row').style.display = 'none';
-        }
-    }
+		if (currentPlayRow) {
+			currentPlayRow.querySelector('.play-row').style.display = 'inline';
+			currentPlayRow.querySelector('.pause-row').style.display = 'none';
+		}
+	}
 }

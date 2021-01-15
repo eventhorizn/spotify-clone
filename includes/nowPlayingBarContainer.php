@@ -11,11 +11,13 @@ $jsonArray = json_encode($resultArray);
 
 ?>
 
-<script>
+<script type="module">
+import { Controller } from './assets/js/controller.js'
+
 $(document).ready(function() {
     let playlist = <?php echo $jsonArray ?>;
     const json_text = JSON.stringify(playlist);
-    controller = new controllerClass(playlist);
+    controller = new Controller(playlist);
 });
 </script>
 
