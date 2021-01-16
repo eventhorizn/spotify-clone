@@ -34,7 +34,9 @@
         }
 
         public function getArtist() {
-            return new Artist($this->con, $this->artistId);
+            $artist = new Artist();
+            $artist->loadFromDB($this->con, $this->artistId);
+            return $artist;
         }
 
         public function getAlbum() {

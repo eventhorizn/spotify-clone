@@ -7,6 +7,7 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH'])) {
     include("includes/classes/Album.php");
     include("includes/classes/Song.php");
     include("includes/classes/Playlist.php");
+    include("includes/classes/Artists.php");
     include("includes/classes/Albums.php");
     include("includes/classes/Playlists.php");
     include("includes/classes/Songs.php");

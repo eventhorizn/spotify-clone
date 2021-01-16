@@ -9,7 +9,7 @@
     </tr>
 
     <?php $i = 1;?>
-    <?php foreach($songIdArray as $songId):?>
+    <?php foreach($songIds as $songId):?>
         <?php $song = new Song($con, $songId);?>
 
         <tr id="<?=$song->getId()?>" class="hoverRow">
@@ -46,7 +46,7 @@
     <?php endforeach; ?>
     
     <script>
-        var tempSongIds = '<?php echo json_encode($songIdArray);?>'
+        var tempSongIds = '<?php echo json_encode($songIds);?>'
         tempPlaylist = JSON.parse(tempSongIds);
         if (controller) {
             controller.setCurrentPlaying();

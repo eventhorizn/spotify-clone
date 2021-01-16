@@ -8,7 +8,8 @@
         header("Location: index.php");
     }
 
-    $artist = new Artist($con, $artistId);
+    $artist = new Artist();
+    $artist->loadFromDB($con, $artistId);
 ?>
 
 <div class="entityInfo entityInfoArtist borderBottom imageContainer" style="--i: url('../../<?=$artist->getHeaderPath()?>')">

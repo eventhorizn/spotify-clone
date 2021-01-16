@@ -41,7 +41,7 @@
 </div>
 
 <?php
-    $songIdArray = $playlist->getSongIds();
+    $songIds = $playlist->getSongIds();
 ?>
 <?php include("shared/fullTrackListing.php")?>
 

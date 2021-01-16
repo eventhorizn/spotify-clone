@@ -6,7 +6,9 @@
         private $headerPath;
         private $songIds;
 
-        public function __construct($con, $id) {
+        public function __construct() { }
+
+        public function loadFromDB($con, $id) {
             $this->con = $con;
             $this->id = $id;
 
@@ -15,6 +17,14 @@
 
             $this->name = $artist['name'];
             $this->headerPath = $artist['artistHeaderPath'];
+            $this->songIds = $this->loadSongIds();
+        }
+
+        public function loadFromExisting($con, $id, $name, $headerPath) {
+            $this->con = $con;
+            $this->id = $id;
+            $this->name = $name;
+            $this->headerPath = $headerPath;
             $this->songIds = $this->loadSongIds();
         }
 
