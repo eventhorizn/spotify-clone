@@ -8,7 +8,8 @@
         header("Location: index.php");
     }
 
-    $playlist = new Playlist($con, $playlistId);
+    $playlist = new Playlist();
+    $playlist->loadFromDatabase($con, $playlistId);
     $owner = new User($con, $playlist->getOwner());
 ?>
 
@@ -40,7 +41,7 @@
 </div>
 
 <?php
-    $songIdArray = $playlist->getSongIds();
+    $songIds = $playlist->getSongIds();
 ?>
 <?php include("shared/fullTrackListing.php")?>
 

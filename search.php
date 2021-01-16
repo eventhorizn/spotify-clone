@@ -21,56 +21,38 @@
 
 <div class="borderBottom disable-select">
     <h2 class="centerHeader">SONGS</h2>
-    <?php
-        $songsQuery = mysqli_query($con, "SELECT id FROM songs WHERE title like '$term%' LIMIT 10");
-    ?>
+    <?php $songIds = Songs::getSongIdsByTerm($con, $term); ?>
 
-    <?php $songIdArray = array();?>
-    <?php if (mysqli_num_rows($songsQuery) == 0):?>
+    <?php if (count($songIds) == 0):?>
         <span class='noResults'>
             No songs found matching <?=$term?>
         </span>
     <?php else: ?>
-        <?php  while($row = mysqli_fetch_array($songsQuery)) {
-            $songId = $row['id'];
-            array_push($songIdArray, $songId);
-        }?>
         <?php include("shared/fullTrackListing.php")?>
     <?php endif?>
-
-    <script>
-        var tempSongIds = '<?php echo json_encode($songIdArray);?>'
-        tempPlaylist = JSON.parse(tempSongIds);
-        controller.setCurrentPlaying();
-    </script>
 </div>
 
 <div class="artistsContainer borderBottom disable-select">
     <h2 class="centerHeader">ARTISTS</h2>
 
-    <?php
-        $artistsQuery = mysqli_query($con, "SELECT id FROM artists WHERE name LIKE '$term%' LIMIT 10");
-    ?>
+    <?php $artists = Artists::getArtistsByTerm($con, $term); ?>
 
-    <?php if (mysqli_num_rows($artistsQuery) == 0):?>
+    <?php if (count($artists) == 0):?>
         <span class='noResults'>
             No artists found matching <?=$term?>
         </span>
     <?php endif ?>
     
-    <?php while($row = mysqli_fetch_array($artistsQuery)) :?>
-        <?php $artistFound = new Artist($con, $row['id']); ?>
+    <?php foreach($artists as $artistFound):?>
         <?php include("shared/artistListing.php");?>
-    <?php endwhile?>
+    <?php endforeach?>
 </div>
 
 <div class="gridViewContainer disable-select">
     <h2 class="centerHeader">ALBUMS</h2>
-    <?php 
-        $albumQuery = mysqli_query($con, "SELECT * FROM albums WHERE title like '$term%' LIMIT 10");
-    ?>
+    <?php $albums = Albums::getAlbumsByTerm($con, $term); ?>
 
-        <?php if (mysqli_num_rows($albumQuery) == 0): ?>
+        <?php if (count($albums) == 0): ?>
             <span class='noResults'>
                 No albums found matching <?=$term?>
             </span>

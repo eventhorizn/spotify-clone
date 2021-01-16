@@ -6,8 +6,11 @@
         private $artistId;
         private $genre;
         private $artworkPath;
+        private $songIds;
 
-        public function __construct($con, $id) {
+        public function __construct(){ }
+
+        public function loadFromDatabase($con, $id): void {
             $this->con = $con;
             $this->id = $id;
 
@@ -18,6 +21,28 @@
             $this->artistId = $album['artist'];
             $this->genre = $album['genre'];
             $this->artworkPath = $album['artworkPath'];
+            $this->songIds = $this->loadSongIds();
+        }
+
+        public function loadExisting($id, $title, $artistId, $genre, $artworkPath, $con): void {
+            $this->con = $con;
+            $this->id = $id;
+            $this->title = $title;
+            $this->artistId = $artistId;
+            $this->genre = $genre;
+            $this->artworkPath = $artworkPath;
+            $this->songIds = $this->loadSongIds();
+        }
+
+        private function loadSongIds() {
+            $query = mysqli_query($this->con, "SELECT id FROM songs WHERE album='$this->id' ORDER BY albumOrder ASC");
+            $array = array();
+
+            while($row = mysqli_fetch_array($query)) {
+                array_push($array, $row['id']);
+            }
+
+            return $array;
         }
 
         public function getId() {
@@ -33,7 +58,9 @@
         }
 
         public function getArtist() {
-            return new Artist($this->con, $this->artistId);
+            $artist = new Artist();
+            $artist->loadFromDB($this->con, $this->artistId);
+            return $artist;
         }
 
         public function getGenre() {
@@ -41,19 +68,11 @@
         }
 
         public function getNumberOfSongs() {
-			$query = mysqli_query($this->con, "SELECT id FROM songs WHERE album='$this->id'");
-			return mysqli_num_rows($query);
+			return count($this->songIds);
         }
         
         public function getSongIds() {
-            $query = mysqli_query($this->con, "SELECT id FROM songs WHERE album='$this->id' ORDER BY albumOrder ASC");
-            $array = array();
-
-            while($row = mysqli_fetch_array($query)) {
-                array_push($array, $row['id']);
-            }
-
-            return $array;
+            return $this->songIds;
         }
     }
 ?>

@@ -33,11 +33,6 @@ if (isset($_SESSION['userLoggedIn'])) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="assets/js/script.js"></script>
     <script src="assets/js/controller.js" type="module"></script>
-    <!-- <script src="assets/js/classes/audio.js"></script> -->
-    <!-- <script src="assets/js/views/nowPlayingView.js"></script> -->
-    <!-- <script src="assets/js/views/albumView.js"></script> -->
-    <!-- <script src="assets/js/views/searchView.js"></script>
-    <script src="assets/js/views/playlistView.js"></script> -->
 </head>
 
 <body>
