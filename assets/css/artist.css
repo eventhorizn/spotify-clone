@@ -33,3 +33,7 @@ table tr .rowLink:hover {
 .entityInfoArtist {
 	padding: 40px 0 80px 0;
 }
+
+.artistInfo .headerButtons {
+	margin-left: 10px;
+}
