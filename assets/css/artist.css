@@ -24,7 +24,6 @@ table tr .rowLink:hover {
 
 .imageContainer {
 	background-image: var(--i);
-	/* background-image: url('../images/artist-header/Radiohead.jpg'); */
 	background-repeat: no-repeat;
 	background-attachment: scroll;
 	background-size: 100% 100%;
