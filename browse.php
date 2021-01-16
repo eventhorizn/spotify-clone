@@ -5,7 +5,7 @@
 <h1 class="pageHeadingBig disable-select ">You Might Also Like</h1>
 
 <div class="gridViewContainer">
-    <?php $albumQuery = mysqli_query($con, "SELECT * FROM albums LIMIT 10");?>
+    <?php $albums = Albums::getTopTenAlbums($con); ?>
     <?php include("shared/albumsListing.php")?>
 </div>
 

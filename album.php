@@ -8,7 +8,8 @@
         header("Location: index.php");
     }
 
-    $album = new Album($con, $albumId);
+    $album = new Album();
+    $album->loadFromDatabase($con, $albumId);
     $artist = $album->getArtist();
 ?>
 

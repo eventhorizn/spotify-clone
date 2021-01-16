@@ -8,7 +8,9 @@
         private $artworkPath;
         private $songIds;
 
-        public function __construct($con, $id) {
+        public function __construct(){ }
+
+        public function loadFromDatabase($con, $id): void {
             $this->con = $con;
             $this->id = $id;
 
@@ -19,6 +21,16 @@
             $this->artistId = $album['artist'];
             $this->genre = $album['genre'];
             $this->artworkPath = $album['artworkPath'];
+            $this->songIds = $this->loadSongIds();
+        }
+
+        public function loadExisting($id, $title, $artistId, $genre, $artworkPath, $con): void {
+            $this->con = $con;
+            $this->id = $id;
+            $this->title = $title;
+            $this->artistId = $artistId;
+            $this->genre = $genre;
+            $this->artworkPath = $artworkPath;
             $this->songIds = $this->loadSongIds();
         }
 

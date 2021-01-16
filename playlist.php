@@ -8,7 +8,8 @@
         header("Location: index.php");
     }
 
-    $playlist = new Playlist($con, $playlistId);
+    $playlist = new Playlist();
+    $playlist->loadFromDatabase($con, $playlistId);
     $owner = new User($con, $playlist->getOwner());
 ?>
 

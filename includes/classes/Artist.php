@@ -44,7 +44,5 @@
         public function getSongIds() {
             return $this->songIds;
         }
-
-
     }
 ?>

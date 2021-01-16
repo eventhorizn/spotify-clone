@@ -1,5 +1,5 @@
 .artistInfo {
-	text-align: center;
+	text-align: left;
 }
 
 .borderBottom {
@@ -26,6 +26,10 @@ table tr .rowLink:hover {
 	background-image: var(--i);
 	/* background-image: url('../images/artist-header/Radiohead.jpg'); */
 	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-size: cover;
+	background-attachment: scroll;
+	background-size: 100% 100%;
+}
+
+.entityInfoArtist {
+	padding: 40px 0 80px 0;
 }

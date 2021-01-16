@@ -38,7 +38,9 @@
         }
 
         public function getAlbum() {
-            return new Album($this->con, $this->albumId);
+            $album = new Album();
+            $album->loadFromDatabase($this->con, $this->albumId);
+            return $album;
         }
 
         public function getPath() {

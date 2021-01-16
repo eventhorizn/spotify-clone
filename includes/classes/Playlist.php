@@ -6,7 +6,9 @@
         private $owner;
         private $songIds;
 
-        public function __construct($con, $data) {
+        public function __construct() {}
+
+        public function loadFromDatabase($con, $data): void {
             if (!is_array($data)) {
                 // Data is an id (string)
                 $query = mysqli_query($con, "SELECT * FROM playlists WHERE id='$data'");
@@ -17,6 +19,14 @@
             $this->id = $data['id'];
             $this->name = $data['name'];
             $this->owner = $data['owner'];
+            $this->songIds = $this->loadSongIds();
+        }
+
+        public function loadFromExisiting($con, $id, $name, $owner) {
+            $this->con = $con;
+            $this->id = $id;
+            $this->name = $name;
+            $this->owner = $owner;
             $this->songIds = $this->loadSongIds();
         }
 

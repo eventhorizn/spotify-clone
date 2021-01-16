@@ -1,15 +1,15 @@
-<?php while($row = mysqli_fetch_array($albumQuery)):?>
-    <?php $artist = new Artist($con, $row['artist']); ?>
+<?php foreach($albums as $album):?>
+    <?php $artist = $album->getArtist(); ?>
 
     <div class="gridViewItem">
         <span>
-            <img src="<?=$row['artworkPath']?>" 
-                    onclick="openPage('album.php?id=<?php echo $row['id']?>')">
+            <img src="<?=$album->getArtworkPath()?>" 
+                    onclick="openPage('album.php?id=<?=$album->getId()?>')">
 
             <div class="gridViewInfo">
-                <span id="<?=$row['id']?>" class='album-change'
-                    onclick="openPage('album.php?id=<?php $row['id'] ?>')">
-                    <?=$row['title']?>
+                <span id="<?=$album->getId()?>" class='album-change'
+                    onclick="openPage('album.php?id=<?=$album->getId()?>')">
+                    <?=$album->getTitle()?>
                 </span>
             </div>
 
@@ -21,4 +21,4 @@
             </div>
         </span>
     </div>
-<?php endwhile?>
+<?php endforeach?>

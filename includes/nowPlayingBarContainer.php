@@ -1,21 +1,10 @@
-<?php
-    $songQuery = mysqli_query($con, "SELECT id FROM songs ORDER BY RAND() LIMIT 10");
-
-    $resultArray = array();
-
-    while($row = mysqli_fetch_array($songQuery)) {
-        array_push($resultArray, $row['id']);
-    }
-
-    $jsonArray = json_encode($resultArray);
-
-?>
+<?php include("includes/classes/Songs.php");?>
 
 <script type="module">
     import { Controller } from './assets/js/controller.js'
 
     $(document).ready(function() {
-        let playlist = <?php echo $jsonArray ?>;
+        let playlist = <?php echo Songs::getRandomSongIds($con) ?>;
         const json_text = JSON.stringify(playlist);
         controller = new Controller(playlist);
     });
