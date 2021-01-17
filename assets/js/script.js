@@ -53,6 +53,16 @@ function _highlightMenu(url) {
 		navMenuItem.classList.add('currentMenu');
 		navMenuIco.classList.add('currentMenu');
 	}
+
+	if (url.includes('userAlbum')) {
+		const navMenuItem = document.getElementById('userAlbumNav');
+		navMenuItem.classList.add('currentMenu');
+	}
+
+	if (url.includes('userArtist')) {
+		const navMenuItem = document.getElementById('userArtistNav');
+		navMenuItem.classList.add('currentMenu');
+	}
 }
 
 function _resetMenu() {
