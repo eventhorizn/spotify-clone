@@ -11,6 +11,7 @@
     $album = new Album();
     $album->loadFromDatabase($con, $albumId);
     $artist = $album->getArtist();
+    $doesUserHaveAlbum = UserMusic::doesUserHaveAlbum($con, $userLoggedIn->getUserName(), $albumId);
 ?>
 
 <div class="entityInfo">
@@ -33,11 +34,18 @@
                 onclick="controller.playFromArtistAlbum(tempPlaylist[0], tempPlaylist, true)">PLAY</button>
             <button class="button green pauseButton" style="display: none"
                 onclick="controller.pauseSong()">PAUSE</button>
+            <button id="addUserBtn" onclick="controller.addUserAlbum(<?=$albumId?>)" class="button" style="margin-left: 5px;">ADD</button>
+            <button id="rmvUserBtn" onclick="controller.removeUserAlbum(<?=$albumId?>)"  class="button" style="margin-left: 5px; display: none">IN LIBRARY</button>
         </div>
     </div>
 </div>
 
 <?php $songIdArray = $album->getSongIds();?>
 <?php include("shared/albumTrackListing.php"); ?>
-
 <?php include("shared/optionsMenu.php")?>
+
+<script>
+    if ('<?php echo $doesUserHaveAlbum?>') {
+        controller.hideAddButton();
+    }
+</script>

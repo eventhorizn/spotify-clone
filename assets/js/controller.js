@@ -3,6 +3,7 @@ import { AlbumView } from './views/albumView.js';
 import { SearchView } from './views/searchView.js';
 import { PlaylistView } from './views/playlistView.js';
 import { NowPlayingView } from './views/nowPlayingView.js';
+import { UserAlbum } from './views/userAlbumView.js';
 
 export class Controller {
 	_nowPlayingView;
@@ -10,6 +11,7 @@ export class Controller {
 	_searchView;
 	_playlistView;
 	_profileView;
+	_userAlbum;
 
 	constructor(playlist) {
 		this._nowPlayingView = new NowPlayingView(
@@ -20,6 +22,7 @@ export class Controller {
 		this._searchView = new SearchView();
 		this._playlistView = new PlaylistView();
 		this._profileView = new ProfileView();
+		this._userAlbum = new UserAlbum();
 	}
 
 	setShuffle() {
@@ -155,5 +158,17 @@ export class Controller {
 
 	searchViewInit() {
 		this._searchView.init();
+	}
+
+	addUserAlbum(albumId) {
+		this._userAlbum.addUserAlbum(albumId);
+	}
+
+	removeUserAlbum(albumId) {
+		this._userAlbum.removeUserAlbum(albumId);
+	}
+
+	hideAddButton() {
+		this._userAlbum.hideAddButton();
 	}
 }

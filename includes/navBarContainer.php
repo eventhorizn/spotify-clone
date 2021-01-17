@@ -19,8 +19,13 @@
 
         <div class="group">
             <div class="navItem">
-                <span id="yourMusicNav" class="navItemLink disable-select" onclick="openPage('yourMusic.php')">Your
-                    Music</span>
+                <span id="yourMusicNav" class="navItemLink disable-select" onclick="openPage('yourMusic.php')">Playlists</span>
+            </div>
+            <div class="navItem">
+                <span id="userAlbumNav" class="navItemLink disable-select" onclick="openPage('userAlbum.php')">Albums</span>
+            </div>
+             <div class="navItem">
+                <span id="userArtistNav" class="navItemLink disable-select" onclick="openPage('userArtist.php')">Artists</span>
             </div>
             <div class="navItem disable-select">
                 <span id="profileNav" class="navItemLink"

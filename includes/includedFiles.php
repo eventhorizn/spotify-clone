@@ -11,6 +11,7 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH'])) {
     include("includes/classes/Albums.php");
     include("includes/classes/Playlists.php");
     include("includes/classes/Songs.php");
+    include("includes/classes/UserMusic.php");
 
     if (isset($_GET['userLoggedIn'])) {
         $userLoggedIn = new User($con, $_GET['userLoggedIn']);
