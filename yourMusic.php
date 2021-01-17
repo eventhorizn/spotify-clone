@@ -4,7 +4,7 @@
 
 <div class="playlistContainer disable-select">
     <div class="gridviewContainer">
-        <h2>PLAYLISTS</h2>
+        <h1 class="pageHeadingBig disable-select ">Playlists</h1>
         <div class="buttonItems">
             <button class="button green" 
                     onclick="controller.createPlaylist()">

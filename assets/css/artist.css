@@ -36,3 +36,25 @@ table tr .rowLink:hover {
 .artistInfo .headerButtons {
 	margin-left: 10px;
 }
+
+#rmvUserArtistBtn::after {
+	content: 'FOLLOWING';
+}
+
+#rmvUserArtistBtn:hover::after {
+	content: 'UNFOLLOW';
+}
+
+.artist-image {
+	border-radius: 50%;
+	height: 200px;
+}
+
+.artist-title {
+	text-align: center;
+}
+
+.artist-title .artist-name {
+	color: #fff;
+	font-weight: bold;
+}

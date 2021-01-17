@@ -19,7 +19,7 @@ if (isset($_SESSION['userLoggedIn'])) {
 <html>
 
 <head>
-    <title>Welcome to Pussify!</title>
+    <title>Welcome to Slotify!</title>
 
     <link rel="stylesheet" href="assets/icofont/icofont.min.css">
     <link rel="stylesheet" href="assets/css/style.css">

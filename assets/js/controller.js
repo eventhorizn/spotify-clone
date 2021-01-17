@@ -171,10 +171,6 @@ export class Controller {
 		this._userAlbum.removeUserAlbum(albumId);
 	}
 
-	hideAddUserAlbumButton() {
-		this._userAlbum.hideAddButton();
-	}
-
 	addUserArtist(artistId) {
 		this._userArtist.addUserArtist(artistId);
 	}

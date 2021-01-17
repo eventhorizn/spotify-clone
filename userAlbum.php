@@ -1,5 +1,5 @@
 <?php 
-include("includes/includedFiles.php");
+    include("includes/includedFiles.php");
 ?>
 
 <h1 class="pageHeadingBig disable-select ">Albums</h1>

@@ -34,8 +34,18 @@
                 onclick="controller.playFromArtistAlbum(tempPlaylist[0], tempPlaylist, true)">PLAY</button>
             <button class="button green pauseButton" style="display: none"
                 onclick="controller.pauseSong()">PAUSE</button>
-            <button id="addUserAlbumBtn" onclick="controller.addUserAlbum(<?=$albumId?>)" class="button" style="margin-left: 5px;">ADD</button>
-            <button id="rmvUserAlbumBtn" onclick="controller.removeUserAlbum(<?=$albumId?>)"  class="button" style="margin-left: 5px; display: none">IN LIBRARY</button>
+            <button 
+                id="addUserAlbumBtn" 
+                onclick="controller.addUserAlbum(<?=$albumId?>)" 
+                class="button" 
+                style="margin-left: 5px; <?php if($doesUserHaveAlbum) { echo 'display:none';} else {echo 'display:inline-block';} ?>">
+                ADD
+            </button>
+            <button 
+                id="rmvUserAlbumBtn" 
+                onclick="controller.removeUserAlbum(<?=$albumId?>)"  class="button" 
+                style="margin-left: 5px; <?php if($doesUserHaveAlbum) { echo 'display:inline-block';} else {echo 'display:none';} ?>">
+            </button>
         </div>
     </div>
 </div>
@@ -43,9 +53,3 @@
 <?php $songIdArray = $album->getSongIds();?>
 <?php include("shared/albumTrackListing.php"); ?>
 <?php include("shared/optionsMenu.php")?>
-
-<script>
-    if ('<?php echo $doesUserHaveAlbum?>') {
-        controller.hideAddUserAlbumButton();
-    }
-</script>

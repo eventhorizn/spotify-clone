@@ -10,7 +10,7 @@ export class UserArtist {
 				alert(error);
 				return;
 			}
-			thisClass.hideAddButton();
+			thisClass._hideAddButton();
 		});
 	}
 
@@ -21,16 +21,16 @@ export class UserArtist {
 			artistId: artistId,
 			username: userLoggedIn,
 		}).done(function () {
-			thisClass.hideRemoveButton();
+			thisClass._hideRemoveButton();
 		});
 	}
 
-	hideAddButton() {
+	_hideAddButton() {
 		$('#addUserArtistBtn').css('display', 'none');
 		$('#rmvUserArtistBtn').css('display', 'inline-block');
 	}
 
-	hideRemoveButton() {
+	_hideRemoveButton() {
 		$('#rmvUserArtistBtn').css('display', 'none');
 		$('#addUserArtistBtn').css('display', 'inline-block');
 	}

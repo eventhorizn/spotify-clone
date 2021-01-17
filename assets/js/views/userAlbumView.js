@@ -10,7 +10,7 @@ export class UserAlbum {
 				alert(error);
 				return;
 			}
-			thisClass.hideAddButton();
+			thisClass._hideAddButton();
 		});
 	}
 
@@ -21,16 +21,16 @@ export class UserAlbum {
 			albumId: albumId,
 			username: userLoggedIn,
 		}).done(function () {
-			thisClass.hideRemoveButton();
+			thisClass._hideRemoveButton();
 		});
 	}
 
-	hideAddButton() {
+	_hideAddButton() {
 		$('#addUserAlbumBtn').css('display', 'none');
 		$('#rmvUserAlbumBtn').css('display', 'inline-block');
 	}
 
-	hideRemoveButton() {
+	_hideRemoveButton() {
 		$('#rmvUserAlbumBtn').css('display', 'none');
 		$('#addUserAlbumBtn').css('display', 'inline-block');
 	}
