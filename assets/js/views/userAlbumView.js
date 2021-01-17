@@ -1,6 +1,4 @@
 export class UserAlbum {
-	constructor() {}
-
 	addUserAlbum(albumId) {
 		const thisClass = this;
 
@@ -28,12 +26,12 @@ export class UserAlbum {
 	}
 
 	hideAddButton() {
-		$('#addUserBtn').css('display', 'none');
-		$('#rmvUserBtn').css('display', 'inline-block');
+		$('#addUserAlbumBtn').css('display', 'none');
+		$('#rmvUserAlbumBtn').css('display', 'inline-block');
 	}
 
 	hideRemoveButton() {
-		$('#rmvUserBtn').css('display', 'none');
-		$('#addUserBtn').css('display', 'inline-block');
+		$('#rmvUserAlbumBtn').css('display', 'none');
+		$('#addUserAlbumBtn').css('display', 'inline-block');
 	}
 }

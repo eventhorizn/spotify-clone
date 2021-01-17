@@ -34,8 +34,8 @@
                 onclick="controller.playFromArtistAlbum(tempPlaylist[0], tempPlaylist, true)">PLAY</button>
             <button class="button green pauseButton" style="display: none"
                 onclick="controller.pauseSong()">PAUSE</button>
-            <button id="addUserBtn" onclick="controller.addUserAlbum(<?=$albumId?>)" class="button" style="margin-left: 5px;">ADD</button>
-            <button id="rmvUserBtn" onclick="controller.removeUserAlbum(<?=$albumId?>)"  class="button" style="margin-left: 5px; display: none">IN LIBRARY</button>
+            <button id="addUserAlbumBtn" onclick="controller.addUserAlbum(<?=$albumId?>)" class="button" style="margin-left: 5px;">ADD</button>
+            <button id="rmvUserAlbumBtn" onclick="controller.removeUserAlbum(<?=$albumId?>)"  class="button" style="margin-left: 5px; display: none">IN LIBRARY</button>
         </div>
     </div>
 </div>
@@ -46,6 +46,6 @@
 
 <script>
     if ('<?php echo $doesUserHaveAlbum?>') {
-        controller.hideAddButton();
+        controller.hideAddUserAlbumButton();
     }
 </script>

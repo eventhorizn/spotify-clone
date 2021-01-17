@@ -22,6 +22,8 @@
                     onclick="controller.playFromArtistAlbum(tempPlaylist[0], tempPlaylist, true)">PLAY</button>
                 <button class="button green pauseButton" style="display: none"
                     onclick="controller.pauseSong()">PAUSE</button>
+                <button id="addUserArtistBtn" onclick="controller.addUserArtist(<?=$artistId?>)" class="button" style="margin-left: 5px;">ADD</button>
+                <button id="rmvUserArtistBtn" onclick="controller.removeUserArtist(<?=$artistId?>)"  class="button" style="margin-left: 5px; display: none">FOLLOWING</button>
             </div>
         </div>
     </div>
