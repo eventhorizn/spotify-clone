@@ -17,6 +17,12 @@
             return Albums::getAlbumArray($albumQuery, $con);
         }
 
+        public static function getAlbumsFromIds($con, $ids) {
+            $albumQuery = mysqli_query($con, "SELECT * FROM albums WHERE id IN (" . implode(',', $ids) . ")");
+
+            return Albums::getAlbumArray($albumQuery, $con);
+        }
+
         private static function getAlbumArray($albumQuery, $con) {
             $albums = array();
 
@@ -34,7 +40,6 @@
             
             return $albums;
         }
-
     }
 
 ?>

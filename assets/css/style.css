@@ -41,7 +41,8 @@ body {
 
 .pageHeadingBig {
 	padding: 20px;
-	text-align: center;
+	text-align: left;
+	font-size: 52px;
 }
 
 .gridViewItem {
@@ -148,7 +149,7 @@ body {
 	cursor: pointer;
 	margin-top: 10px;
 	margin-bottom: 10px;
-	background-color: transparent;
+	background-color: #282828;
 	font-weight: 500;
 	letter-spacing: 2px;
 	border: 2px solid #fff;
@@ -165,6 +166,7 @@ body {
 .button:hover {
 	transition: all 0.2s ease-in-out;
 	transform: scale(1.1);
+	color: #46f079;
 }
 
 .button.green {
@@ -175,6 +177,7 @@ body {
 .button.green:hover {
 	background-color: #46f079;
 	border-color: #46f079;
+	color: #fff;
 }
 
 table {
@@ -355,6 +358,10 @@ table tr:hover td img {
 	outline: none;
 }
 
-.userInfo h1 {
-	text-align: center;
+#rmvUserAlbumBtn::after {
+	content: 'IN LIBRARY';
+}
+
+#rmvUserAlbumBtn:hover::after {
+	content: 'REMOVE';
 }

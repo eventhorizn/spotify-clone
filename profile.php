@@ -2,11 +2,9 @@
     include("includes/includedFiles.php");
 ?>
 
-<div class="entityInfo">
+<div class="nameContainer">
     <div class="centerSection">
-        <div class="userInfo">
-            <h1><?=$userLoggedIn->getFirstLastName()?></h1>
-        </div>
+        <h1 class="pageHeadingBig disable-select "><?=$userLoggedIn->getFirstLastName()?></h1>
     </div>
 
     <div class="buttonItems">

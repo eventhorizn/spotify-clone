@@ -4,6 +4,7 @@
         private $id;
         private $name;
         private $headerPath;
+        private $artworkPath;
         private $songIds;
 
         public function __construct() { }
@@ -17,14 +18,16 @@
 
             $this->name = $artist['name'];
             $this->headerPath = $artist['artistHeaderPath'];
+            $this->artworkPath = $artist['artworkPath'];
             $this->songIds = $this->loadSongIds();
         }
 
-        public function loadFromExisting($con, $id, $name, $headerPath) {
+        public function loadFromExisting($con, $id, $name, $headerPath, $artworkPath) {
             $this->con = $con;
             $this->id = $id;
             $this->name = $name;
             $this->headerPath = $headerPath;
+            $this->artworkPath= $artworkPath;
             $this->songIds = $this->loadSongIds();
         }
 
@@ -45,6 +48,10 @@
 
         public function getHeaderPath() {
             return $this->headerPath;
+        }
+        
+        public function getArtworkPath() {
+            return $this->artworkPath;
         }
 
         public function getId() {
