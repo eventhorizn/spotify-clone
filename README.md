@@ -19,15 +19,12 @@ Course for making Spotify clone in: php, js, css, html
 
 # TODO:
 
+1. Spotify API
+1. PHP Files - variable extraction
+1. MVC Refactor
 1. Get gifs in my readme to show app functionality
 1. Progress green hover needs work, maybe up an element
    - Also needs to work when mouse down, sliding
-1. Left Nav
-   - Your music now, eventually albums and artists
-   - Your music is just playlists
-   - Will need to add tables for albums and artists
-1. Artist page
-   - Artist header image (need to update database)
 1. Small one. when clicking the song on now playing
    - Already opens to album page
    - Do a highlight effect on selected song (css style)
