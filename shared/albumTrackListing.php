@@ -7,12 +7,12 @@
     </tr>
 
     <?php $i = 1;?>
-    <?php foreach($songIdArray as $songId):?>
+    <?php foreach($album->getSongIds() as $songId):?>
         <?php $song = new Song($con, $songId);?>
 
         <tr id="<?=$song->getId()?>" class="hoverRow">
             <td class="disable-select">
-                <i class="icofont-play-alt-2 play-row" onclick="controller.setTrack(<?=$song->getId()?>, tempPlaylist, true)"></i>
+                <i class="icofont-play-alt-2 play-row" onclick="controller.setTrack(<?=$song->getId()?>, playlist, true)"></i>
                 <i class="icofont-pause pause-row" onclick="controller.pauseSong()" style="display: none"></i>
                 <span class="song-change"><?=$i?></span>
             </td>
@@ -31,13 +31,4 @@
 
         <?php $i++;?>
     <?php endforeach; ?>
-    
-    <script>
-        var tempSongIds = '<?php echo json_encode($songIdArray);?>'
-        tempPlaylist = JSON.parse(tempSongIds);
-        if (controller) {
-            controller.setCurrentPlaying();
-            controller.setCurrentAlbumPlaying();
-        }
-    </script>
 </table>

@@ -7,7 +7,6 @@ export class NowPlayingView {
 	_audioElement;
 	_currentPlaylist = [];
 	_shufflePlaylist = [];
-	_tempPlaylist = [];
 	_mouseDown = false;
 	_currentIndex = 0;
 	_repeat = false;
