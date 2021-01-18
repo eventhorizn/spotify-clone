@@ -20,8 +20,10 @@ Course for making Spotify clone in: php, js, css, html
 # TODO:
 
 1. Spotify API
+   - [Link](https://developer.spotify.com/documentation/web-api/)
 1. PHP Files - variable extraction
-1. MVC Refactor
+1. MVC Refactor with Laravel
+   - [Link](https://laravel.com/)
 1. Get gifs in my readme to show app functionality
 1. Progress green hover needs work, maybe up an element
    - Also needs to work when mouse down, sliding
