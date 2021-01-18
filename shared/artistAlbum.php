@@ -1,44 +1,33 @@
 <?php 
-    include("includes/includedFiles.php");
-
-    if (isset($_GET['id'])) {
-        $albumId = $_GET['id'];
-    }
-    else {
-        header("Location: index.php");
-    }
-
-    $album = new Album();
-    $album->loadFromDatabase($con, $albumId);
     $artist = $album->getArtist();
-    $doesUserHaveAlbum = UserMusic::doesUserHaveAlbum($con, $userLoggedIn->getUserName(), $albumId);
+    $doesUserHaveAlbum = UserMusic::doesUserHaveAlbum($con, $userLoggedIn->getUserName(), $album->getId());
 ?>
 
 <div class="entityInfo">
     <div class="leftSection disable-select">
-        <img src="<?php echo $album->getArtworkPath(); ?>">
+        <img src="<?php echo $album->getArtworkPath(); ?>"
+            onclick="openPage('album.php?id=<?=$album->getId()?>')"
+            class="artist-album-image">
     </div>
 
     <div class="rightSection">
-        <p class="white-lbl disable-select">ALBUM</p>
-        <h2 class="disable-select"><?php echo $album->getTitle(); ?></h2>
-        <p class="white-lbl disable-select">
-            <span>By</span>
-            <span onclick="openPage('artist.php?id=<?php echo $artist->getId();?>')"
-                class="artist-link"><?php echo $artist->getName(); ?>
-            </span>
+        <h2 
+            class="disable-select artist-album-title"
+            onclick="openPage('album.php?id=<?=$album->getId()?>')">
+            <?php echo $album->getTitle(); ?>
+        </h2>
+        <p class="disable-select">
+            <?php echo $album->getNumberOfSongs(); ?> Songs
         </p>
-        <p class="disable-select"><?php echo $album->getNumberOfSongs(); ?> Songs</p>
         <div class="headerButtons">
             <button class="button green playButton"
-                    onclick="controller.playArtistAlbum(playlist[0], playlist, <?=$album->getId()?>)"
-                    id="play-btn-<?=$album->getId()?>">
-                PLAY
+                    onclick="controller.playArtistAlbum(playlist[<?=$album->getId()?>][0], playlist[<?=$album->getId()?>], <?=$album->getId()?>)"
+                    id="play-btn-<?=$album->getId()?>">PLAY
             </button>
-            <button class="button green pauseButton" style="display: none"
+            <button class="button green pauseButton" 
+                    style="display: none"
                     onclick="controller.pauseAlbumSong(<?=$album->getId()?>)"
-                    id="pause-btn-<?=$album->getId()?>">
-                PAUSE
+                    id="pause-btn-<?=$album->getId()?>">PAUSE
             </button>
             <button 
                 id="addUserAlbumBtn" 
@@ -56,8 +45,7 @@
     </div>
 </div>
 
-<?php $songIdArray = $album->getSongIds();?>
-<?php include("shared/albumTrackListing.php"); ?>
+<?php include("shared/artistAlbumTrackListing.php"); ?>
 <?php include("shared/optionsMenu.php")?>
 
 <script>

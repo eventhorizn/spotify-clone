@@ -182,4 +182,62 @@ export class Controller {
 	hideAddUserArtistButton() {
 		this._userArtist.hideAddButton();
 	}
+
+	playArtistAlbum(trackId, newPlaylist, albumId) {
+		$('.pauseButton').each(function () {
+			$(this).hide();
+		});
+		$('.playButton').each(function () {
+			$(this).show();
+		});
+
+		$(`#play-btn-${albumId}`).hide();
+		$(`#pause-btn-${albumId}`).show();
+		$(`#play-artist-btn`).hide();
+		$(`#pause-artist-btn`).show();
+
+		if (this._nowPlayingView.getCurrentPlayist() != newPlaylist) {
+			this._nowPlayingView.setTrack(
+				trackId,
+				newPlaylist,
+				true,
+				this.setCurrentPlayingArtist.bind(this, albumId)
+			);
+		} else {
+			this.playSong();
+		}
+	}
+
+	pauseAlbumSong(albumId) {
+		const currentPlayId = this._nowPlayingView.getCurrentlyPlaying().id;
+		this._nowPlayingView.pauseSong();
+		this._albumView.pauseSong(currentPlayId);
+
+		$(`#play-btn-${albumId}`).show();
+		$(`#pause-btn-${albumId}`).hide();
+		$(`#play-artist-btn`).show();
+		$(`#pause-artist-btn`).hide();
+	}
+
+	setCurrentPlayingArtist(albumId) {
+		if (this._nowPlayingView.getCurrentlyPlaying()) {
+			const isPlaying = !this._nowPlayingView.getAudioPaused();
+			const currentPlayId = this._nowPlayingView.getCurrentlyPlaying().id;
+			const currentAlbum = this._nowPlayingView.getCurrentlyPlaying().album;
+
+			if (Number(albumId) !== Number(currentAlbum)) {
+				return;
+			}
+
+			this._albumView.setCurrentPlaying(currentPlayId, isPlaying);
+			this._albumView.setCurrentPlayingAlbum(currentAlbum);
+
+			if (isPlaying) {
+				$(`#play-btn-${albumId}`).hide();
+				$(`#pause-btn-${albumId}`).show();
+				$(`#play-artist-btn`).hide();
+				$(`#pause-artist-btn`).show();
+			}
+		}
+	}
 }

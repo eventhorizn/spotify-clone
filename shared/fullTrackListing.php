@@ -14,7 +14,7 @@
 
         <tr id="<?=$song->getId()?>" class="hoverRow">
             <td class="disable-select">
-                <i class="icofont-play-alt-2 play-row" onclick="controller.setTrack(<?=$song->getId()?>, tempPlaylist, true)"></i>
+                <i class="icofont-play-alt-2 play-row" onclick="controller.setTrack(<?=$song->getId()?>, playlist, true)"></i>
                 <i class="icofont-pause pause-row" onclick="controller.pauseSong()" style="display: none"></i>
                 <span class="song-change"><?=$i?></span>
             </td>
@@ -46,8 +46,8 @@
     <?php endforeach; ?>
     
     <script>
-        var tempSongIds = '<?php echo json_encode($songIds);?>'
-        tempPlaylist = JSON.parse(tempSongIds);
+        var songIds = '<?php echo json_encode($songIds);?>'
+        playlist = JSON.parse(songIds);
         if (controller) {
             controller.setCurrentPlaying();
         }

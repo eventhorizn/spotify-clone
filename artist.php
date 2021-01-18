@@ -11,6 +11,9 @@
     $artist = new Artist();
     $artist->loadFromDB($con, $artistId);
     $doesUserHaveArtist = UserMusic::doesUserHaveArtist($con, $userLoggedIn->getUserName(), $artistId);
+
+    $albums = Albums::getArtistAlbums($con, $artistId);
+    $firstAlbum = $albums[0];
 ?>
 
 <div class="entityInfo entityInfoArtist borderBottom imageContainer" style="--i: url('../../<?=$artist->getHeaderPath()?>')">
@@ -20,9 +23,15 @@
 
             <div class="headerButtons">
                 <button class="button green playButton"
-                    onclick="controller.playFromArtistAlbum(tempPlaylist[0], tempPlaylist, true)">PLAY</button>
+                        onclick="controller.playArtistAlbum(playlist[<?=$firstAlbum->getId()?>][0], playlist[<?=$firstAlbum->getId()?>], <?=$firstAlbum->getId()?>)"
+                        id="play-artist-btn">
+                    PLAY
+                </button>
                 <button class="button green pauseButton" style="display: none"
-                    onclick="controller.pauseSong()">PAUSE</button>
+                        onclick="controller.pauseAlbumSong(<?=$firstAlbum->getId()?>)"
+                        id="pause-artist-btn">
+                    PAUSE
+                </button>
                 <button 
                     id="addUserArtistBtn" 
                     onclick="controller.addUserArtist(<?=$artistId?>)" class="button" 
@@ -39,16 +48,21 @@
     </div>
 </div>
 
-<div class="borderBottom">
-    <h2 class="centerHeader">SONGS</h2>
-    <?php $songIdArray = $artist->getSongIds();?>
-    <?php include("shared/artistTrackListing.php")?>
-</div>
-
 <div class="gridViewContainer">
-    <h2 class="centerHeader">ALBUMS</h2>
-    <?php $albums = Albums::getArtistAlbums($con, $artistId); ?>
-    <?php include("shared/albumsListing.php")?>
+    <div class="border-bottom">
+        <h2 class="album-header">ALBUMS</h2>
+    </div>
+    
+    <?php 
+        $songIdArray = array();
+
+        foreach($albums as $album) {
+            $key = $album->getId();
+            $value = $album->getSongIds();
+            $songIdArray[$key] = $value;
+            include("shared/artistAlbum.php");
+        }
+    ?>
 </div>
 
 <?php include("shared/optionsMenu.php")?>
