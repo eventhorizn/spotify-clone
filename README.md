@@ -21,6 +21,8 @@ Course for making Spotify clone in: php, js, css, html
 
 1. MVC Refactor with Laravel (fork)
    - [Link](https://laravel.com/)
+1. Deploy on Digital ocean
+   - Scotch.io has 100 credit
 1. Get gifs in my readme to show app functionality
 1. Look at PDO replacement for mysql
    - [Official Doc](https://www.php.net/manual/en/book.pdo.php)
