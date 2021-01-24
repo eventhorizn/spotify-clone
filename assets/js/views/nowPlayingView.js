@@ -35,14 +35,18 @@ export class NowPlayingView {
 			thisClass._mouseDown = true;
 		});
 
-		$('.playbackBar .progressBar').mousemove(function (e) {
+		$(document).mousemove(function (e) {
 			if (thisClass._mouseDown) {
-				thisClass.dragProgress(e, this);
+				thisClass.dragProgress(e, $('.playbackBar .progressBar'));
 			}
 		});
 
-		$('.playbackBar .progressBar').mouseup(function (e) {
-			thisClass.timeFromOffset(e, this);
+		$(document).mouseup(function (e) {
+			if (thisClass._mouseDown) {
+				thisClass.timeFromOffset(e, $('.playbackBar .progressBar'));
+			}
+
+			thisClass._mouseDown = false;
 		});
 
 		$('.volumeBar .progressBar').mousedown(function () {
@@ -85,10 +89,6 @@ export class NowPlayingView {
 			}
 		});
 
-		$(document).mouseup(function () {
-			thisClass._mouseDown = false;
-		});
-
 		this._audioElement.getAudio().addEventListener('ended', function () {
 			thisClass.nextSong();
 		});
@@ -127,12 +127,18 @@ export class NowPlayingView {
 
 	dragProgress(mouse, progessBar) {
 		const percentage = (mouse.offsetX / $(progessBar).width()) * 100;
-		this._playbackBarProgress.css('width', `${percentage}%`);
+		console.log(percentage);
+		if (percentage >= 0 && percentage <= 100) {
+			this._playbackBarProgress.css('width', `${percentage}%`);
+		}
 	}
 
 	timeFromOffset(mouse, progressBar) {
 		const percentage = (mouse.offsetX / $(progressBar).width()) * 100;
 		const seconds = this._audioElement.getAudio().duration * (percentage / 100);
+		console.log(mouse.offsetX);
+		console.log($(progressBar).width());
+		console.log(percentage);
 		this._audioElement.setTime(seconds);
 	}
 
