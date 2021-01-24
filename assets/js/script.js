@@ -2,7 +2,15 @@ var controller;
 var userLoggedIn;
 var timer;
 
-function openPage(url) {
+window.addEventListener('popstate', function (event) {
+	const fullUrl = window.location.href;
+	const lastSlash = fullUrl.lastIndexOf('/') + 1;
+	const url = fullUrl.substr(lastSlash, fullUrl.length);
+
+	openPage(url, false);
+});
+
+function openPage(url, pushState = true) {
 	if (!timer != null) {
 		clearTimeout(timer);
 	}
@@ -14,7 +22,9 @@ function openPage(url) {
 	const encodedUrl = encodeURI(`${url}&userLoggedIn=${userLoggedIn}`);
 	$('#mainContent').load(encodedUrl);
 	$('body').scrollTop(0);
-	history.pushState(null, null, url);
+	if (pushState) {
+		history.pushState(null, null, url);
+	}
 
 	_highlightMenu(url);
 }
