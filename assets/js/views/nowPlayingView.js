@@ -7,7 +7,8 @@ export class NowPlayingView {
 	_audioElement;
 	_currentPlaylist = [];
 	_shufflePlaylist = [];
-	_mouseDown = false;
+	_progressMouseDown = false;
+	_volMouseDown = false;
 	_currentIndex = 0;
 	_repeat = false;
 	_shuffle = false;
@@ -32,21 +33,22 @@ export class NowPlayingView {
 		);
 
 		$('.playbackBar .progressBar').mousedown(function () {
-			thisClass._mouseDown = true;
+			thisClass._progressMouseDown = true;
 		});
 
 		$(document).mousemove(function (e) {
-			if (thisClass._mouseDown) {
+			if (thisClass._progressMouseDown) {
 				thisClass.dragProgress(e, $('.playbackBar .progressBar'));
+				//thisClass.dragProgress(e)
 			}
 		});
 
 		$(document).mouseup(function (e) {
-			if (thisClass._mouseDown) {
+			if (thisClass._progressMouseDown) {
 				thisClass.timeFromOffset(e, $('.playbackBar .progressBar'));
 			}
 
-			thisClass._mouseDown = false;
+			thisClass._progressMouseDown = false;
 		});
 
 		$('.volumeBar .progressBar').mousedown(function () {
@@ -126,8 +128,9 @@ export class NowPlayingView {
 	}
 
 	dragProgress(mouse, progessBar) {
-		const percentage = (mouse.offsetX / $(progessBar).width()) * 100;
-		console.log(percentage);
+		const offset = mouse.pageX - $(progessBar).offset().left;
+		const percentage = (offset / $(progessBar).width()) * 100;
+
 		if (percentage >= 0 && percentage <= 100) {
 			this._playbackBarProgress.css('width', `${percentage}%`);
 		}
@@ -136,9 +139,6 @@ export class NowPlayingView {
 	timeFromOffset(mouse, progressBar) {
 		const percentage = (mouse.offsetX / $(progressBar).width()) * 100;
 		const seconds = this._audioElement.getAudio().duration * (percentage / 100);
-		console.log(mouse.offsetX);
-		console.log($(progressBar).width());
-		console.log(percentage);
 		this._audioElement.setTime(seconds);
 	}
 
