@@ -7,7 +7,8 @@ export class NowPlayingView {
 	_audioElement;
 	_currentPlaylist = [];
 	_shufflePlaylist = [];
-	_mouseDown = false;
+	_progressMouseDown = false;
+	_volMouseDown = false;
 	_currentIndex = 0;
 	_repeat = false;
 	_shuffle = false;
@@ -32,39 +33,38 @@ export class NowPlayingView {
 		);
 
 		$('.playbackBar .progressBar').mousedown(function () {
-			thisClass._mouseDown = true;
-		});
-
-		$('.playbackBar .progressBar').mousemove(function (e) {
-			if (thisClass._mouseDown) {
-				thisClass.dragProgress(e, this);
-			}
-		});
-
-		$('.playbackBar .progressBar').mouseup(function (e) {
-			thisClass.timeFromOffset(e, this);
+			thisClass._progressMouseDown = true;
+			$('.playbackBar .progress').addClass('progress-active');
 		});
 
 		$('.volumeBar .progressBar').mousedown(function () {
-			thisClass._mouseDown = true;
+			thisClass._volMouseDown = true;
+			$('.volumeBar .progress').addClass('progress-active');
 		});
 
-		$('.volumeBar .progressBar').mousemove(function (e) {
-			if (thisClass._mouseDown) {
-				const percentage = e.offsetX / $(this).width();
+		$(document).mousemove(function (e) {
+			if (thisClass._progressMouseDown) {
+				thisClass.dragProgress(e, $('.playbackBar .progressBar'));
+			}
 
-				if (percentage >= 0 && percentage <= 1) {
-					thisClass._audioElement.getAudio().volume = percentage;
-				}
+			if (thisClass._volMouseDown) {
+				thisClass.dragVolume(e, $('.volumeBar .progressBar'));
 			}
 		});
 
-		$('.volumeBar .progressBar').mouseup(function (e) {
-			const percentage = e.offsetX / $(this).width();
-
-			if (percentage >= 0 && percentage <= 1) {
-				thisClass._audioElement.getAudio().volume = percentage;
+		$(document).mouseup(function (e) {
+			if (thisClass._progressMouseDown) {
+				thisClass.timeFromOffset(e, $('.playbackBar .progressBar'));
+				$('.playbackBar .progress').removeClass('progress-active');
 			}
+
+			if (thisClass._volMouseDown) {
+				thisClass.volumeFromOffset(e, $('.volumeBar .progressBar'));
+				$('.volumeBar .progress').removeClass('progress-active');
+			}
+
+			thisClass._progressMouseDown = false;
+			thisClass._volMouseDown = false;
 		});
 
 		$('.volumeBar .progressBar').bind('wheel', function (e) {
@@ -83,10 +83,6 @@ export class NowPlayingView {
 			if (volume >= 0 && volume <= 1) {
 				thisClass._audioElement.getAudio().volume = volume;
 			}
-		});
-
-		$(document).mouseup(function () {
-			thisClass._mouseDown = false;
 		});
 
 		this._audioElement.getAudio().addEventListener('ended', function () {
@@ -125,15 +121,38 @@ export class NowPlayingView {
 		this._volumeBarProgress.css('width', `${volume}%`);
 	}
 
-	dragProgress(mouse, progessBar) {
-		const percentage = (mouse.offsetX / $(progessBar).width()) * 100;
-		this._playbackBarProgress.css('width', `${percentage}%`);
+	dragProgress(mouse, progressBar) {
+		const offset = mouse.pageX - $(progressBar).offset().left;
+		const percentage = (offset / $(progressBar).width()) * 100;
+
+		if (percentage >= 0 && percentage <= 100) {
+			this._playbackBarProgress.css('width', `${percentage}%`);
+		}
+	}
+
+	dragVolume(mouse, volumeBar) {
+		const offset = mouse.pageX - $(volumeBar).offset().left;
+		const percentage = offset / $(volumeBar).width();
+
+		if (percentage >= 0 && percentage <= 1) {
+			this._audioElement.getAudio().volume = percentage;
+		}
 	}
 
 	timeFromOffset(mouse, progressBar) {
-		const percentage = (mouse.offsetX / $(progressBar).width()) * 100;
+		const offset = mouse.pageX - $(progressBar).offset().left;
+		const percentage = (offset / $(progressBar).width()) * 100;
 		const seconds = this._audioElement.getAudio().duration * (percentage / 100);
 		this._audioElement.setTime(seconds);
+	}
+
+	volumeFromOffset(mouse, volumeBar) {
+		const offset = mouse.pageX - $(volumeBar).offset().left;
+		const percentage = offset / $(volumeBar).width();
+
+		if (percentage >= 0 && percentage <= 1) {
+			this._audioElement.getAudio().volume = percentage;
+		}
 	}
 
 	prevSong(callback) {
