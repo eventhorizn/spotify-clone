@@ -4,7 +4,14 @@ export class AlbumView {
 
 		const currentPlayRow = document.getElementById(`${Number(albumSongId)}`);
 
+		this._cleanSongRows();
+
 		if (currentPlayRow) {
+			currentPlayRow.classList.add('currentSongRow');
+			setTimeout(() => {
+				currentPlayRow.classList.add('removeSongRow');
+			}, 1500);
+
 			const allEls = currentPlayRow.getElementsByClassName('song-change');
 
 			for (let i = 0; i < allEls.length; i++) {
@@ -18,14 +25,18 @@ export class AlbumView {
 		}
 	}
 
+	_cleanSongRows() {}
+
 	_resetAllTracks() {
 		const allEls = document.getElementsByClassName('song-change');
+		const allPlays = document.getElementsByClassName('play-row');
+		const allPause = document.getElementsByClassName('pause-row');
+		const currentSongRows = document.getElementsByClassName('currentSongRow');
+		const removeSongRows = document.getElementsByClassName('removeSongRow');
+
 		for (let i = 0; i < allEls.length; i++) {
 			allEls[i].classList.remove('currentSong');
 		}
-
-		const allPlays = document.getElementsByClassName('play-row');
-		const allPause = document.getElementsByClassName('pause-row');
 
 		for (let i = 0; i < allPlays.length; i++) {
 			allPlays[i].style.display = 'inline';
@@ -33,6 +44,14 @@ export class AlbumView {
 
 		for (let i = 0; i < allPause.length; i++) {
 			allPause[i].style.display = 'none';
+		}
+
+		for (let i = 0; i < currentSongRows.length; i++) {
+			currentSongRows[i].classList.remove('currentSongRow');
+		}
+
+		for (let i = 0; i < removeSongRows.length; i++) {
+			removeSongRows[i].classList.remove('removeSongRow');
 		}
 	}
 
