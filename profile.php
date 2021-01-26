@@ -1,10 +1,10 @@
-<?php
-    include("includes/includedFiles.php");
-?>
+<?php include("includes/includedFiles.php");?>
 
 <div class="nameContainer">
     <div class="centerSection">
-        <h1 class="pageHeadingBig disable-select "><?=$userLoggedIn->getFirstLastName()?></h1>
+        <h1 class="pageHeadingBig disable-select ">
+            <?=$userLoggedIn->getFirstLastName()?>
+        </h1>
     </div>
 
     <div class="buttonItems">

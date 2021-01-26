@@ -16,23 +16,23 @@
 
 <div class="entityInfo">
     <div class="leftSection disable-select">
-        <img src="<?php echo $album->getArtworkPath(); ?>">
+        <img src="<?= $album->getArtworkPath(); ?>">
     </div>
 
     <div class="rightSection">
         <p class="white-lbl disable-select">ALBUM</p>
-        <h2 class="disable-select"><?php echo $album->getTitle(); ?></h2>
+        <h2 class="disable-select"><?= $album->getTitle(); ?></h2>
         <p class="white-lbl disable-select">
             <span>By</span>
-            <span onclick="openPage('artist.php?id=<?php echo $artist->getId();?>')"
-                class="artist-link"><?php echo $artist->getName(); ?>
+            <span onclick="openPage('artist.php?id=<?= $artist->getId();?>')"
+                class="artist-link"><?= $artist->getName(); ?>
             </span>
         </p>
-        <p class="disable-select"><?php echo $album->getNumberOfSongs(); ?> Songs</p>
+        <p class="disable-select"><?= $album->getNumberOfSongs(); ?> Songs</p>
         <div class="headerButtons">
             <button class="button green playButton"
-                    onclick="controller.playArtistAlbum(playlist[0], playlist, <?=$album->getId()?>)"
-                    id="play-btn-<?=$album->getId()?>">
+                    onclick="controller.playArtistAlbum(playlist[0], playlist, <?= $album->getId() ?>)"
+                    id="play-btn-<?= $album->getId() ?>">
                 PLAY
             </button>
             <button class="button green pauseButton" style="display: none"
@@ -64,7 +64,7 @@
     var songIds = '<?php echo json_encode($songIdArray);?>'
     playlist = JSON.parse(songIds);
     if (controller) {
-        controller.setCurrentPlayingArtist('<?php echo $album->getId() ?>');
+        controller.setCurrentPlayingArtist('<?= $album->getId() ?>');
         controller.setCurrentAlbumPlaying();
     }
 </script>

@@ -1,11 +1,11 @@
 <?php 
-include("includes/includedFiles.php");
+    include("includes/includedFiles.php");
+    $albums = Albums::getTopTenAlbums($con);
 ?>
 
 <h1 class="pageHeadingBig disable-select ">You Might Also Like</h1>
 
 <div class="gridViewContainer">
-    <?php $albums = Albums::getTopTenAlbums($con); ?>
     <?php include("shared/albumsListing.php")?>
 </div>
 

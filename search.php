@@ -10,7 +10,10 @@
 
 <div class="searchContainer">
     <h4 class="disable-select">Search for an Artist, Album, or Song</h4>
-    <input type="text" class="searchInput" value="<?php echo $term; ?>" placeholder="Start typing...">
+    <input 
+        type="text" class="searchInput" 
+        value="<?php echo $term; ?>" 
+        placeholder="Start typing...">
 </div>
 
 <script>
