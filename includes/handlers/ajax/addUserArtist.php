@@ -1,5 +1,5 @@
 <?php
-    include("../../config.php");
+    include("../../../Config/config.php");
 
     if (isset($_POST['artistId']) && isset($_POST['username'])) {
         $artistId = $_POST['artistId'];

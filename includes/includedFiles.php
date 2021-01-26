@@ -1,17 +1,17 @@
 <?php
     // served w/ ajax?
     if (isset($_SERVER['HTTP_X_REQUESTED_WITH'])) {
-        include("includes/config.php");
-        include("includes/classes/User.php");
-        include("includes/classes/Artist.php");
-        include("includes/classes/Album.php");
-        include("includes/classes/Song.php");
-        include("includes/classes/Playlist.php");
-        include("includes/classes/Artists.php");
-        include("includes/classes/Albums.php");
-        include("includes/classes/Playlists.php");
-        include("includes/classes/Songs.php");
-        include("includes/classes/UserMusic.php");
+        include("Config/config.php");
+        include("Models/User.php");
+        include("Models/Artist.php");
+        include("Models/Album.php");
+        include("Models/Song.php");
+        include("Models/Playlist.php");
+        include("Models/Artists.php");
+        include("Models/Albums.php");
+        include("Models/Playlists.php");
+        include("Models/Songs.php");
+        include("Models/UserMusic.php");
 
         if (isset($_GET['userLoggedIn'])) {
             $userLoggedIn = new User($con, $_GET['userLoggedIn']);

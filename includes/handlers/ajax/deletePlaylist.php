@@ -1,5 +1,5 @@
 <?php
-include("../../config.php");
+include("../../../Config/config.php");
 
 if(isset($_POST['playlistId'])) {
     $playlistId = $_POST['playlistId'];

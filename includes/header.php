@@ -1,11 +1,11 @@
 <?php
-include("includes/config.php");
-include("includes/classes/User.php");
-include("includes/classes/Artist.php");
-include("includes/classes/Album.php");
-include("includes/classes/Song.php");
-include("includes/classes/Playlist.php");
-include("includes/classes/Songs.php");
+include("Config/config.php");
+include("Models/User.php");
+include("Models/Artist.php");
+include("Models/Album.php");
+include("Models/Song.php");
+include("Models/Playlist.php");
+include("Models/Songs.php");
 
 if (isset($_SESSION['userLoggedIn'])) {
     $userLoggedIn = new User($con, $_SESSION['userLoggedIn']);

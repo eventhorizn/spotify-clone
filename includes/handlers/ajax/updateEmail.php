@@ -1,5 +1,5 @@
 <?php
-include("../../config.php");
+include("../../../Config/config.php");
 
 if (!isset($_POST['username'])) {
     echo "ERROR: Could not set username";
