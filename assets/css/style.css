@@ -306,7 +306,7 @@ table tr:hover td img {
 
 .removeSongRow {
 	background-color: #181818;
-	transition: 2s;
+	transition: 1.5s;
 }
 
 .currentMenu {

@@ -4,13 +4,19 @@ export class AlbumView {
 
 		const currentPlayRow = document.getElementById(`${Number(albumSongId)}`);
 
-		this._cleanSongRows();
-
 		if (currentPlayRow) {
 			currentPlayRow.classList.add('currentSongRow');
-			setTimeout(() => {
-				currentPlayRow.classList.add('removeSongRow');
-			}, 1500);
+
+			this._wait(2)
+				.then(() => {
+					currentPlayRow.classList.add('removeSongRow');
+
+					return this._wait(1.5);
+				})
+				.then(() => {
+					currentPlayRow.classList.remove('currentSongRow');
+					currentPlayRow.classList.remove('removeSongRow');
+				});
 
 			const allEls = currentPlayRow.getElementsByClassName('song-change');
 
@@ -25,7 +31,11 @@ export class AlbumView {
 		}
 	}
 
-	_cleanSongRows() {}
+	_wait = function (seconds) {
+		return new Promise(function (resolve) {
+			setTimeout(resolve, seconds * 1000);
+		});
+	};
 
 	_resetAllTracks() {
 		const allEls = document.getElementsByClassName('song-change');
