@@ -1,15 +1,3 @@
-<?php include("includes/classes/Songs.php");?>
-
-<script type="module">
-    import { Controller } from './assets/js/controller.js'
-
-    $(document).ready(function() {
-        let playlist = <?php echo Songs::getRandomSongIds($con) ?>;
-        const json_text = JSON.stringify(playlist);
-        controller = new Controller(playlist);
-    });
-</script>
-
 <div id="nowPlayingBarContainer">
     <div id="nowPlayingBar">
         <div id="nowPlayingLeft">

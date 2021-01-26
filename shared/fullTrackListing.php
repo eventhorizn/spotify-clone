@@ -14,8 +14,14 @@
 
         <tr id="<?=$song->getId()?>" class="hoverRow">
             <td class="disable-select">
-                <i class="icofont-play-alt-2 play-row" onclick="controller.setTrack(<?=$song->getId()?>, playlist, true)"></i>
-                <i class="icofont-pause pause-row" onclick="controller.pauseSong()" style="display: none"></i>
+                <i 
+                    class="icofont-play-alt-2 play-row" 
+                    onclick="controller.setTrack(<?=$song->getId()?>, playlist, true)">
+                </i>
+                <i 
+                    class="icofont-pause pause-row" 
+                    onclick="controller.pauseSong()" style="display: none">
+                </i>
                 <span class="song-change"><?=$i?></span>
             </td>
             <td class="disable-select song-change">
@@ -28,7 +34,9 @@
                  </label>
             </td>
             <td class="disable-select">
-                <label class="rowLink song-change" onclick="openPage('album.php?id=<?=$song->getAlbum()->getId()?>')"> 
+                <label 
+                    class="rowLink song-change" 
+                    onclick="openPage('album.php?id=<?=$song->getAlbum()->getId()?>')"> 
                     <?=$song->getAlbum()->getTitle()?>
                 </label>
             </td>

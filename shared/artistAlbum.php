@@ -5,7 +5,7 @@
 
 <div class="entityInfo">
     <div class="leftSection disable-select">
-        <img src="<?php echo $album->getArtworkPath(); ?>"
+        <img src="<?= $album->getArtworkPath(); ?>"
             onclick="openPage('album.php?id=<?=$album->getId()?>')"
             class="artist-album-image">
     </div>
@@ -14,20 +14,22 @@
         <h2 
             class="disable-select artist-album-title"
             onclick="openPage('album.php?id=<?=$album->getId()?>')">
-            <?php echo $album->getTitle(); ?>
+            <?= $album->getTitle(); ?>
         </h2>
         <p class="disable-select">
-            <?php echo $album->getNumberOfSongs(); ?> Songs
+            <?= $album->getNumberOfSongs(); ?> Songs
         </p>
         <div class="headerButtons">
             <button class="button green playButton"
                     onclick="controller.playArtistAlbum(playlist[<?=$album->getId()?>][0], playlist[<?=$album->getId()?>], <?=$album->getId()?>)"
-                    id="play-btn-<?=$album->getId()?>">PLAY
+                    id="play-btn-<?=$album->getId()?>">
+                    PLAY
             </button>
             <button class="button green pauseButton" 
                     style="display: none"
                     onclick="controller.pauseAlbumSong(<?=$album->getId()?>)"
-                    id="pause-btn-<?=$album->getId()?>">PAUSE
+                    id="pause-btn-<?=$album->getId()?>">
+                    PAUSE
             </button>
             <button 
                 id="addUserAlbumBtn" 
@@ -45,14 +47,14 @@
     </div>
 </div>
 
-<?php include("shared/artistAlbumTrackListing.php"); ?>
+<?php include("shared/albumTrackListing.php"); ?>
 <?php include("shared/optionsMenu.php")?>
 
 <script>
     var songIds = '<?php echo json_encode($songIdArray);?>'
     playlist = JSON.parse(songIds);
     if (controller) {
-        controller.setCurrentPlayingArtist('<?php echo $album->getId() ?>');
+        controller.setCurrentPlayingArtist('<?= $album->getId() ?>');
         controller.setCurrentAlbumPlaying();
     }
 </script>

@@ -5,6 +5,7 @@ include("includes/classes/Artist.php");
 include("includes/classes/Album.php");
 include("includes/classes/Song.php");
 include("includes/classes/Playlist.php");
+include("includes/classes/Songs.php");
 
 if (isset($_SESSION['userLoggedIn'])) {
     $userLoggedIn = new User($con, $_SESSION['userLoggedIn']);
@@ -34,6 +35,16 @@ if (isset($_SESSION['userLoggedIn'])) {
     <script src="assets/js/script.js"></script>
     <script src="assets/js/controller.js" type="module"></script>
 </head>
+
+<script type="module">
+    import { Controller } from './assets/js/controller.js'
+
+    $(document).ready(function() {
+        let playlist = <?php echo Songs::getRandomSongIds($con) ?>;
+        const json_text = JSON.stringify(playlist);
+        controller = new Controller(playlist);
+    });
+</script>
 
 <body>
     <div id="mainContainer">

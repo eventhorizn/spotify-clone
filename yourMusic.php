@@ -22,7 +22,9 @@
         <?php endif ?>
 
         <?php foreach($playlists as $playlist): ?>
-            <div class="gridViewItem playlistItem" onclick="openPage('playlist.php?id=<?=$playlist->getId()?>')">
+            <div 
+                class="gridViewItem playlistItem" 
+                onclick="openPage('playlist.php?id=<?=$playlist->getId()?>')">
                 <div>
                     <img src="<?= $playlist->getArtworkPath() ?>">
                 </div>

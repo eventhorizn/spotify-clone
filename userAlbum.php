@@ -5,7 +5,9 @@
 <h1 class="pageHeadingBig disable-select ">Albums</h1>
 
 <div class="gridViewContainer">
-    <?php $albums = UserMusic::getUserAlbums($con, $userLoggedIn->getUserName()); ?>
+    <?php 
+        $albums = UserMusic::getUserAlbums($con, $userLoggedIn->getUserName()); 
+    ?>
     <?php include("shared/albumsListing.php")?>
 </div>
 
