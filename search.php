@@ -20,7 +20,7 @@
 <?php if($term == "") exit(); ?>
 
 <div class="borderBottom disable-select">
-    <h2 class="centerHeader">SONGS</h2>
+    <h2 class="leftHeader">SONGS</h2>
     <?php $songIds = Songs::getSongIdsByTerm($con, $term); ?>
 
     <?php if (count($songIds) == 0):?>
@@ -33,7 +33,7 @@
 </div>
 
 <div class="artistsContainer borderBottom disable-select">
-    <h2 class="centerHeader">ARTISTS</h2>
+    <h2 class="leftHeader">ARTISTS</h2>
 
     <?php $artists = Artists::getArtistsByTerm($con, $term); ?>
 
@@ -43,13 +43,11 @@
         </span>
     <?php endif ?>
     
-    <?php foreach($artists as $artistFound):?>
-        <?php include("shared/artistListing.php");?>
-    <?php endforeach?>
+    <?php include("shared/artistListing.php");?>
 </div>
 
 <div class="gridViewContainer disable-select">
-    <h2 class="centerHeader">ALBUMS</h2>
+    <h2 class="leftHeader">ALBUMS</h2>
     <?php $albums = Albums::getAlbumsByTerm($con, $term); ?>
 
         <?php if (count($albums) == 0): ?>
