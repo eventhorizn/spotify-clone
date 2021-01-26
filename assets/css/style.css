@@ -313,8 +313,8 @@ table tr:hover td img {
 	color: #07d159 !important;
 }
 
-.centerHeader {
-	text-align: center;
+.leftHeader {
+	text-align: left;
 }
 
 .centerSection .artistInfo .artistName {
