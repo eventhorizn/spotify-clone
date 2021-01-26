@@ -10,44 +10,57 @@
 
     $playlist = new Playlist();
     $playlist->loadFromDatabase($con, $playlistId);
-    $owner = new User($con, $playlist->getOwner());
+    $songIds = $playlist->getSongIds();
 ?>
 
 <div class="entityInfo">
     <div class="leftSection disable-select">
-        <div class="playlistImage">
-            <img src="assets/images/icons/playlist.png">
+        <div>
+            <img src="<?= $playlist->getArtworkPath() ?>">
         </div>
     </div>
 
     <div class="rightSection">
         <p class="white-lbl disable-select">PLAYLIST</p>
-        <h2 class="disable-select"><?php echo $playlist->getName(); ?></h2>
+        <h2 class="disable-select"><?= $playlist->getName(); ?></h2>
         <p class="white-lbl disable-select">
             <span>By</span>
-            <span class="playlistOwner"><?php echo $playlist->getOwner(); ?>
+            <span class="playlistOwner">
+                <?= $playlist->getOwner(); ?>
             </span>
         </p>
-        <p class="disable-select"><?php echo $playlist->getNumberOfSongs(); ?> Songs</p>
+        <p class="disable-select">
+            <?= $playlist->getNumberOfSongs(); ?> Songs
+        </p>
         <div class="headerButtons">
-            <button class="button green playButton"
-                onclick="controller.playFromArtistAlbum(playlist[0], playlist, true)">PLAY</button>
-            <button class="button green pauseButton" style="display: none"
-                onclick="controller.pauseSong()">PAUSE</button>
-            <button class="button deleteButton" onclick="controller.deletePlaylist('<?php echo $playlistId; ?>')">DELETE
-                PLAYLIST</button>
+            <button 
+                class="button green playButton"
+                onclick="controller.playFromArtistAlbum(playlist[0], playlist, true)">
+                PLAY
+            </button>
+            <button 
+                class="button green pauseButton" 
+                style="display: none"
+                onclick="controller.pauseSong()">
+                PAUSE
+            </button>
+            <button 
+                class="button deleteButton" 
+                onclick="controller.deletePlaylist('<?= $playlistId; ?>')">
+                DELETE PLAYLIST
+            </button>
         </div>
     </div>
 </div>
 
-<?php
-    $songIds = $playlist->getSongIds();
-?>
 <?php include("shared/fullTrackListing.php")?>
 
 <nav class="optionsMenu">
     <input type="hidden" class="songId">
     <?php echo Playlist::getPlaylistsDropdown($con, $userLoggedIn->getUsername()); ?>
-    <div class="item" onclick="controller.removeFromPlaylist(this, '<?php echo $playlistId ?>')">Remove from Playlist
+    <div 
+        class="item" 
+        onclick="controller.removeFromPlaylist(this, '<?= $playlistId ?>')">
+        Remove from Playlist
     </div>
 </nav>
