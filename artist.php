@@ -16,10 +16,12 @@
     $firstAlbum = $albums[0];
 ?>
 
-<div class="entityInfo entityInfoArtist borderBottom imageContainer" style="--i: url('../../<?=$artist->getHeaderPath()?>')">
+<div 
+    class="entityInfo entityInfoArtist borderBottom imageContainer" 
+    style="--i: url('../../<?=$artist->getHeaderPath()?>')">
     <div class="centerSection">
         <div class="artistInfo">
-            <h1 class="artistName"><?php echo $artist->getName();?></h1>
+            <h1 class="artistName"><?=$artist->getName();?></h1>
 
             <div class="headerButtons">
                 <button class="button green playButton"
