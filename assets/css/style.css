@@ -328,11 +328,6 @@ table tr:hover td img {
 	display: block;
 }
 
-.playlistImage {
-	border: 3px solid #282828;
-	padding: 10px;
-}
-
 .optionsMenu {
 	position: fixed;
 	background-color: #282828;

@@ -61,6 +61,12 @@
             return $this->songIds;
         }
 
+        public function getArtworkPath() {
+            $firstSong = new Song($this->con, $this->songIds[0]);
+            $album = $firstSong->getAlbum();
+            return $album->getArtworkPath();
+        }
+
         public static function getPlaylistsDropdown($con, $username) {
             $dropdown = '
             <select class="item playlist">

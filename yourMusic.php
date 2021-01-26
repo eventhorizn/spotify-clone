@@ -1,5 +1,8 @@
 <?php
     include("includes/includedFiles.php");
+
+    $username = $userLoggedIn->getUsername();
+    $playlists = Playlists::getMyPlaylists($con, $username);
 ?>
 
 <div class="playlistContainer disable-select">
@@ -12,12 +15,6 @@
             </button>
         </div>
 
-        <?php 
-            $username = $userLoggedIn->getUsername();
-
-            $playlists = Playlists::getMyPlaylists($con, $username);
-        ?>
-
         <?php if (count($playlists) == 0): ?>
             <span class="noResults">
                 You don't have any playlists yet
@@ -26,8 +23,8 @@
 
         <?php foreach($playlists as $playlist): ?>
             <div class="gridViewItem playlistItem" onclick="openPage('playlist.php?id=<?=$playlist->getId()?>')">
-                <div class="playlistImage">
-                    <img src="assets/images/icons/playlist.png">
+                <div>
+                    <img src="<?= $playlist->getArtworkPath() ?>">
                 </div>
 
                 <div class="gridViewInfo">
