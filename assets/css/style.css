@@ -244,6 +244,10 @@ table .hoverRow:hover {
 	background-color: #282828;
 }
 
+table .selectRow {
+	background-color: #282828;
+}
+
 table tr td .play-row,
 table tr td .pause-row {
 	width: 20px;
@@ -294,6 +298,15 @@ table tr:hover td img {
 .currentSong,
 .currentAlbum {
 	color: #07d159;
+}
+
+.currentSongRow {
+	background-color: #282828;
+}
+
+.removeSongRow {
+	background-color: #181818;
+	transition: 1.5s;
 }
 
 .currentMenu {
