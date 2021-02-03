@@ -19,7 +19,13 @@
 
         public static function getUserAlbums($con, $username) {
             $query = mysqli_query($con, "SELECT albumId FROM useralbums WHERE owner='$username'");
+
+            if (mysqli_num_rows($query) == 0) {
+                return [];
+            }
+
             $albumIds = array();
+
             while($row = mysqli_fetch_array($query)) {
                 array_push($albumIds, $row['albumId']);
             }
@@ -45,6 +51,11 @@
 
         public static function getUserArtists($con, $username) {
             $query = mysqli_query($con, "SELECT artistId FROM userartists WHERE owner='$username'");
+
+            if (mysqli_num_rows($query) == 0) {
+                return [];
+            }
+
             $artistIds = array();
 
             while($row = mysqli_fetch_array($query)) {

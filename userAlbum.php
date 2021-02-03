@@ -8,7 +8,13 @@
     <?php 
         $albums = UserMusic::getUserAlbums($con, $userLoggedIn->getUserName()); 
     ?>
-    <?php include("shared/albumsListing.php")?>
+    <?php if (count($albums) == 0): ?>
+        <span class="noResults">
+            You don't have any albums yet
+        </span>
+    <?php else: ?>
+        <?php include("shared/albumsListing.php")?>
+    <?php endif ?>
 </div>
 
 <script>
