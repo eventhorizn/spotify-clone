@@ -5,11 +5,11 @@
         $playlistId = $_POST['playlistId'];
         $songId = $_POST['songId'];
 
-        $orderIdQuery = mysqli_query($con, "SELECT IFNULL(MAX(playlistOrder) + 1, 1) AS playlistOrder FROM playlistSongs WHERE playlistId='$playlistId'");
+        $orderIdQuery = mysqli_query($con, "SELECT IFNULL(MAX(playlistOrder) + 1, 1) AS playlistOrder FROM playlistsongs WHERE playlistId='$playlistId'");
         $row = mysqli_fetch_array($orderIdQuery);
         $order = $row['playlistOrder'];
 
-        if(!mysqli_query($con, "INSERT INTO playlistSongs VALUES(NULL, '$songId', '$playlistId', '$order')")) {
+        if(!mysqli_query($con, "INSERT INTO playlistsongs VALUES(NULL, '$songId', '$playlistId', '$order')")) {
             echo mysqli_error($con);
         };
     } else {

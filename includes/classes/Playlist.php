@@ -31,7 +31,7 @@
         }
 
         private function loadSongIds() {
-            $query = mysqli_query($this->con, "SELECT songId FROM playlistSongs WHERE playlistId='$this->id' ORDER BY playlistOrder ASC");
+            $query = mysqli_query($this->con, "SELECT songId FROM playlistsongs WHERE playlistId='$this->id' ORDER BY playlistOrder ASC");
             $array = array();
 
             while($row = mysqli_fetch_array($query)) {

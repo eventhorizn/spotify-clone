@@ -6,7 +6,7 @@ if(isset($_POST['playlistId'])) {
 
     $playlistQuery = mysqli_query($con, "DELETE FROM playlists WHERE id='$playlistId'");
 
-    $songsQuery = mysqli_query($con, "DELETE FROM playlistSongs WHERE playlistId='$playlistId'");
+    $songsQuery = mysqli_query($con, "DELETE FROM playlistsongs WHERE playlistId='$playlistId'");
 } else {
     echo "PlaylistId was not passed into deletePlaylist.php";
 }
