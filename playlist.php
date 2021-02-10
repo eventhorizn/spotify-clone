@@ -48,11 +48,6 @@
                 onclick="controller.pauseSong()">
                 PAUSE
             </button>
-            <!-- <button 
-                class="button deleteButton" 
-                onclick="controller.deletePlaylist('<?= $playlistId; ?>')">
-                DELETE PLAYLIST
-            </button> -->
 
             <button 
                 class="button deleteButton" 
@@ -83,13 +78,6 @@
       <div class="modal-header">
         <h4 class="modal-title center-header">Delete Playlist?</h5>
       </div>
-      <!-- <div class="modal-body center-container">
-        <div>
-          <label class="playlist-name-lbl">Name</label>
-          <br/>
-          <input id="playlist-name" class="playlist-name-input">
-        </div>
-      </div> -->
       <div class="modal-footer center-container">
         <button type="button" class="button red" 
                 onclick="controller.deletePlaylist('<?= $playlistId; ?>')">

@@ -135,10 +135,6 @@ export class Controller {
 		this._playlistView.removeFromPlaylist(button, playlistId);
 	}
 
-	// createPlaylist() {
-	// 	this._playlistView.createPlaylist();
-	// }
-
 	deletePlaylist(playlistId) {
 		this._playlistView.deletePlaylist(playlistId);
 	}
