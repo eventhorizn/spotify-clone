@@ -30,7 +30,7 @@ export class PlaylistView {
 			});
 		});
 
-		thisClass._createPlaylistHandler();
+		//thisClass._createPlaylistHandler();
 	}
 
 	_hideOptionsMenu() {
@@ -38,26 +38,6 @@ export class PlaylistView {
 		if (menu.css('display') != 'none') {
 			menu.css('display', 'none');
 		}
-	}
-
-	_createPlaylistHandler() {
-		$('#newPlaylistModal').on('hidden.bs.modal', function (e) {
-			const value = $('#playlist-name').val();
-
-			if (value != null && value != '') {
-				$.post('includes/handlers/ajax/createPlaylist.php', {
-					name: value,
-					username: userLoggedIn,
-				}).done(function (error) {
-					if (error != '') {
-						alert(error);
-						return;
-					}
-
-					openPage('yourMusic.php');
-				});
-			}
-		});
 	}
 
 	showOptionsMenu(button) {
@@ -96,19 +76,42 @@ export class PlaylistView {
 		});
 	}
 
-	deletePlaylist(playlistId) {
-		$('#deletePlaylistModal').modal('hide');
-		$('.modal-backdrop').remove();
+	createPlaylist() {
+		$('#newPlaylistModal').modal('hide');
 
-		$.post('includes/handlers/ajax/deletePlaylist.php', {
-			playlistId: playlistId,
-		}).done(function (error) {
-			if (error != '') {
-				alert(error);
-				return;
+		$('#newPlaylistModal').on('hidden.bs.modal', function (e) {
+			const value = $('#playlist-name').val();
+
+			if (value != null && value != '') {
+				$.post('includes/handlers/ajax/createPlaylist.php', {
+					name: value,
+					username: userLoggedIn,
+				}).done(function (error) {
+					if (error != '') {
+						alert(error);
+						return;
+					}
+
+					openPage('yourMusic.php');
+				});
 			}
+		});
+	}
 
-			openPage('yourMusic.php');
+	deletePlaylist(playlistId) {
+		// this is async
+		$('#deletePlaylistModal').modal('hide');
+
+		$('#deletePlaylistModal').on('hidden.bs.modal', function (e) {
+			$.post('includes/handlers/ajax/deletePlaylist.php', {
+				playlistId: playlistId,
+			}).done(function (error) {
+				if (error != '') {
+					alert(error);
+					return;
+				}
+				openPage('yourMusic.php');
+			});
 		});
 	}
 }

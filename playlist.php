@@ -84,7 +84,7 @@
             Delete
         </button>
         <button type="button" class="button" 
-                data-dismiss="modal">
+                data-dismiss="modal" id="cancel-btn">
             Cancel
         </button>
       </div>

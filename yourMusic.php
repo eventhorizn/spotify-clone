@@ -58,7 +58,7 @@
       </div>
       <div class="modal-footer center-container">
         <button type="button" class="button green" 
-                data-dismiss="modal">
+                onclick="controller.createPlaylist()">
           Create
       </button>
       </div>
