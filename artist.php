@@ -51,7 +51,7 @@
 </div>
 
 <div class="gridViewContainer">
-    <div class="border-bottom">
+    <div>
         <h2 class="album-header">ALBUMS</h2>
     </div>
     

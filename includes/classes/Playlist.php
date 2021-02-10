@@ -62,6 +62,10 @@
         }
 
         public function getArtworkPath() {
+            if (!count($this->songIds) > 0) {
+                return 'assets/images/playlist.png';
+            }
+
             $firstSong = new Song($this->con, $this->songIds[0]);
             $album = $firstSong->getAlbum();
             return $album->getArtworkPath();
