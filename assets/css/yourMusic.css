@@ -17,3 +17,52 @@
 	display: inline-block;
 	width: 100%;
 }
+
+.add-playlist-btn {
+	margin-top: 0px !important;
+}
+
+.modal-background {
+	background-color: #282828;
+}
+
+.modal-header {
+	border-bottom: 0 none;
+}
+
+.modal-footer {
+	border-top: 0 none;
+}
+
+.center-header {
+	margin: 0 auto;
+}
+
+.center-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.left-content {
+	text-align: left;
+}
+
+.close-button {
+	position: absolute;
+	right: 1rem;
+}
+
+.close-button:focus {
+	outline: none;
+	border: none !important;
+}
+
+.playlist-name-lbl {
+	color: #939393;
+	font-weight: bold;
+}
+
+.playlist-name-input {
+	color: black;
+}

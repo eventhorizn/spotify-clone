@@ -180,6 +180,17 @@ body {
 	color: #fff;
 }
 
+.button.red {
+	background-color: #f70e0e;
+	border-color: #f70e0e;
+}
+
+.button.red:hover {
+	background-color: #f03838;
+	border-color: #f03838;
+	color: #fff;
+}
+
 table {
 	width: 100%;
 	table-layout: fixed;

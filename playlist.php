@@ -33,20 +33,25 @@
             <?= $playlist->getNumberOfSongs(); ?> Songs
         </p>
         <div class="headerButtons">
-            <button 
-                class="button green playButton"
-                onclick="controller.playFromArtistAlbum(playlist[0], playlist, true)">
-                PLAY
-            </button>
+            
+            <?php if (count($songIds) > 0): ?>
+                <button 
+                    class="button green playButton"
+                    onclick="controller.playFromArtistAlbum(playlist[0], playlist, true)">
+                    PLAY
+                </button>
+            <?php endif ?>
+
             <button 
                 class="button green pauseButton" 
                 style="display: none"
                 onclick="controller.pauseSong()">
                 PAUSE
             </button>
+
             <button 
                 class="button deleteButton" 
-                onclick="controller.deletePlaylist('<?= $playlistId; ?>')">
+                data-toggle="modal" data-target="#deletePlaylistModal">
                 DELETE PLAYLIST
             </button>
         </div>
@@ -64,3 +69,25 @@
         Remove from Playlist
     </div>
 </nav>
+
+<!-- Modal -->
+<div class="modal fade" id="deletePlaylistModal" tabindex="-1" role="dialog" 
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content modal-background">
+      <div class="modal-header">
+        <h4 class="modal-title center-header">Delete Playlist?</h5>
+      </div>
+      <div class="modal-footer center-container">
+        <button type="button" class="button red" 
+                onclick="controller.deletePlaylist('<?= $playlistId; ?>')">
+            Delete
+        </button>
+        <button type="button" class="button" 
+                data-dismiss="modal" id="cancel-btn">
+            Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

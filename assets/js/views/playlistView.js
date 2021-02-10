@@ -29,6 +29,8 @@ export class PlaylistView {
 				select.val('');
 			});
 		});
+
+		//thisClass._createPlaylistHandler();
 	}
 
 	_hideOptionsMenu() {
@@ -75,27 +77,32 @@ export class PlaylistView {
 	}
 
 	createPlaylist() {
-		const popup = prompt('Please enter the name of your playlist');
+		$('#newPlaylistModal').modal('hide');
 
-		if (popup != null) {
-			$.post('includes/handlers/ajax/createPlaylist.php', {
-				name: popup,
-				username: userLoggedIn,
-			}).done(function (error) {
-				if (error != '') {
-					alert(error);
-					return;
-				}
+		$('#newPlaylistModal').on('hidden.bs.modal', function (e) {
+			const value = $('#playlist-name').val();
 
-				openPage('yourMusic.php');
-			});
-		}
+			if (value != null && value != '') {
+				$.post('includes/handlers/ajax/createPlaylist.php', {
+					name: value,
+					username: userLoggedIn,
+				}).done(function (error) {
+					if (error != '') {
+						alert(error);
+						return;
+					}
+
+					openPage('yourMusic.php');
+				});
+			}
+		});
 	}
 
 	deletePlaylist(playlistId) {
-		const prompt = confirm('Are you sure you want to delete this playlist?');
+		// this is async
+		$('#deletePlaylistModal').modal('hide');
 
-		if (prompt) {
+		$('#deletePlaylistModal').on('hidden.bs.modal', function (e) {
 			$.post('includes/handlers/ajax/deletePlaylist.php', {
 				playlistId: playlistId,
 			}).done(function (error) {
@@ -103,9 +110,8 @@ export class PlaylistView {
 					alert(error);
 					return;
 				}
-
 				openPage('yourMusic.php');
 			});
-		}
+		});
 	}
 }
