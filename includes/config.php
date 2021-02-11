@@ -4,7 +4,7 @@
 
     $timezone = date_default_timezone_set("America/New_York");
     // $con = mysqli_connect("localhost", "root", "", "slotify");
-    $con = mysqli_connect("localhost", "root", "Fer13bax#", "slotify", 3307);
+    $con = mysqli_connect("localhost", "root", "", "slotify", 3307);
 
     if (mysqli_connect_errno()) {
         echo "Failed to connect: " . mysqli_connect_errno();
